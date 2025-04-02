@@ -11,6 +11,27 @@ BLUE='\033[0;34m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
+check_dependencies() {
+    local missing_deps=()
+    command -v sops >/dev/null 2>&1 || missing_deps+=("sops")
+    command -v age >/dev/null 2>&1 || missing_deps+=("age")
+
+    if [ ${#missing_deps[@]} -ne 0 ]; then
+        echo -e "${RED}Error: Missing required dependencies: ${missing_deps[*]}${NC}"
+        exit 1
+    fi
+}
+
+check_age_keys() {
+    local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+    local keys_path="$config_dir/sops/age/keys.txt"
+
+    if [ ! -f "$keys_path" ]; then
+        echo -e "${RED}Error: Age keys file not found at: $keys_path${NC}"
+        exit 1
+    fi
+}
+
 usage() {
     cat <<EOF
 ${BLUE}🔐 SOPS Encryption/Decryption Helper${NC}
@@ -32,6 +53,9 @@ if [ $# -ne 1 ] || [[ ! "$1" =~ ^(encrypt|decrypt)$ ]]; then
 fi
 
 MODE="$1"
+
+check_dependencies
+check_age_keys
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
