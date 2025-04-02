@@ -1,0 +1,35 @@
+version: 3
+
+vars:
+    CLUSTER_NAME: "axis"
+    CLUSTER_VIP: "10.0.10.10"
+    TALOS_VERSION: "v1.9"
+
+tasks:
+    encrypt:
+        desc: Encrypt all secret files with SOPS
+        cmds:
+            - ./scripts/sops.sh encrypt
+
+    decrypt:
+        desc: Decrypt all secret files with SOPS
+        cmds:
+            - ./scripts/sops.sh decrypt
+
+    generate:
+        desc: Generate Talos config
+        dir: talos
+        vars:
+            PATCHES:
+                sh: "ls patches/*.yaml 2>/dev/null | sed 's/.*/--config-patch @&/g' | tr '\n' ' '"
+        cmds:
+            - task: decrypt
+            - cmd: mkdir -p rendered/
+              silent: true
+            - >
+                talosctl gen config {{.CLUSTER_NAME}} https://{{.CLUSTER_VIP}}:6443 
+                --talos-version {{.TALOS_VERSION}}
+                --with-secrets talos.secret.yaml
+                --output rendered/
+                --force
+                {{.PATCHES}}
