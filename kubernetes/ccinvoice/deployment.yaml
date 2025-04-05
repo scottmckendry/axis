@@ -1,0 +1,40 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/deployment.json
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ccinvoice
+  namespace: ccinvoice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ccinvoice
+  template:
+    metadata:
+      labels:
+        app: ccinvoice
+    spec:
+      containers:
+        - name: ccinvoice
+          image: ghcr.io/scottmckendry/ccinvoice:v2.2.1
+          securityContext:
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: ccinvoice-db
+              mountPath: /app/data
+          envFrom:
+            - secretRef:
+                name: ccinvoice-secrets
+      volumes:
+        - name: ccinvoice-db
+          persistentVolumeClaim:
+            claimName: ccinvoice-db-pvc
