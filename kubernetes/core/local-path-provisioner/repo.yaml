@@ -1,0 +1,17 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/gitrepository_v1beta2.json
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  namespace: core
+  name: local-path-provisioner
+spec:
+  interval: 24h
+  url: https://github.com/rancher/local-path-provisioner
+  ref:
+    tag: v0.0.31
+  ignore: |
+    # exclude all
+    /*
+    # include charts directory
+    !/deploy/chart/local-path-provisioner/
