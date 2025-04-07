@@ -1,0 +1,11 @@
+---
+# removes the following from node labels
+# node.kubernetes.io/exclude-from-external-load-balancers: ""
+
+# TODO: **Work out why I can't target the propety directly**
+# Targeting the property directly does not work when gerenating the configuration from
+# this patch.
+
+machine:
+  nodeLabels:
+    $patch: delete
