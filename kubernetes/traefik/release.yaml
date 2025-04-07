@@ -14,6 +14,7 @@ spec:
         kind: HelmRepository
         name: traefik
   interval: 1h
+  timeout: 10m
   values:
     additionalArguments:
       - --serversTransport.insecureskipverify=true
@@ -32,5 +33,4 @@ spec:
     service:
       enabled: true
       type: LoadBalancer
-      externalIPs:
-        - 10.0.10.10
+      LoadBalancerIP: 10.0.10.1
