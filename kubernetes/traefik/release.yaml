@@ -20,7 +20,7 @@ spec:
 
     deployment:
       enabled: true
-      replicas: 2
+      replicas: 3
 
     ports:
       web:
@@ -28,3 +28,9 @@ spec:
           entrypoint:
             to: websecure
             priority: 10
+
+    service:
+      enabled: true
+      type: LoadBalancer
+      externalIPs:
+        - 10.0.10.10
