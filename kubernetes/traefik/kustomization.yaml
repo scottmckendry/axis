@@ -6,3 +6,5 @@ resources:
   - ns.yaml
   - release.yaml
   - repo.yaml
+  - dashboard-ingress.yaml
+  - ipallowlist-middleware.yaml
