@@ -34,3 +34,4 @@ spec:
       enabled: true
       type: LoadBalancer
       LoadBalancerIP: 10.0.10.1
+      externalTrafficPolicy: Local

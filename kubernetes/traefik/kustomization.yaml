@@ -8,3 +8,5 @@ resources:
   - repo.yaml
   - dashboard-ingress.yaml
   - ipallowlist-middleware.yaml
+  - whoami-ingress.yaml
+  - whoami-deployment.yaml
