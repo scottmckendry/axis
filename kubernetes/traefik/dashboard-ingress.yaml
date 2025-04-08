@@ -6,8 +6,6 @@ metadata:
   name: traefik-dashboard
   namespace: traefik
 spec:
-  entryPoints:
-    - websecure
   routes:
     - match: Host(`traefik.axis.scottmckendry.tech`)
       kind: Rule
@@ -18,4 +16,4 @@ spec:
         - name: api@internal
           kind: TraefikService
   tls:
-    secretName: axis-staging-tls
+    secretName: axis-tls

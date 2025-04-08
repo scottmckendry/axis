@@ -3,12 +3,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: axis-staging
+  name: axis
   namespace: traefik # needs to be in the same namespace as the ingressroutes & middlewares
 spec:
-  secretName: axis-staging-tls
+  secretName: axis-tls
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-production
     kind: ClusterIssuer
   commonName: "*.axis.scottmckendry.tech"
   dnsNames:

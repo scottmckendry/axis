@@ -7,6 +7,4 @@ resources:
   - release.yaml
   - repo.yaml
   - dashboard-ingress.yaml
-  - ipallowlist-middleware.yaml
-  - whoami-ingress.yaml
-  - whoami-deployment.yaml
+  - middlewares.yaml

@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - cloudflare-issuer.secret.sops.yaml
   - letsencrypt-staging.yaml
+  - letsencrypt-production.yaml
