@@ -6,10 +6,9 @@ metadata:
   name: ccinvoice
   namespace: ccinvoice
 spec:
-  selector:
-    app: invoices
   ports:
     - port: 3000
       targetPort: 3000
       protocol: TCP
-  type: ClusterIP
+  selector:
+    app: ccinvoice

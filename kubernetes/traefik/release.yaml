@@ -35,3 +35,7 @@ spec:
       type: LoadBalancer
       LoadBalancerIP: 10.0.10.1
       externalTrafficPolicy: Local
+
+    providers:
+      kubernetesCRD:
+        allowCrossNamespace: true

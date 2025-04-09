@@ -1,0 +1,20 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ccinvoice
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`invoices.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+      services:
+        - name: ccinvoice
+          namespace: ccinvoice
+          port: 3000
+  tls:
+    secretName: axis-tls
