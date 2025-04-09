@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/volsync.backube/replicationsource_v1alpha1.json
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: ccinvoice-backup
+  namespace: ccinvoice
+spec:
+  sourcePVC: ccinvoice-db-pvc
+  trigger:
+    schedule: "*/30 * * * *"
+  restic:
+    pruneIntervalDays: 15
+    repository: b2-ccinvoice
+    retain:
+      hourly: 6
+      daily: 5
+      weekly: 4
+      monthly: 3
+    copyMethod: Direct
+    storageClassName: local-path
