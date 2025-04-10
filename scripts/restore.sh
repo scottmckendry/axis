@@ -88,7 +88,7 @@ spec:
     repository: ${REPOSITORY}
     destinationPVC: ${PVC_NAME}
     copyMethod: Direct
-    storageClassName: local-path
+    storageClassName: $(kubectl get pvc ${PVC_NAME} -n ${NAMESPACE} -o jsonpath='{.spec.storageClassName}')
 EOF
 
 # Add runner_id if specified
