@@ -107,9 +107,10 @@ echo -e "  ${GREEN}↳${NC} Applying ReplicationDestination..."
 kubectl apply -f /tmp/replication-dest.yaml
 
 # Wait for restore to complete
-echo -e "  ${GREEN}↳${NC} Waiting for restore to complete..."
+echo -e "  ${GREEN}↳${NC} RepicationDestination created. Waiting for restore to complete..."
 echo -e "      📝 ${MAGENTA}if this is taking longer than expected, check the ReplicationDestination with the following:"
-echo -e "         kubectl describe replicationdestination ${NAMESPACE}-restore -n $NAMESPACE ${NC}"
+echo -e "         kubectl describe replicationdestination ${NAMESPACE}-restore -n $NAMESPACE ${NC}\n"
+echo -ne "  ${GREEN}↳${NC} Checking status"
 while true; do
 	status=$(kubectl get replicationdestination "${NAMESPACE}-restore" -n "$NAMESPACE" -o jsonpath='{.status.latestMoverStatus.result}')
 	if [[ "$status" == "Successful" ]]; then
