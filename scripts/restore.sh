@@ -3,6 +3,8 @@
 # 🔄 Kubernetes Volume Restore Helper
 # Restores PVC data using VolSync ReplicationDestination
 
+# TODO: suspend flux reconciliations during restore
+
 set -euo pipefail
 
 # Colors and formatting
@@ -75,7 +77,7 @@ spec:
   trigger:
     manual: restore-once
   restic:
-    repository: ${NAME}
+    repository: restic-${NAME}
     destinationPVC: ${NAME}
     copyMethod: Direct
     storageClassName: $(kubectl get pvc ${NAME} -n ${NAME} -o jsonpath='{.spec.storageClassName}')

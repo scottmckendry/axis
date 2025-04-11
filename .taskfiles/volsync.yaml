@@ -1,0 +1,22 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: 3
+
+# Constraints:
+# 1. Namespace, PVC and ReplicationSource should all share the same name.
+# 2. Restic repo secret MUST have be named "restic-[namespace]".
+# 3. Only one replicated PVC per namespace.
+
+# backups are defined as environment variables. We check if they exist to ensure only valid names are used.
+env:
+  ccinvoice: --name ccinvoice --manage-pods --runner-id 1000
+
+tasks:
+  restore-*:
+    desc: "Restore a PVC from a restic backup. example: task restore-ccinvoice"
+    vars:
+      NAME: "{{index .MATCH 0}}"
+    preconditions:
+      - sh: '[ "${{.NAME}}" != "" ]' # check if NAME env var is not empty
+    cmds:
+      - cmd: ./scripts/restore.sh ${{.NAME}}
