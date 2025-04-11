@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ccinvoice-db-pvc
+  name: ccinvoice
   namespace: ccinvoice
 spec:
   accessModes:

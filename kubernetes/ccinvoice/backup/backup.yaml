@@ -3,15 +3,15 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: ccinvoice-backup
+  name: ccinvoice
   namespace: ccinvoice
 spec:
-  sourcePVC: ccinvoice-db-pvc
+  sourcePVC: ccinvoice
   trigger:
     schedule: "0 1 * * *"
   restic:
     pruneIntervalDays: 14
-    repository: b2-ccinvoice
+    repository: restic-ccinvoice
     retain:
       daily: 7
       weekly: 4
