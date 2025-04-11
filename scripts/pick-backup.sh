@@ -7,9 +7,21 @@
 
 set -euo pipefail
 
+# Colors and formatting
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${BOLD}🔍 Backup Selection Helper${NC}"
+
 # Get secret name from argument or default
-read -rp "Enter the name for restore: " NAMESPACE
+echo -ne "  ${GREEN}↳${NC} Enter the name for restore: "
+read -r NAMESPACE
 SECRET_NAME="restic-$NAMESPACE"
+
+echo -e "  ${GREEN}↳${NC} Loading credentials from ${BOLD}$SECRET_NAME${NC}..."
 
 SECRET_PROPS=(
 	AWS_ACCESS_KEY_ID
@@ -29,15 +41,28 @@ for prop in "${SECRET_PROPS[@]}"; do
 	fi
 done
 
-# Select and format backup timestamp
-selected=$(restic snapshots --json 2>/dev/null |
-	jq -r '.[] | "\(.time) [\(.summary.total_bytes_processed/1024/1024 | floor)MB, \(.summary.total_files_processed) files] \(.paths[0])"' |
-	fzf --height 40% --tac |
-	awk '{print $1}')
+echo -e "  ${GREEN}↳${NC} Removing any stale locks..."
+restic unlock
+echo -e "  ${GREEN}↳${NC} Loading available backups..."
+
+# Fetch and format backup list
+backup_list=$(restic snapshots --json |
+	jq -r '.[] | "\(.time) [\(.summary.total_bytes_processed/1024/1024 | floor)MB, \(.summary.total_files_processed) files] \(.paths[0])"')
+
+[ -z "$backup_list" ] && {
+	echo "No backups found"
+	exit 1
+}
+
+# Select from the backup list
+selected=$(echo "$backup_list" |
+	fzf --height 40% --tac)
+
+# Extract just the timestamp part (everything before the first '[')
+timestamp=$(echo "$selected" | cut -d'[' -f1 | xargs)
 
 # Round up to the nearest minute for the "restoreAsOf" option
-# "An RFC-3339 timestamp which specifies an upper-limit on the snapshots that we should be looking through when preparing to restore. Snapshots made after this timestamp will not be considered."
-adjusted=$(date -d "$selected + 1 minute" +"%Y-%m-%dT%H:%M:00Z")
+adjusted=$(date -d "$timestamp + 1 minute" +"%Y-%m-%dT%H:%M:00Z")
 
 # Cleanup environment
 for prop in "${SECRET_PROPS[@]}"; do
@@ -48,5 +73,8 @@ if [[ -z "$adjusted" ]]; then
 	echo "No valid date selected. Exiting."
 	exit 1
 fi
+
+echo -e "  ${GREEN}↳${NC} Selected backup timestamp: ${BOLD}$adjusted${NC}"
+echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
 task volsync:restore-$NAMESPACE -- --restore-date "$adjusted"
