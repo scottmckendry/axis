@@ -1,0 +1,28 @@
+---
+# https://gethomepage.dev/configs/services/
+- Networking:
+    - UniFi:
+        icon: unifi.svg
+        href: "{{HOMEPAGE_VAR_UNIFI_URL}}"
+        description: Dream Machine
+        widget:
+          type: unifi
+          url: "https://10.0.0.1"
+          key: "{{HOMEPAGE_VAR_UNIFI_KEY}}"
+    - Traefik:
+        icon: traefik.svg
+        href: https://traefik.axis.scottmckendry.tech
+        description: Reverse Proxy
+        widget:
+          type: traefik
+          url: "https://traefik.axis.scottmckendry.tech"
+
+- My Second Group:
+    - My Second Service:
+        href: http://localhost/
+        description: Homepage is the best
+
+- My Third Group:
+    - My Third Service:
+        href: http://localhost/
+        description: Homepage is 😎

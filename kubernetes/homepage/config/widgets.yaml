@@ -1,0 +1,17 @@
+---
+# https://gethomepage.dev/configs/info-widgets/
+- kubernetes:
+    cluster:
+      show: false
+      cpu: true
+      memory: true
+      showLabel: true
+      label: "cluster"
+    nodes:
+      show: true
+      cpu: true
+      memory: true
+      showLabel: true
+- search:
+    provider: brave
+    target: _blank

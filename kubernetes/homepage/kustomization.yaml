@@ -5,9 +5,17 @@ kind: Kustomization
 resources:
   - ns.yaml
   - clusterrole.yaml
-  - configmap.yaml
   - serviceaccount.yaml
   - deployment.yaml
   - service.yaml
   - ingress.yaml
   - homepage.secret.sops.yaml
+configMapGenerator:
+  - name: homepage
+    namespace: homepage
+    files:
+      - config/kubernetes.yaml
+      - config/settings.yaml
+      - config/bookmarks.yaml
+      - config/services.yaml
+      - config/widgets.yaml

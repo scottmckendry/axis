@@ -1,0 +1,4 @@
+---
+# https://gethomepage.dev/configs/kubernetes/
+mode: cluster
+ingress: traefik
