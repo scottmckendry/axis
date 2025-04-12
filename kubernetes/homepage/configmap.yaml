@@ -35,6 +35,13 @@ data:
             type: unifi
             url: "https://10.0.0.1"
             key: "{{HOMEPAGE_VAR_UNIFI_KEY}}"
+      - Traefik:
+          icon: traefik.svg
+          href: https://traefik.axis.scottmckendry.tech
+          description: Reverse Proxy
+          widget:
+            type: traefik
+            url: "https://traefik.axis.scottmckendry.tech"
 
     - My Second Group:
       - My Second Service:
