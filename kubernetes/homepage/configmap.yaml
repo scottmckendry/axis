@@ -30,7 +30,7 @@ data:
       - UniFi:
           icon: unifi.svg
           href: "{{HOMEPAGE_VAR_UNIFI_URL}}"
-          description: network
+          description: Dream Machine
           widget:
             type: unifi
             url: "https://10.0.0.1"
