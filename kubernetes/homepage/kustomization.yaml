@@ -1,0 +1,13 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization.json
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ns.yaml
+  - clusterrole.yaml
+  - configmap.yaml
+  - serviceaccount.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - homepage.secret.sops.yaml

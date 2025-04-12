@@ -1,0 +1,61 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/deployment.json
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage
+  namespace: homepage
+  labels:
+    app.kubernetes.io/name: homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: homepage
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: homepage
+    spec:
+      serviceAccountName: homepage
+      automountServiceAccountToken: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      containers:
+        - name: homepage
+          image: "ghcr.io/gethomepage/homepage:latest"
+          imagePullPolicy: Always
+          env:
+            - name: HOMEPAGE_ALLOWED_HOSTS
+              value: axis.scottmckendry.tech
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /app/config/bookmarks.yaml
+              name: homepage-config
+              subPath: bookmarks.yaml
+            - mountPath: /app/config/kubernetes.yaml
+              name: homepage-config
+              subPath: kubernetes.yaml
+            - mountPath: /app/config/services.yaml
+              name: homepage-config
+              subPath: services.yaml
+            - mountPath: /app/config/settings.yaml
+              name: homepage-config
+              subPath: settings.yaml
+            - mountPath: /app/config/widgets.yaml
+              name: homepage-config
+              subPath: widgets.yaml
+            - mountPath: /app/config/logs
+              name: logs
+          envFrom:
+            - secretRef:
+                name: homepage-secrets
+      volumes:
+        - name: homepage-config
+          configMap:
+            name: homepage
+        - name: logs
+          emptyDir: {}

@@ -1,0 +1,63 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/configmap.json
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage
+  namespace: homepage
+  labels:
+    app.kubernetes.io/name: homepage
+data:
+  kubernetes.yaml: |
+    mode: cluster
+    ingress: traefik
+  settings.yaml: |
+    title: AXIS
+    background:
+      image: https://images.unsplash.com/photo-1738463791783-b61514add113
+      blur: sm
+      opacity: 50
+      brightness: 50
+    theme: dark
+    color: slate
+  bookmarks.yaml: |
+    - Developer:
+      - Github:
+        - abbr: GH
+          href: https://github.com/
+  services.yaml: |
+    - Networking:
+      - UniFi:
+          icon: unifi.svg
+          href: "{{HOMEPAGE_VAR_UNIFI_URL}}"
+          description: network
+          widget:
+            type: unifi
+            url: "https://10.0.0.1"
+            key: "{{HOMEPAGE_VAR_UNIFI_KEY}}"
+
+    - My Second Group:
+      - My Second Service:
+          href: http://localhost/
+          description: Homepage is the best
+
+    - My Third Group:
+      - My Third Service:
+          href: http://localhost/
+          description: Homepage is 😎
+  widgets.yaml: |
+    - kubernetes:
+        cluster:
+          show: false
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "cluster"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+    - search:
+        provider: brave
+        target: _blank
