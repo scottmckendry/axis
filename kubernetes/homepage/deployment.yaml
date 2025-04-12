@@ -23,7 +23,7 @@ spec:
       enableServiceLinks: true
       containers:
         - name: homepage
-          image: "ghcr.io/gethomepage/homepage:latest"
+          image: "ghcr.io/gethomepage/homepage:1.0.4"
           imagePullPolicy: Always
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
