@@ -19,9 +19,14 @@
 
 - Apps:
     - Home Assistant:
+        icon: home-assistant.svg
         href: http://ha.axis.scottmckendry.tech
         description: Home Automation
         # TODO: Add widget
+    - Home Assistant Code Server:
+        icon: visual-studio-code.svg
+        href: http://ha-code.axis.scottmckendry.tech
+        description: Edit HA Configuration Files
 
 - My Third Group:
     - My Third Service:
