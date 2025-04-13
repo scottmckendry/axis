@@ -13,8 +13,28 @@ spec:
         - name: ipallowlist
           namespace: traefik
       services:
-        - name: home-assistant
+        - name: home-assistant-app
           namespace: home-assistant
           port: 8123
+  tls:
+    secretName: axis-tls
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: home-assistant-code
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`ha-code.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+      services:
+        - name: home-assistant-code
+          namespace: home-assistant
+          port: 8081
   tls:
     secretName: axis-tls
