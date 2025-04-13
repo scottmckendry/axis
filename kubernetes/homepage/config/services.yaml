@@ -17,10 +17,11 @@
           type: traefik
           url: "https://traefik.axis.scottmckendry.tech"
 
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
+- Apps:
+    - Home Assistant:
+        href: http://ha.axis.scottmckendry.tech
+        description: Home Automation
+        # TODO: Add widget
 
 - My Third Group:
     - My Third Service:
