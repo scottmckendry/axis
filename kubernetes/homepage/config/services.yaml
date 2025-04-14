@@ -20,12 +20,23 @@
 - Apps:
     - Home Assistant:
         icon: home-assistant.svg
-        href: http://ha.axis.scottmckendry.tech
+        href: https://ha.axis.scottmckendry.tech
         description: Home Automation
-        # TODO: Add widget
+        widget:
+          type: homeassistant
+          url: "https://ha.axis.scottmckendry.tech"
+          key: "{{HOMEPAGE_VAR_HASS_KEY}}"
+          custom:
+            - state: weather.forecast_home
+              label: "{state}"
+              value: "{attributes.temperature} {attributes.temperature_unit}"
+            - template: "{{ states.light|selectattr('state','equalto','on')|list|length }} / {{ states.light|list|length }}"
+              label: "lights on"
+            - template: "{{ states.switch|selectattr('state','equalto','on')|list|length }} / {{ states.switch|list|length }}"
+              label: "switches on"
     - Home Assistant Code Server:
         icon: visual-studio-code.svg
-        href: http://ha-code.axis.scottmckendry.tech
+        href: https://ha-code.axis.scottmckendry.tech
         description: Edit HA Configuration Files
 
 - My Third Group:
