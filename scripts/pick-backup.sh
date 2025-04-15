@@ -77,4 +77,6 @@ fi
 echo -e "  ${GREEN}↳${NC} Selected backup timestamp: ${BOLD}$adjusted${NC}"
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
-task volsync:restore-$NAMESPACE -- --restore-date "$adjusted"
+# replicate hyphens in namespace to underscores for compatibility with env var lookups in child task
+# e.g. home-assistant -> volsync_restore_home_assistant
+task volsync:restore-${NAMESPACE//-/_} -- --restore-date "$adjusted"

@@ -10,6 +10,12 @@ spec:
   trigger:
     schedule: "0 1 * * *"
   restic:
+    moverSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+      fsGroupChangePolicy: OnRootMismatch
     pruneIntervalDays: 14
     repository: restic-ccinvoice
     retain:

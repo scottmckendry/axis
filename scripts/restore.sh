@@ -60,9 +60,20 @@ echo -e "${BOLD}🔄 Starting volume restore process...${NC}"
 # Stop pods in NAME if requested
 if [[ "$MANAGE_PODS" == "true" ]]; then
 	echo -e "  ${GREEN}↳${NC} Scaling down deployments in ${BOLD}$NAME${NC}..."
+
 	# Store current replica counts and scale down
 	kubectl get deployment -n "$NAME" -o json | jq -r '.items[] | "\(.metadata.name) \(.spec.replicas)"' >/tmp/replica-counts.txt
 	kubectl get deployment -n "$NAME" -o name | xargs -r kubectl scale -n "$NAME" --replicas=0
+
+	# Wait for all pods to stop before proceeding
+	while true; do
+		pod_count=$(kubectl get pods -n "$NAME" --no-headers | wc -l)
+		if [[ "$pod_count" -eq 0 ]]; then
+			break
+		fi
+		echo -ne "  ${GREEN}↳${NC} Waiting for all pods to stop... ($pod_count remaining)\r"
+		sleep 5
+	done
 fi
 
 # Generate ReplicationDestination manifest
@@ -87,6 +98,8 @@ EOF
 if [[ -n "$RUNNER_ID" ]]; then
 	echo "    moverSecurityContext:" >>/tmp/replication-dest.yaml
 	echo "      runAsUser: ${RUNNER_ID}" >>/tmp/replication-dest.yaml
+	echo "      runAsGroup: ${RUNNER_ID}" >>/tmp/replication-dest.yaml
+	echo "      fsGroup: ${RUNNER_ID}" >>/tmp/replication-dest.yaml
 fi
 
 # Add restore date if specified
