@@ -20,4 +20,4 @@ metadata:
   namespace: traefik
 spec:
   forwardAuth:
-    address: https://auth.axis.scottmckendry.tech/api/auth/traefik
+    address: http://tinyauth.traefik.svc.cluster.local:3000/api/auth/traefik
