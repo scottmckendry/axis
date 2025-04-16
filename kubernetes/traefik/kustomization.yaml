@@ -8,3 +8,5 @@ resources:
   - repo.yaml
   - dashboard-ingress.yaml
   - middlewares.yaml
+  - tinyauth.yaml
+  - tinyauth.secret.sops.yaml

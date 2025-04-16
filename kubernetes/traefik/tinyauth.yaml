@@ -1,0 +1,76 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/deployment.json
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinyauth
+  namespace: traefik
+  labels:
+    app: tinyauth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tinyauth
+  template:
+    metadata:
+      labels:
+        app: tinyauth
+    spec:
+      containers:
+        - name: tinyauth
+          image: ghcr.io/steveiliop56/tinyauth:v3.2.1@sha256:5892b052c172b2abfe6c94e6b896bf48defc7aed6f2936ee6f59a526caf43649
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: tinyauth-secrets
+          livenessProbe:
+            httpGet:
+              path: /api/healthcheck
+              port: 3000
+          readinessProbe:
+            httpGet:
+              path: /api/healthcheck
+              port: 3000
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/service.json
+apiVersion: v1
+kind: Service
+metadata:
+  name: tinyauth
+  namespace: traefik
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: tinyauth
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: tinyauth
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`auth.axis.scottmckendry.tech`)
+      kind: Rule
+      services:
+        - name: tinyauth
+          namespace: traefik
+          port: 3000
+  tls:
+    secretName: axis-tls

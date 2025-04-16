@@ -12,6 +12,8 @@ spec:
       middlewares:
         - name: ipallowlist
           namespace: traefik
+        - name: forwardauth
+          namespace: traefik
       services:
         - name: api@internal
           kind: TraefikService
