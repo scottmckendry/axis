@@ -32,6 +32,8 @@ spec:
       middlewares:
         - name: ipallowlist
           namespace: traefik
+        - name: forwardauth
+          namespace: traefik
       services:
         - name: home-assistant-code
           namespace: home-assistant
