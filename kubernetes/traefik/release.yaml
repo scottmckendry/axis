@@ -16,6 +16,7 @@ spec:
   interval: 1h
   timeout: 10m
   values:
+    # https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml
     additionalArguments:
       - --serversTransport.insecureskipverify=true
 
@@ -39,3 +40,10 @@ spec:
     providers:
       kubernetesCRD:
         allowCrossNamespace: true
+
+    metrics:
+      prometheus:
+        service:
+          enabled: true
+        serviceMonitor:
+          enabled: true
