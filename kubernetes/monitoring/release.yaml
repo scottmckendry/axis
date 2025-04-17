@@ -11,18 +11,22 @@ spec:
     kind: OCIRepository
     name: kube-prometheus-stack
   values:
+    # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
     namespaceOverride: monitoring
+
     defaultRules:
       rules:
         kubeControllerManager: false
         kubeSchedulerAlerting: false
+
     grafana:
-      defaultDashboardTimezone: Pacific/Auckland
+      defaultDashboardTimezone: browser
       forceDeployDashboards: true
       admin:
         existingSecret: grafana-admin-credentials
         userKey: admin-user
         passwordKey: admin-password
+
     prometheus:
       prometheusSpec:
         storageSpec:
