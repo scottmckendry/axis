@@ -39,7 +39,30 @@
         href: https://ha-code.axis.scottmckendry.tech
         description: Edit HA Configuration Files
 
-- My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+- Monitoring:
+    - Grafana:
+        icon: grafana.svg
+        href: https://grafana.axis.scottmckendry.tech
+        description: Dashboards and Monitoring
+        widget:
+          type: grafana
+          url: "http://kube-prometheus-stack-grafana.monitoring.svc.cluster.local:80"
+          username: "{{HOMEPAGE_VAR_GRAFANA_USERNAME}}"
+          password: "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}"
+    - Prometheus:
+        icon: prometheus.svg
+        href: https://prometheus.axis.scottmckendry.tech
+        description: Metric Collection
+        widget:
+          type: prometheus
+          url: "http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090"
+    - Alertmanager:
+        icon: mdi-bell-alert-outline
+        href: https://am.axis.scottmckendry.tech
+        description: Dynamic Alerts
+        widget:
+          type: prometheusmetric
+          url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+          metrics:
+            - label: Active Alerts
+              query: alertmanager_alerts{state="active"}

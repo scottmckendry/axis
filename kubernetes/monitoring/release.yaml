@@ -18,6 +18,7 @@ spec:
         kubeSchedulerAlerting: false
     grafana:
       defaultDashboardTimezone: Pacific/Auckland
+      forceDeployDashboards: true
       admin:
         existingSecret: grafana-admin-credentials
         userKey: admin-user
