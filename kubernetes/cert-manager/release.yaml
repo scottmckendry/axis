@@ -27,6 +27,8 @@ spec:
       nameservers:
         - 1.1.1.1
         - 9.9.9.9
+
+    # TODO: add grafana dashboard and prometheus rules
     prometheus:
       enabled: true
       servicemonitor:
