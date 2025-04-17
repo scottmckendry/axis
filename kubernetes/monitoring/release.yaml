@@ -29,6 +29,11 @@ spec:
 
     prometheus:
       prometheusSpec:
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        ruleSelectorNilUsesHelmValues: false
+        scrapeConfigSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
         storageSpec:
           volumeClaimTemplate:
             spec:
