@@ -114,7 +114,7 @@ spec:
         traefik:
           # renovate: depName="Traefik Official Kubernetes Dashboard"
           gnetId: 17347
-          revision: 8
+          revision: 9
           datasource: Prometheus
     serviceMonitor:
       enabled: true
