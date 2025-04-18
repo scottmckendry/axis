@@ -21,7 +21,6 @@ spec:
 
     grafana:
       enabled: false
-      forceDeployDashboards: true
 
     prometheus:
       prometheusSpec:
