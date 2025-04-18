@@ -102,7 +102,26 @@
       matchDatasources: ["github-releases"],
       addLabels: ["renovate/github-release"],
     },
+    {
+      addLabels: ["renovate/grafana-dashboard"],
+      automerge: true,
+      automergeType: "branch",
+      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
+      commitMessageTopic: "dashboard {{depName}}",
+      ignoreTests: true,
+      matchDatasources: ["custom.grafana-dashboards"],
+      matchUpdateTypes: ["major"],
+      semanticCommitScope: "grafana-dashboards",
+      semanticCommitType: "chore",
+    },
   ],
+  customDatasources: {
+    "grafana-dashboards": {
+      defaultRegistryUrlTemplate: "https://grafana.com/api/dashboards/{{packageName}}",
+      format: "json",
+      transformTemplates: ['{"releases":[{"version": $string(revision)}]}'],
+    },
+  },
   customManagers: [
     {
       description: "Process annotated dependencies",
@@ -125,6 +144,17 @@
         "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+/(?<currentValue>(v|\\d)[^/]+)",
       ],
       datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+    },
+    {
+      description: "Process Grafana dashboards",
+      customType: "regex",
+      fileMatch: ["(^|/)kubernetes/.+\\.ya?ml$"],
+      matchStrings: [
+        'depName="(?<depName>.*)"\\n(?<indentation>\\s+)gnetId: (?<packageName>\\d+)\\n.+revision: (?<currentValue>\\d+)'
+      ],
+      autoReplaceStringTemplate: 'depName="{{{depName}}}"\n{{{indentation}}}gnetId: {{{packageName}}}\n{{{indentation}}}revision: {{{newValue}}}',
+      datasourceTemplate: "custom.grafana-dashboards",
+      versioningTemplate: "regex:^(?<major>\\d+)$",
     },
   ],
 }
