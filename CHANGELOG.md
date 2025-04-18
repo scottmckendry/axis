@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.0.0](https://github.com/scottmckendry/axis/compare/v0.1.0...v1.0.0) (2025-04-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **grafana-dashboards:** Update dashboard Traefik Official Kubernetes Dashboard (8 → 9)
+* **grafana-dashboards:** Update dashboard Node Exporter Full (37 → 39)
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Namespaces (32 → 42)
+
+### Features
+
+* **cert-manager:** scrape metrics with prometheus ([53e322e](https://github.com/scottmckendry/axis/commit/53e322e428c71edcd02de2833e801e3417b3ae22))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 70.6.0 → 70.7.0 ) ([ae489b0](https://github.com/scottmckendry/axis/commit/ae489b0d132636bf5ac5719f39fa256f89b15759))
+* **homepage:** services & widgets for monitoring stack ([17ccbc7](https://github.com/scottmckendry/axis/commit/17ccbc72475b043f2e48e97c2393dfdb5198b39f))
+* **monitoring:** add grafana ([7cdda7d](https://github.com/scottmckendry/axis/commit/7cdda7dd6828a05b8238c0ea9cb2eda29faa6eb7))
+* **monitoring:** add kube prometheus stack ([f4db620](https://github.com/scottmckendry/axis/commit/f4db620c03b2620c9d19bde991cb92d9d5f7106f))
+* **monitoring:** prepare for standalone grafana ([2adcf1a](https://github.com/scottmckendry/axis/commit/2adcf1a8ebc6dc9e148df25e0ffb73b6877e5288))
+* **traefik:** scrape metrics with prometheus ([2d506e2](https://github.com/scottmckendry/axis/commit/2d506e257152300f0091b88e007448381fe35dbf))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.99.2 → 4.99.3 ) ([9c62af1](https://github.com/scottmckendry/axis/commit/9c62af180dcdc02e88370c26a651e6d83a8345f0))
+* **helm:** update chart traefik ( 35.0.0 → 35.0.1 ) ([fdec9da](https://github.com/scottmckendry/axis/commit/fdec9dae4f807c956cf4842bca8c60072b7faf3f))
+
+
+### Miscellaneous Chores
+
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Namespaces (32 → 42) ([5c7ae3c](https://github.com/scottmckendry/axis/commit/5c7ae3c22382aadb05d5170167afea1f4630aafe))
+* **grafana-dashboards:** Update dashboard Node Exporter Full (37 → 39) ([c709411](https://github.com/scottmckendry/axis/commit/c709411bbe89379c9790113bd572327cbca3cbc1))
+* **grafana-dashboards:** Update dashboard Traefik Official Kubernetes Dashboard (8 → 9) ([e4a1720](https://github.com/scottmckendry/axis/commit/e4a17207fb35b768bf8c419da8850a6ea52dc20a))
+
 ## 0.1.0 (2025-04-16)
 
 
