@@ -20,12 +20,8 @@ spec:
         kubeSchedulerAlerting: false
 
     grafana:
-      defaultDashboardTimezone: browser
+      enabled: false
       forceDeployDashboards: true
-      admin:
-        existingSecret: grafana-admin-credentials
-        userKey: admin-user
-        passwordKey: admin-password
 
     prometheus:
       prometheusSpec:
