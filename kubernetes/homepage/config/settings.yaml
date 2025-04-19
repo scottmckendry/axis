@@ -2,9 +2,9 @@
 # https://gethomepage.dev/configs/settings/
 title: AXIS
 background:
-  image: https://images.unsplash.com/photo-1738463791783-b61514add113
-  blur: sm
-  opacity: 50
-  brightness: 50
+  image: https://w.wallhaven.cc/full/kx/wallhaven-kx5rpd.jpg
+cardBlur: xl
 theme: dark
 color: slate
+hideVersion: true
+disableUpdateCheck: true
