@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/scottmckendry/axis/compare/v1.0.0...v1.1.0) (2025-04-19)
+
+
+### Features
+
+* **container:** update image ghcr.io/scottmckendry/ccinvoice ( v2.2.1 → v2.3.0 ) ([457a46f](https://github.com/scottmckendry/axis/commit/457a46fab7431d8ddea93b129a0f38434ed0f3e0))
+* **homepage:** add site monitors ([307fd17](https://github.com/scottmckendry/axis/commit/307fd1778cd1022d619bd56708e5a1042788ad2d))
+* **homepage:** UI settings update ([7095a83](https://github.com/scottmckendry/axis/commit/7095a838b228a03c8588d4e46a636d18a8047cbf))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.4.2 → 2025.4.3 ) ([fb09e59](https://github.com/scottmckendry/axis/commit/fb09e59b7556a6254b1ed3fe50377ce7f2bcb05b))
+
 ## [1.0.0](https://github.com/scottmckendry/axis/compare/v0.1.0...v1.0.0) (2025-04-18)
 
 
