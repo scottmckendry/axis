@@ -5,14 +5,17 @@
         icon: unifi.svg
         href: "{{HOMEPAGE_VAR_UNIFI_URL}}"
         description: Dream Machine
+        siteMonitor: "{{HOMEPAGE_VAR_UNIFI_URL}}"
         widget:
           type: unifi
           url: "https://10.0.0.1"
           key: "{{HOMEPAGE_VAR_UNIFI_KEY}}"
+
     - Traefik:
         icon: traefik.svg
         href: https://traefik.axis.scottmckendry.tech
         description: Reverse Proxy
+        siteMonitor: https://traefik.axis.scottmckendry.tech
         widget:
           type: traefik
           url: "https://traefik.axis.scottmckendry.tech"
@@ -22,6 +25,7 @@
         icon: home-assistant.svg
         href: https://ha.axis.scottmckendry.tech
         description: Home Automation
+        siteMonitor: https://ha.axis.scottmckendry.tech
         widget:
           type: homeassistant
           url: "https://ha.axis.scottmckendry.tech"
@@ -38,12 +42,14 @@
         icon: visual-studio-code.svg
         href: https://ha-code.axis.scottmckendry.tech
         description: Edit HA Configuration Files
+        siteMonitor: https://ha-code.axis.scottmckendry.tech
 
 - Monitoring:
     - Grafana:
         icon: grafana.svg
         href: https://grafana.axis.scottmckendry.tech
         description: Dashboards and Monitoring
+        siteMonitor: https://grafana.axis.scottmckendry.tech
         widget:
           type: grafana
           url: "http://grafana.monitoring.svc.cluster.local:80"
@@ -52,6 +58,7 @@
     - Prometheus:
         icon: prometheus.svg
         href: https://prometheus.axis.scottmckendry.tech
+        siteMonitor: https://prometheus.axis.scottmckendry.tech
         description: Metric Collection
         widget:
           type: prometheus
@@ -60,6 +67,7 @@
         icon: mdi-bell-alert-outline
         href: https://am.axis.scottmckendry.tech
         description: Dynamic Alerts
+        siteMonitor: https://am.axis.scottmckendry.tech
         widget:
           type: prometheusmetric
           url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
