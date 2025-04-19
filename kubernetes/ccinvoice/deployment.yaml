@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ccinvoice
-          image: ghcr.io/scottmckendry/ccinvoice:v2.2.1
+          image: ghcr.io/scottmckendry/ccinvoice:v2.3.0
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
