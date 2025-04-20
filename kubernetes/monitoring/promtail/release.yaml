@@ -1,0 +1,23 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: promtail
+  namespace: monitoring
+spec:
+  chart:
+    spec:
+      chart: promtail
+      version: 6.16.6
+      sourceRef:
+        kind: HelmRepository
+        name: loki
+  interval: 1h
+  timeout: 10m
+  values:
+    config:
+      clients:
+        - url: http://loki-headless.monitoring.svc.cluster.local:3100/loki/api/v1/push
+      serviceMonitor:
+        enabled: true
