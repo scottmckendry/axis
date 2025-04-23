@@ -41,7 +41,6 @@ spec:
       kubernetesCRD:
         allowCrossNamespace: true
 
-    # TODO: add grafana dashboard and prometheus rules
     metrics:
       prometheus:
         service:
