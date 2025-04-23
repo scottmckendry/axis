@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.1.0](https://github.com/scottmckendry/axis/compare/v1.0.0...v1.1.0) (2025-04-23)
+
+
+### Features
+
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 8.12.1 → 8.13.0 ) ([0001c4e](https://github.com/scottmckendry/axis/commit/0001c4e7a4619530fa5573ce8f516bf7fb8eca76))
+* **container:** update image ghcr.io/scottmckendry/ccinvoice ( v2.2.1 → v2.3.0 ) ([457a46f](https://github.com/scottmckendry/axis/commit/457a46fab7431d8ddea93b129a0f38434ed0f3e0))
+* **grafana:** set default dashbaord ([7b1c1e2](https://github.com/scottmckendry/axis/commit/7b1c1e268fd1fbe7afdb034c6ad9b0f91e4ad154))
+* **homepage:** add site monitors ([307fd17](https://github.com/scottmckendry/axis/commit/307fd1778cd1022d619bd56708e5a1042788ad2d))
+* **homepage:** UI settings update ([7095a83](https://github.com/scottmckendry/axis/commit/7095a838b228a03c8588d4e46a636d18a8047cbf))
+* **monitoring:** add loki/promtail ([33c952b](https://github.com/scottmckendry/axis/commit/33c952beae7243207b1ab5071d62d9f592cedb89))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.4.2 → 2025.4.3 ) ([fb09e59](https://github.com/scottmckendry/axis/commit/fb09e59b7556a6254b1ed3fe50377ce7f2bcb05b))
+
 ## [1.0.0](https://github.com/scottmckendry/axis/compare/v0.1.0...v1.0.0) (2025-04-18)
 
 
