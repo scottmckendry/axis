@@ -1,5 +1,38 @@
 # Changelog
 
+## [2.0.0](https://github.com/scottmckendry/axis/compare/v1.1.0...v2.0.0) (2025-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 70.10.0 → 71.0.0 )
+* **grafana-dashboards:** Update dashboard Node Exporter Full (39 → 40)
+
+### Features
+
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.1.2 → v1.2.0 ) ([eade33b](https://github.com/scottmckendry/axis/commit/eade33bbcc605401aef4bab3a31a36ed8d6126aa))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 8.13.2 → 8.14.0 ) ([fc9db32](https://github.com/scottmckendry/axis/commit/fc9db3224a2a430a9e252eba503f832bb3849faf))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 70.10.0 → 71.0.0 ) ([2a110a9](https://github.com/scottmckendry/axis/commit/2a110a9022cb090f13fe98b0734398c75c33dbeb))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 70.7.0 → 70.9.0 ) ([b0baf98](https://github.com/scottmckendry/axis/commit/b0baf98f1040be91d30a3bee7d645b68e681064e))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 70.9.0 → 70.10.0 ) ([bc84847](https://github.com/scottmckendry/axis/commit/bc84847fa3174a882e7beaa3d1430ef990f0c3e5))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 71.0.0 → 71.1.0 ) ([eb7f274](https://github.com/scottmckendry/axis/commit/eb7f274f77cb4ca6e46fca9ca619ccfbafa186b6))
+* **helm:** update chart traefik ( 35.0.1 → 35.1.0 ) ([a9a8252](https://github.com/scottmckendry/axis/commit/a9a82523bf74ea1e718680047340e06796e23227))
+* **helm:** update chart traefik ( 35.1.0 → 35.2.0 ) ([ca8be3f](https://github.com/scottmckendry/axis/commit/ca8be3f1e531f9da5f22b8619b7fd9d701cb0fcb))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.1.1 → v1.1.2 ) ([3899ce0](https://github.com/scottmckendry/axis/commit/3899ce015fb6226698d3f404b9fa7205c97a6c82))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 8.13.0 → 8.13.1 ) ([a091537](https://github.com/scottmckendry/axis/commit/a0915377f92fc18945d7e55304b29b618de12a14))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 8.13.1 → 8.13.2 ) ([76e20f4](https://github.com/scottmckendry/axis/commit/76e20f46821ad3ca73892032214a1fd2982561b1))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.4.3 → 2025.4.4 ) ([2292e87](https://github.com/scottmckendry/axis/commit/2292e870f0ce4d1360efc598404e1729638b83f5))
+* **helm:** update chart cert-manager ( v1.17.1 → v1.17.2 ) ([ab30178](https://github.com/scottmckendry/axis/commit/ab301787706c67ecb594ef90169387685bfeb2c6))
+
+
+### Miscellaneous Chores
+
+* **grafana-dashboards:** Update dashboard Node Exporter Full (39 → 40) ([efb7792](https://github.com/scottmckendry/axis/commit/efb7792daf637f00fab5be15ddb079ab34c6559c))
+
 ## [1.1.0](https://github.com/scottmckendry/axis/compare/v1.0.0...v1.1.0) (2025-04-23)
 
 
