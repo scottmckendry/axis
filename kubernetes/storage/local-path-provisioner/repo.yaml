@@ -3,7 +3,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  namespace: local-path-provisioner
+  namespace: storage
   name: local-path-provisioner
 spec:
   interval: 24h
