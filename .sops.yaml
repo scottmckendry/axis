@@ -1,7 +1,7 @@
 ---
 creation_rules:
   - path_regex: "kubernetes/.*?(secret|sops).ya?ml$"
-    encrypted_regex: "^(data|stringData|email)$"
+    encrypted_regex: "^(data|stringData|email|host|apiKey|targetPortal|shareHost)$"
     age: age1ht2mpnqakafawr4akvukz2ketzdlwuwkhdzwsy8hl7rwfkhkh90qp36und
 
   - path_regex: "talos/.*?(secret|sops).ya?ml$"
