@@ -5,7 +5,7 @@ version: 3
 vars:
   CLUSTER_NAME: "axis"
   CLUSTER_VIP: "10.0.10.10"
-  TALOS_VERSION: "v1.9.5"
+  TALOS_VERSION: "v1.10.0"
 
 includes:
   sops: ./sops.yaml
@@ -53,5 +53,30 @@ tasks:
       - cmd: echo ""
         silent: true
       - talosctl apply -f rendered/controlplane.yaml -n {{.NODE_IP}}
+      - cmd: echo ""
+        silent: true
+
+  upgrade:
+    desc: Upgrade Talos nodes to specified version
+    dir: talos
+    vars:
+      VERSION: "{{default .TALOS_VERSION .VERSION}}"
+    cmds:
+      - for: ["10.0.10.11", "10.0.10.12", "10.0.10.13"]
+        task: upgrade_node
+        vars: { NODE_IP: "{{.ITEM}}" }
+
+  upgrade_node:
+    internal: true
+    desc: Upgrade individual Talos node
+    dir: talos
+    vars:
+      NODE_IP: '{{default "" .NODE_IP}}'
+      VERSION: "{{default .TALOS_VERSION .VERSION}}"
+    prompt: "Upgrade node {{.NODE_IP}} to version {{.VERSION}}?"
+    cmds:
+      - cmd: echo ""
+        silent: true
+      - talosctl upgrade --nodes {{.NODE_IP}} --image ghcr.io/siderolabs/installer:{{.VERSION}}
       - cmd: echo ""
         silent: true
