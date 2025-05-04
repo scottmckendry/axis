@@ -5,7 +5,7 @@ version: 3
 vars:
   CLUSTER_NAME: "axis"
   CLUSTER_VIP: "10.0.10.10"
-  TALOS_VERSION: "v1.10.0"
+  TALOS_VERSION: "v1.9.5"
 
 includes:
   sops: ./sops.yaml
@@ -72,11 +72,12 @@ tasks:
     dir: talos
     vars:
       NODE_IP: '{{default "" .NODE_IP}}'
-      VERSION: "{{default .TALOS_VERSION .VERSION}}"
-    prompt: "Upgrade node {{.NODE_IP}} to version {{.VERSION}}?"
+      IMAGE_SCHEMATIC_ID:
+        sh: "curl -fsSL -X POST --data-binary @image-schematic.yaml https://factory.talos.dev/schematics | jq -r '.id'"
+    prompt: "Upgrade node {{.NODE_IP}} to version {{.TALOS_VERSION}}?"
     cmds:
       - cmd: echo ""
         silent: true
-      - talosctl upgrade --nodes {{.NODE_IP}} --image ghcr.io/siderolabs/installer:{{.VERSION}}
+      - talosctl upgrade --nodes {{.NODE_IP}} --image factory.talos.dev/installer/{{.IMAGE_SCHEMATIC_ID}}:{{.TALOS_VERSION}}
       - cmd: echo ""
         silent: true
