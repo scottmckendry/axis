@@ -1,5 +1,6 @@
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+# TODO: Investigate object storage options for persisted data e.g. minio
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -44,7 +45,6 @@ spec:
       replicas: 1
       persistence:
         enabled: true
-        storageClass: local-path
         size: 20Gi
     gateway:
       replicas: 0
