@@ -3,7 +3,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: home-assistant
+  name: home-assistant-home-assistant
   namespace: home-assistant
 spec:
   sourcePVC: home-assistant
@@ -17,7 +17,7 @@ spec:
       fsGroup: 1000
       fsGroupChangePolicy: OnRootMismatch
     pruneIntervalDays: 14
-    repository: restic-home-assistant
+    repository: restic-home-assistant-home-assistant
     retain:
       daily: 7
       weekly: 4

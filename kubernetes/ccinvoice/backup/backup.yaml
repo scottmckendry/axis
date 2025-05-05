@@ -3,7 +3,7 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: ccinvoice
+  name: ccinvoice-ccinvoice
   namespace: ccinvoice
 spec:
   sourcePVC: ccinvoice
@@ -17,7 +17,7 @@ spec:
       fsGroup: 1000
       fsGroupChangePolicy: OnRootMismatch
     pruneIntervalDays: 14
-    repository: restic-ccinvoice
+    repository: restic-ccinvoice-ccinvoice
     retain:
       daily: 7
       weekly: 4

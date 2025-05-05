@@ -17,6 +17,7 @@ NC='\033[0m' # No Color
 
 # Default values
 NAME=""
+NAMESPACE="default"
 RESTORE_DATE=""
 MANAGE_PODS="false"
 RUNNER_ID=""
@@ -26,6 +27,10 @@ while [[ $# -gt 0 ]]; do
 	case $1 in
 	--name)
 		NAME="$2"
+		shift 2
+		;;
+	--namespace)
+		NAMESPACE="$2"
 		shift 2
 		;;
 	--restore-date)
@@ -50,7 +55,7 @@ done
 # Validate required parameters
 if [[ -z "$NAME" ]]; then
 	echo -e "${RED}Error: Required parameters missing!${NC}"
-	echo -e "Usage: $0 --name <name> [--restore-date <date>] [--runner-id <id>] [--manage-pods]"
+	echo -e "Usage: $0 --name <name> [--namespace <namespace>] [--restore-date <date>] [--runner-id <id>] [--manage-pods]"
 	exit 1
 fi
 
@@ -59,15 +64,15 @@ echo -e "${BOLD}🔄 Starting volume restore process...${NC}"
 
 # Stop pods in NAME if requested
 if [[ "$MANAGE_PODS" == "true" ]]; then
-	echo -e "  ${GREEN}↳${NC} Scaling down deployments in ${BOLD}$NAME${NC}..."
+	echo -e "  ${GREEN}↳${NC} Scaling down deployments in ${BOLD}$NAMESPACE${NC}..."
 
 	# Store current replica counts and scale down
-	kubectl get deployment -n "$NAME" -o json | jq -r '.items[] | "\(.metadata.name) \(.spec.replicas)"' >/tmp/replica-counts.txt
-	kubectl get deployment -n "$NAME" -o name | xargs -r kubectl scale -n "$NAME" --replicas=0
+	kubectl get deployment -n "$NAMESPACE" -o json | jq -r '.items[] | "\(.metadata.name) \(.spec.replicas)"' >/tmp/replica-counts.txt
+	kubectl get deployment -n "$NAMESPACE" -o name | xargs -r kubectl scale -n "$NAMESPACE" --replicas=0
 
 	# Wait for all pods to stop before proceeding
 	while true; do
-		pod_count=$(kubectl get pods -n "$NAME" --no-headers | wc -l)
+		pod_count=$(kubectl get pods -n "$NAMESPACE" --no-headers | wc -l)
 		if [[ "$pod_count" -eq 0 ]]; then
 			break
 		fi
@@ -83,15 +88,15 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
   name: ${NAME}-restore
-  namespace: ${NAME}
+  namespace: ${NAMESPACE}
 spec:
   trigger:
     manual: restore-once
   restic:
-    repository: restic-${NAME}
+    repository: restic-${NAMESPACE}-${NAME}
     destinationPVC: ${NAME}
     copyMethod: Direct
-    storageClassName: $(kubectl get pvc ${NAME} -n ${NAME} -o jsonpath='{.spec.storageClassName}')
+    storageClassName: $(kubectl get pvc ${NAME} -n ${NAMESPACE} -o jsonpath='{.spec.storageClassName}')
 EOF
 
 # Add runner_id if specified
@@ -114,10 +119,10 @@ kubectl apply -f /tmp/replication-dest.yaml
 # Wait for restore to complete
 echo -e "  ${GREEN}↳${NC} RepicationDestination created. Waiting for restore to complete..."
 echo -e "      📝 ${MAGENTA}if this is taking longer than expected, check the ReplicationDestination with the following:"
-echo -e "         kubectl describe replicationdestination ${NAME}-restore -n $NAME ${NC}\n"
+echo -e "         kubectl describe replicationdestination ${NAME}-restore -n $NAMESPACE ${NC}\n"
 echo -ne "  ${GREEN}↳${NC} Checking status"
 while true; do
-	status=$(kubectl get replicationdestination "${NAME}-restore" -n "$NAME" -o jsonpath='{.status.latestMoverStatus.result}')
+	status=$(kubectl get replicationdestination "${NAME}-restore" -n "$NAMESPACE" -o jsonpath='{.status.latestMoverStatus.result}')
 	if [[ "$status" == "Successful" ]]; then
 		break
 	fi
@@ -128,7 +133,7 @@ echo -e "\n  ${GREEN}✓${NC} Restore completed successfully!"
 
 # Show logs from the restore
 echo -e "\n${BOLD}📋 Restore logs:${NC}"
-logs=$(kubectl get replicationdestination "${NAME}-restore" -n "$NAME" -o jsonpath='{.status.latestMoverStatus.logs}')
+logs=$(kubectl get replicationdestination "${NAME}-restore" -n "$NAMESPACE" -o jsonpath='{.status.latestMoverStatus.logs}')
 echo -e "$logs\n"
 
 # Cleanup ReplicationDestination
@@ -137,7 +142,11 @@ kubectl delete -f /tmp/replication-dest.yaml
 
 # Start pods if they were stopped
 if [[ "$MANAGE_PODS" == "true" ]]; then
-	echo -e "  ${GREEN}↳${NC} Scaling up deployments in ${BOLD}$NAME${NC}..."
+	echo -e "  ${GREEN}↳${NC} Scaling up deployments in ${BOLD}$NAMESPACE${NC}..."
+	# Restore original replica counts
+	while read -r deploy replicas; do
+		kubectl scale -n "$NAMESPACE" deployment/"$deploy" --replicas="$replicas"
+	done </tmp/replica-counts.txt
 	# Restore original replica counts
 	while read -r deploy replicas; do
 		kubectl scale -n "$NAME" deployment/"$deploy" --replicas="$replicas"

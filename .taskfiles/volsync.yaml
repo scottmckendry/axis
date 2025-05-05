@@ -3,15 +3,15 @@
 version: 3
 
 # Constraints:
-# 1. Namespace, PVC and ReplicationSource should all share the same name.
-# 2. Restic repo secret MUST have be named "restic-[namespace]".
-# 3. Only one replicated PVC per namespace.
+# 1. Replication source MUST be named "[namespace]-[pvc-name]".
+# 2. Restic repo secret MUST be named "restic-[namespace]-[pvc-name]".
+# 3. Backups in the environment variables below MUST be named "[namespace]_[pvc-name]", replacing ALL hypens with underscores.
 
 # backups are defined as environment variables. We check if they exist to ensure only valid names are used.
 # new backups should be added (and tested!) here.
 env:
-  ccinvoice: --name ccinvoice --manage-pods --runner-id 1000
-  home_assistant: --name home-assistant --manage-pods --runner-id 1000
+  ccinvoice_ccinvoice: --name ccinvoice --namespace ccinvoice --manage-pods --runner-id 1000
+  home_assistant_home_assistant: --name home-assistant --namespace home-assistant --manage-pods --runner-id 1000
 
 # TODO: add manual backup task/s that can be run on demand.
 tasks:

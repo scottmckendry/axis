@@ -17,10 +17,11 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 echo -e "${BOLD}🔍 Backup Selection Helper${NC}"
 
 # Get secret name from argument or default
-echo -ne "  ${GREEN}↳${NC} Enter the name for restore: "
+echo -ne "  ${GREEN}↳${NC} Enter namespace for restore: "
 read -r NAMESPACE
-SECRET_NAME="restic-$NAMESPACE"
-
+echo -ne "  ${GREEN}↳${NC} Enter PVC name to restore: "
+read -r PVC_NAME
+SECRET_NAME="restic-$NAMESPACE-$PVC_NAME"
 echo -e "  ${GREEN}↳${NC} Loading credentials from ${BOLD}$SECRET_NAME${NC}..."
 
 SECRET_PROPS=(
@@ -79,4 +80,5 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 
 # replicate hyphens in namespace to underscores for compatibility with env var lookups in child task
 # e.g. home-assistant -> volsync_restore_home_assistant
-task volsync:restore-${NAMESPACE//-/_} -- --restore-date "$adjusted"
+TASK_NAME="${NAMESPACE}-${PVC_NAME}"
+task volsync:restore-${TASK_NAME//-/_} -- --restore-date "$adjusted"
