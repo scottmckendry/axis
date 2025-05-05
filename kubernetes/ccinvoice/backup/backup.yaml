@@ -23,4 +23,3 @@ spec:
       weekly: 4
       monthly: 2
     copyMethod: Direct
-    storageClassName: local-path
