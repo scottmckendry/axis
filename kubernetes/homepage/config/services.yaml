@@ -20,6 +20,17 @@
           type: traefik
           url: "https://traefik.axis.scottmckendry.tech"
 
+    - TrueNAS:
+        icon: truenas.svg
+        href: https://truenas.axis.scottmckendry.tech
+        description: The beating heart of AXIS
+        siteMonitor: http://10.0.6.1
+        widget:
+          type: truenas
+          url: "https://truenas.axis.scottmckendry.tech"
+          key: "{{HOMEPAGE_VAR_TRUENAS_API_KEY}}"
+          fields: ["load", "uptime"]
+
 - Apps:
     - Home Assistant:
         icon: home-assistant.svg
@@ -38,11 +49,25 @@
               label: "lights on"
             - template: "{{ states.switch|selectattr('state','equalto','on')|list|length }} / {{ states.switch|list|length }}"
               label: "switches on"
+
     - Home Assistant Code Server:
         icon: visual-studio-code.svg
         href: https://ha-code.axis.scottmckendry.tech
         description: Edit HA Configuration Files
         siteMonitor: https://ha-code.axis.scottmckendry.tech
+
+    - Jellyfin:
+        icon: jellyfin.svg
+        href: https://jellyfin.axis.scottmckendry.tech
+        description: Media Server
+        siteMonitor: https://jellyfin.axis.scottmckendry.tech
+        widget:
+          type: jellyfin
+          url: "https://jellyfin.axis.scottmckendry.tech"
+          key: "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}"
+          enableBlocks: true
+          enableNowPlaying: false
+          fields: ["movies", "series", "episodes"]
 
 - Monitoring:
     - Grafana:
@@ -55,6 +80,7 @@
           url: "http://grafana.monitoring.svc.cluster.local:80"
           username: "{{HOMEPAGE_VAR_GRAFANA_USERNAME}}"
           password: "{{HOMEPAGE_VAR_GRAFANA_PASSWORD}}"
+
     - Prometheus:
         icon: prometheus.svg
         href: https://prometheus.axis.scottmckendry.tech
@@ -63,6 +89,7 @@
         widget:
           type: prometheus
           url: "http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090"
+
     - Alertmanager:
         icon: mdi-bell-alert-outline
         href: https://am.axis.scottmckendry.tech
