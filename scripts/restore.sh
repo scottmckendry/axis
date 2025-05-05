@@ -149,7 +149,7 @@ if [[ "$MANAGE_PODS" == "true" ]]; then
 	done </tmp/replica-counts.txt
 	# Restore original replica counts
 	while read -r deploy replicas; do
-		kubectl scale -n "$NAME" deployment/"$deploy" --replicas="$replicas"
+		kubectl scale -n "$NAMESPACE" deployment/"$deploy" --replicas="$replicas"
 	done </tmp/replica-counts.txt
 	rm -f /tmp/replica-counts.txt
 fi
