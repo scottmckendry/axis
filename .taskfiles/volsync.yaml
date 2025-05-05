@@ -12,6 +12,8 @@ version: 3
 env:
   ccinvoice_ccinvoice: --name ccinvoice --namespace ccinvoice --manage-pods --runner-id 1000
   home_assistant_home_assistant: --name home-assistant --namespace home-assistant --manage-pods --runner-id 1000
+  media_prowlarr: --name prowlarr --namespace media --manage-pods --runner-id 1000
+  media_sonarr: --name sonarr --namespace media --manage-pods --runner-id 1000
 
 # TODO: add manual backup task/s that can be run on demand.
 tasks:
