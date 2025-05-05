@@ -10,3 +10,4 @@ resources:
   - middlewares.yaml
   - tinyauth.yaml
   - tinyauth.secret.sops.yaml
+  - external-ingress.yaml

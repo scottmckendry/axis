@@ -1,0 +1,48 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/service.json
+apiVersion: v1
+kind: Service
+metadata:
+  name: ext-truenas
+  namespace: traefik
+spec:
+  type: ExternalName
+  externalName: 10.0.6.1
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ext-truenas
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`truenas.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+      services:
+        - name: ext-truenas
+          port: 80
+  tls:
+    secretName: axis-tls
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ext-truenas-jellyfin
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`jellyfin.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+      services:
+        - name: ext-truenas
+          port: 30013
+  tls:
+    secretName: axis-tls
