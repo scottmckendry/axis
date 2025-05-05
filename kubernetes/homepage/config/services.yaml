@@ -56,19 +56,6 @@
         description: Edit HA Configuration Files
         siteMonitor: https://ha-code.axis.scottmckendry.tech
 
-    - Jellyfin:
-        icon: jellyfin.svg
-        href: https://jellyfin.axis.scottmckendry.tech
-        description: Media Server
-        siteMonitor: https://jellyfin.axis.scottmckendry.tech
-        widget:
-          type: jellyfin
-          url: "https://jellyfin.axis.scottmckendry.tech"
-          key: "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}"
-          enableBlocks: true
-          enableNowPlaying: false
-          fields: ["movies", "series", "episodes"]
-
 - Monitoring:
     - Grafana:
         icon: grafana.svg
@@ -101,3 +88,37 @@
           metrics:
             - label: Active Alerts
               query: alertmanager_alerts{state="active"}
+
+- Media:
+    - Jellyfin:
+        icon: jellyfin.svg
+        href: https://jellyfin.axis.scottmckendry.tech
+        description: Media Server
+        siteMonitor: https://jellyfin.axis.scottmckendry.tech
+        widget:
+          type: jellyfin
+          url: "https://jellyfin.axis.scottmckendry.tech"
+          key: "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}"
+          enableBlocks: true
+          enableNowPlaying: false
+          fields: ["movies", "series", "episodes"]
+
+    - Sonarr:
+        icon: sonarr.svg
+        href: https://sonarr.axis.scottmckendry.tech
+        description: TV Shows
+        siteMonitor: https://sonarr.axis.scottmckendry.tech
+        widget:
+          type: sonarr
+          url: "http://sonarr.media.svc.cluster.local"
+          key: "{{HOMEPAGE_VAR_SONARR_API_KEY}}"
+
+    - Prowlarr:
+        icon: prowlarr.svg
+        href: https://prowlarr.axis.scottmckendry.tech
+        description: Indexer Manager
+        siteMonitor: https://prowlarr.axis.scottmckendry.tech
+        widget:
+          type: prowlarr
+          url: "http://prowlarr.media.svc.cluster.local"
+          key: "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}"
