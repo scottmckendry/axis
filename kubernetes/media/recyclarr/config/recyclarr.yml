@@ -21,5 +21,6 @@ sonarr:
           - 9b64dff695c2115facf1b6ea59c9bd07 # x265 (no HDR/DV)
         assign_scores_to:
           - name: WEB-1080p
+            score: 100
           - name: WEB-2160p
             score: 100
