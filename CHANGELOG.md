@@ -1,5 +1,43 @@
 # Changelog
 
+## [2.1.0](https://github.com/scottmckendry/axis/compare/v2.0.0...v2.1.0) (2025-05-06)
+
+
+### Features
+
+* add actual budget ([fad73a9](https://github.com/scottmckendry/axis/commit/fad73a992bd0d674d80b68a7aad440ec4702b8fd))
+* add media namespace, pvc and qbt ([e4605f3](https://github.com/scottmckendry/axis/commit/e4605f30bb6c630ddc3797c806746f83f6e34466))
+* add prowlarr ([bc9ff9a](https://github.com/scottmckendry/axis/commit/bc9ff9aaef30e713cfe55e736f18d83c82aa15c9))
+* add sonarr ([24fcb37](https://github.com/scottmckendry/axis/commit/24fcb37c1baa04556c30d5612680279617be43e3))
+* **backup:** schedule backups overnight (utc) ([85f1d13](https://github.com/scottmckendry/axis/commit/85f1d13abc4eb33723523bdec5062d6f9746bb3c))
+* **backup:** support multiple PVCs per namespace ([0166e52](https://github.com/scottmckendry/axis/commit/0166e52477947c35e7d12d6ba5034ba91371cb2b))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 71.1.1 → 71.2.0 ) ([34976c5](https://github.com/scottmckendry/axis/commit/34976c5613745c6d3ab9ba812e5ce188655ff567))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.2.1 → v3.3.0 ) ([7b03003](https://github.com/scottmckendry/axis/commit/7b0300330ffd3dccdb1ad7b76c93c31936cdc74f))
+* **homepage:** add jellyfin & truenas ([a6495a4](https://github.com/scottmckendry/axis/commit/a6495a4f3f2b369018eac04560c2fa3c78d11364))
+* **homepage:** add qbt card ([eb20e6c](https://github.com/scottmckendry/axis/commit/eb20e6ca2511d62f5d333e5e833370aa4db8b09a))
+* **homepage:** add sonarr & prowlarr headings ([59ac8f5](https://github.com/scottmckendry/axis/commit/59ac8f5f4830b0a1b92278b58ac6f8617f9ca030))
+* **media:** add backup configs for sonarr & prowlarr ([45d31bd](https://github.com/scottmckendry/axis/commit/45d31bde53e4712abaaf55ddf45a7965da43fd97))
+* **media:** add flaresolverr ([aa3b9d5](https://github.com/scottmckendry/axis/commit/aa3b9d53447432cb129a377e170c19668541beac))
+* **media:** add recyclarr config ([8ed1834](https://github.com/scottmckendry/axis/commit/8ed1834c20ac03e38cf160817d75e71895be258f))
+* **talos:** add iscsi-tools extension ([90b9453](https://github.com/scottmckendry/axis/commit/90b9453cdb736a6bca86ca853264cf0696761630))
+* **talos:** add tasks for upgrades, upgrade to v1.10.0 ([b74a972](https://github.com/scottmckendry/axis/commit/b74a972be7b2d5a7cfc289c9135a94310cc079c5))
+* **traefik:** ingress routes for off-cluster services ([28b7d7a](https://github.com/scottmckendry/axis/commit/28b7d7ac0787c1ebc40cec3d32341eafef2db73a))
+* truenas iscsi & nfs storage ([7290429](https://github.com/scottmckendry/axis/commit/729042979c6c955a93b29816ad2ab3cdec5b17f5))
+
+
+### Bug Fixes
+
+* **backup:** use correct namespace var when scaling back up ([1bff8b5](https://github.com/scottmckendry/axis/commit/1bff8b5add92a34a997b778f3cf7569ae91c6fa6))
+* **container:** update image ghcr.io/coder/code-server ( 4.99.3 → 4.99.4 ) ([8b9aef4](https://github.com/scottmckendry/axis/commit/8b9aef4ad6e428f6f28a4cdb86d6e097416b867e))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 8.14.0 → 8.14.1 ) ([d3f444b](https://github.com/scottmckendry/axis/commit/d3f444b60abed1b2c6f54c0313a8b7a8d0c6ad92))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 8.14.1 → 8.14.2 ) ([e1c37ac](https://github.com/scottmckendry/axis/commit/e1c37acbf8387f5a040196b67499a4dca38f243f))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 71.1.0 → 71.1.1 ) ([f89ca7a](https://github.com/scottmckendry/axis/commit/f89ca7a00d89520c582fc479fcca416a29bff237))
+* **media:** qbt download path mount ([3bf77f9](https://github.com/scottmckendry/axis/commit/3bf77f9cc3a79a060a903020a0f2b14fcf367ae2))
+* **media:** remove recyclarr quality definition templates ([8ead2fa](https://github.com/scottmckendry/axis/commit/8ead2fa198dcae1aebd0558698217317e8c7a2c7))
+* **monitoring:** include loki in flux kustomization ([c87ddc4](https://github.com/scottmckendry/axis/commit/c87ddc4e7489e8e05cf2218885cbcd16d49fd4a4))
+* **talos:** include extensions in image upgrade, rollback to v1.9.5 ([9f622eb](https://github.com/scottmckendry/axis/commit/9f622eba0306cdb32455a7fc838ca4d876af33bd))
+* **traefik:** rollback tinyauth to known working version ([54dc5bc](https://github.com/scottmckendry/axis/commit/54dc5bc81e03559866eb81a9de5eb0b3c94d9e41))
+
 ## [2.0.0](https://github.com/scottmckendry/axis/compare/v1.1.0...v2.0.0) (2025-04-30)
 
 
