@@ -7,4 +7,3 @@ resources:
   - ingress.yaml
   - pvc.yaml
   - backup
-  - flaresolverr.yaml

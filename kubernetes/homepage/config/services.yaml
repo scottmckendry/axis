@@ -126,7 +126,7 @@
         siteMonitor: https://prowlarr.axis.scottmckendry.tech
         widget:
           type: prowlarr
-          url: "http://prowlarr.media.svc.cluster.local"
+          url: "http://prowlarr-app.media.svc.cluster.local"
           key: "{{HOMEPAGE_VAR_PROWLARR_API_KEY}}"
 
     - qBittorrent:

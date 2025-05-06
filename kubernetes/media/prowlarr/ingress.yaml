@@ -15,7 +15,7 @@ spec:
         - name: forwardauth
           namespace: traefik
       services:
-        - name: prowlarr
+        - name: prowlarr-app
           namespace: media
           port: 80
   tls:

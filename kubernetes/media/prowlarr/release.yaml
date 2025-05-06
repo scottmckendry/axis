@@ -33,6 +33,20 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
+      flaresolverr:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/flaresolverr/flaresolverr
+              tag: v3.3.21@sha256:f104ee51e5124d83cf3be9b37480649355d223f7d8f9e453d0d5ef06c6e3b31b
+            ports:
+              - containerPort: 8191
+            securityContext:
+              allowPrivilegeEscalation: false
+              runAsNonRoot: true
+              capabilities: { drop: ["ALL"] }
+              seccompProfile:
+                type: RuntimeDefault
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -46,6 +60,11 @@ spec:
         ports:
           http:
             port: 80
+      flaresolverr:
+        controller: flaresolverr
+        ports:
+          http:
+            port: 8191
     persistence:
       config:
         existingClaim: prowlarr
