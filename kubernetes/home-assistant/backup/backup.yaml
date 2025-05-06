@@ -8,7 +8,7 @@ metadata:
 spec:
   sourcePVC: home-assistant
   trigger:
-    schedule: "0 1 * * *"
+    schedule: "0 13 * * *"
   restic:
     moverSecurityContext:
       runAsNonRoot: true
