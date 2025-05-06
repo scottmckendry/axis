@@ -1,0 +1,47 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/deployment.json
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actual
+  namespace: actual
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: actual
+  template:
+    metadata:
+      labels:
+        app: actual
+    spec:
+      containers:
+        - name: actual
+          image: ghcr.io/actualbudget/actual-server:25.5.0
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          ports:
+            - containerPort: 5006
+          env:
+            - name: ACTUAL_PORT
+              value: "5006"
+          volumeMounts:
+            - name: actual-data
+              mountPath: /data
+          livenessProbe:
+            exec:
+              command:
+                - node
+                - src/scripts/health-check.js
+            initialDelaySeconds: 20
+            periodSeconds: 60
+            timeoutSeconds: 10
+            failureThreshold: 3
+      volumes:
+        - name: actual-data
+          persistentVolumeClaim:
+            claimName: actual

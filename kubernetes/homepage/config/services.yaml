@@ -56,6 +56,12 @@
         description: Edit HA Configuration Files
         siteMonitor: https://ha-code.axis.scottmckendry.tech
 
+    - Actual Budget:
+        icon: actual-budget.svg
+        href: https://budget.axis.scottmckendry.tech
+        description: Personal Finance
+        siteMonitor: https://budget.axis.scottmckendry.tech
+
 - Monitoring:
     - Grafana:
         icon: grafana.svg

@@ -1,0 +1,14 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/service.json
+apiVersion: v1
+kind: Service
+metadata:
+  name: actual
+  namespace: actual
+spec:
+  ports:
+    - port: 5006
+      targetPort: 5006
+      protocol: TCP
+  selector:
+    app: actual
