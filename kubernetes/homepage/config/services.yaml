@@ -119,6 +119,16 @@
           url: "http://sonarr.media.svc.cluster.local"
           key: "{{HOMEPAGE_VAR_SONARR_API_KEY}}"
 
+    - Radarr:
+        icon: radarr.svg
+        href: https://radarr.axis.scottmckendry.tech
+        description: Movies
+        siteMonitor: https://radarr.axis.scottmckendry.tech
+        widget:
+          type: radarr
+          url: "http://radarr.media.svc.cluster.local"
+          key: "{{HOMEPAGE_VAR_RADARR_API_KEY}}"
+
     - Prowlarr:
         icon: prowlarr.svg
         href: https://prowlarr.axis.scottmckendry.tech
