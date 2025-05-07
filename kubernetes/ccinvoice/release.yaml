@@ -1,0 +1,47 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ccinvoice
+  namespace: ccinvoice
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  values:
+    controllers:
+      main:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/scottmckendry/ccinvoice
+              tag: v2.3.0@sha256:2ab1286e7b3711d03ab5126434a513912a95bf8aa3ed8af2bab9c916158bf159
+            envFrom:
+              - secretRef:
+                  name: ccinvoice-secrets
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop: ["ALL"]
+              seccompProfile:
+                type: RuntimeDefault
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 3000
+    persistence:
+      data:
+        existingClaim: ccinvoice
+        globalMounts:
+          - path: /app/data

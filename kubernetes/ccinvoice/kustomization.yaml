@@ -4,8 +4,7 @@ kind: Kustomization
 resources:
   - ns.yaml
   - pvc.yaml
-  - deployment.yaml
-  - service.yaml
+  - release.yaml
   - ingress.yaml
   - ccinvoice.secret.sops.yaml
   - backup
