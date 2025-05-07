@@ -22,3 +22,24 @@ sonarr:
             score: 100
           - name: WEB-2160p
             score: 100
+
+radarr:
+  radarr:
+    base_url: http://radarr.media.svc.cluster.local
+    api_key: !env_var RADARR_API_KEY
+
+    include:
+      - template: radarr-quality-profile-hd-bluray-web
+      - template: radarr-custom-formats-hd-bluray-web
+      - template: radarr-quality-profile-uhd-bluray-web
+      - template: radarr-custom-formats-uhd-bluray-web
+
+    custom_formats:
+      - trash_ids:
+          - dc98083864ea246d05a42df0d05f81cc # x265 (HD)
+          - 839bea857ed2c0a8e084f3cbdbd65ecb # x265 (no HDR/DV)
+        assign_scores_to:
+          - name: HD Bluray + WEB
+            score: 100
+          - name: UHD Bluray + WEB
+            score: 100
