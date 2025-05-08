@@ -41,5 +41,5 @@ spec:
       tmp:
         type: emptyDir
         globalMounts:
-          - path: /app/tmp/
+          - path: /tmp
             readOnly: false
