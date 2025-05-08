@@ -1,0 +1,45 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: akahu-actual
+  namespace: actual
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  dependsOn:
+    - name: actual
+      namespace: actual
+  values:
+    controllers:
+      akahu-actual:
+        type: cronjob
+        cronjob:
+          schedule: 0 * * * *
+        containers:
+          tag:
+            image:
+              repository: ghcr.io/scottmckendry/akahu-actual
+              tag: v0.1.1@sha256:e98f3c80b168e59252316b4483f575bde91d9b8aa790b70421248c8f884e9b57
+            envFrom:
+              - secretRef:
+                  name: akahu-actual-secret
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+    persistence:
+      tmp:
+        type: emptyDir
+        globalMounts:
+          - path: /app/tmp/
+            readOnly: false
