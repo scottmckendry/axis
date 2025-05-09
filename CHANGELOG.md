@@ -1,5 +1,37 @@
 # Changelog
 
+## [3.0.0](https://github.com/scottmckendry/axis/compare/v2.1.0...v3.0.0) (2025-05-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/grafana/helm-charts/grafana ( 8.15.0 → 9.0.0 )
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 71.2.0 → 72.0.1 )
+
+### Features
+
+* **actual:** add akahu-actual for automatic bank sync ([632b9bf](https://github.com/scottmckendry/axis/commit/632b9bf879544be27119862ddfb0ddc9b50ec883))
+* **container:** Update image ghcr.io/grafana/helm-charts/grafana ( 8.15.0 → 9.0.0 ) ([17ba3c9](https://github.com/scottmckendry/axis/commit/17ba3c98156bfce84b657cb540ec255bd10a56b9))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.4.4 → 2025.5.0 ) ([daad82b](https://github.com/scottmckendry/axis/commit/daad82b8accf35db9c7191115f6157fca421a604))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 71.2.0 → 72.0.1 ) ([bfcf3b6](https://github.com/scottmckendry/axis/commit/bfcf3b636d216a48c663937d5833ee12c7cc0e37))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.0.1 → 72.1.0 ) ([a7e0b4f](https://github.com/scottmckendry/axis/commit/a7e0b4ff534b44d94153beccde58fb1f14a3ded7))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.1.0 → 72.2.0 ) ([d4ab9bc](https://github.com/scottmckendry/axis/commit/d4ab9bc99dcfd1c8ec8398994fd6f3482f732bf7))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.2.1 → v3.3.1 ) ([f88ddff](https://github.com/scottmckendry/axis/commit/f88ddfff1f24deaa4eb1da865379dfa4d1e26685))
+* **homepage:** add radarr card ([69aa664](https://github.com/scottmckendry/axis/commit/69aa664ad2067c7a8597a6bce156dbdcbb9f94a1))
+* **media:** add radarr ([ded6308](https://github.com/scottmckendry/axis/commit/ded630853e499a5bcc264b4a23f06d8f7c56791b))
+* **media:** add radarr recyclarr config ([b14efe4](https://github.com/scottmckendry/axis/commit/b14efe4e5d9fc8d9a92360331f1e75854726eef6))
+* **talos:** upgrade to v1.10.0 ([91b9ee0](https://github.com/scottmckendry/axis/commit/91b9ee0a70c72f56bb50d2be6765d104a028304f))
+
+
+### Bug Fixes
+
+* **actual:** update akahu-actual persistence mounts for v0.1.2 ([0804bd4](https://github.com/scottmckendry/axis/commit/0804bd458b27497c9c4710a508931e593a9e952d))
+* **container:** update image ghcr.io/scottmckendry/akahu-actual ( v0.1.1 → v0.1.2 ) ([2234251](https://github.com/scottmckendry/axis/commit/22342514d28044e00b1bb5dadccb8a58cffbb4cc))
+* **deps:** update dependency helmrelease ( helm.toolkit.fluxcd.io/v2beta2 → helm.toolkit.fluxcd.io/v2 ) ([e4bcf6f](https://github.com/scottmckendry/axis/commit/e4bcf6f30c65b61d2beca958df6668dce39e1a1f))
+* **media:** include flaresolverr in prowlarr kustomization ([5e0ba05](https://github.com/scottmckendry/axis/commit/5e0ba0540ab54d0481d5a1352c93d539ad758854))
+* **monitoring:** disable CPUThrottlingHigh prometheus rule ([207ab78](https://github.com/scottmckendry/axis/commit/207ab78e68f4cc17e44c897874e06feda5c30a03))
+* **monitoring:** disable kubelet alert rules ([ec65c47](https://github.com/scottmckendry/axis/commit/ec65c472d6e14dc997ed06140bda29262242af3f))
+
 ## [2.1.0](https://github.com/scottmckendry/axis/compare/v2.0.0...v2.1.0) (2025-05-06)
 
 
