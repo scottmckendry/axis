@@ -18,6 +18,12 @@ spec:
       rules:
         kubeControllerManager: false
         kubeSchedulerAlerting: false
+        kubelet: false
+      disabled:
+        KubeletPodStartUpLatencyHigh: true
+
+    alertmanager:
+      externalUrl: https://am.axis.scottmckendry.tech
 
     grafana:
       enabled: false
@@ -35,6 +41,11 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
+
+    prometheusOperator:
+      kubeletService:
+        enabled: false
+
     kubeEtcd:
       service:
         selector:
