@@ -25,9 +25,12 @@ spec:
 
     alertmanager:
       externalUrl: https://am.axis.scottmckendry.tech
+      alertmanagerSpec:
+        replicas: 3
 
     grafana:
       enabled: false
+      forceDeployDashboards: true
 
     prometheus:
       prometheusSpec:
