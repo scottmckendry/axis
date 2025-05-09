@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.0](https://github.com/scottmckendry/axis/compare/v3.0.0...v3.1.0) (2025-05-09)
+
+
+### Features
+
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.2.0 → 72.3.0 ) ([89e7bc4](https://github.com/scottmckendry/axis/commit/89e7bc43b5073ec03cda1cb48c43928e47a67c2a))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.5.0 → 2025.5.1 ) ([0d1a015](https://github.com/scottmckendry/axis/commit/0d1a01542af38a07dfbd5a0e57f565c784642dd6))
+* **monitoring:** alertmanager cluster status disabled ([2d48b49](https://github.com/scottmckendry/axis/commit/2d48b490ab9655f8a54c3b919edc5713779ca0ca))
+
 ## [3.0.0](https://github.com/scottmckendry/axis/compare/v2.1.0...v3.0.0) (2025-05-09)
 
 
