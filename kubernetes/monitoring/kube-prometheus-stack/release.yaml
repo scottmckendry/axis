@@ -21,6 +21,7 @@ spec:
         kubelet: false
       disabled:
         KubeletPodStartUpLatencyHigh: true
+        CPUThrottlingHigh: true
 
     alertmanager:
       externalUrl: https://am.axis.scottmckendry.tech
