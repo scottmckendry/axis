@@ -1,6 +1,55 @@
 ---
 # https://gethomepage.dev/configs/bookmarks/
-- Developer:
-    - Github:
-        - abbr: GH
-          href: https://github.com/
+- dev:
+    - axis:
+        - icon: si-github
+          href: https://github.com/scottmckendry/axis
+    - nix:
+        - icon: si-github
+          href: https://github.com/scottmckendry/nix
+    - windots:
+        - icon: si-github
+          href: https://github.com/scottmckendry/windots
+    - akahu-actual:
+        - icon: si-github
+          href: https://github.com/scottmckendry/akahu-actual
+- entertainment:
+    - youtube:
+        - icon: si-youtube
+          href: https://youtube.com
+    - twitch:
+        - icon: si-twitch
+          href: https://twitch.tv
+    - imdb:
+        - icon: si-imdb
+          href: https://imdb.com
+    - tmdb:
+        - icon: si-themoviedatabase
+          href: https://themoviedb.org
+- tools:
+    - bitwarden:
+        - icon: si-bitwarden
+          href: https://vault.bitwarden.com
+    - backblaze b2:
+        - icon: si-backblaze
+          href: https://secure.backblaze.com/b2_buckets.htm
+    - renovate:
+        - icon: si-renovate
+          href: https://developer.mend.io/
+    - copilot chat:
+        - icon: si-githubcopilot
+          href: https://github.com/copilot/
+
+- docs:
+    - talos:
+        - icon: si-talos
+          href: https://talos.dev/docs/
+    - kubernetes:
+        - icon: si-kubernetes
+          href: https://kubernetes.io/docs/home/
+    - helm:
+        - icon: si-helm
+          href: https://helm.sh/docs/
+    - flux:
+        - icon: si-flux
+          href: https://fluxcd.io/docs/
