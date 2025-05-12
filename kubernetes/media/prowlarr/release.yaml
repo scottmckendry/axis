@@ -68,3 +68,8 @@ spec:
     persistence:
       config:
         existingClaim: prowlarr
+        advancedMounts:
+          prowlarr:
+            app:
+              - path: /config
+                readOnly: false
