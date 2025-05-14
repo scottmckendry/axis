@@ -21,7 +21,6 @@ spec:
       kind: Rule
       middlewares:
         - name: ipallowlist
-          namespace: traefik
       services:
         - name: ext-truenas
           port: 80
@@ -40,9 +39,37 @@ spec:
       kind: Rule
       middlewares:
         - name: ipallowlist
-          namespace: traefik
       services:
         - name: ext-truenas
           port: 30013
   tls:
     secretName: axis-tls
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/service.json
+apiVersion: v1
+kind: Service
+metadata:
+  name: ext-proxmox
+  namespace: traefik
+spec:
+  type: ExternalName
+  externalName: 10.0.20.1
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ext-proxmox
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`proxmox.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+        - name: forwardauth
+        - name: default-headers
+      services:
+        - name: ext-proxmox
+          port: 8006
+          scheme: https
