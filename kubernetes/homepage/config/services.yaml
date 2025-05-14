@@ -4,7 +4,6 @@
     - UniFi:
         icon: unifi.svg
         href: "{{HOMEPAGE_VAR_UNIFI_URL}}"
-        description: Dream Machine
         siteMonitor: "{{HOMEPAGE_VAR_UNIFI_URL}}"
         widget:
           type: unifi
@@ -14,7 +13,6 @@
     - Traefik:
         icon: traefik.svg
         href: https://traefik.axis.scottmckendry.tech
-        description: Reverse Proxy
         siteMonitor: https://traefik.axis.scottmckendry.tech
         widget:
           type: traefik
@@ -23,7 +21,6 @@
     - TrueNAS:
         icon: truenas.svg
         href: https://truenas.axis.scottmckendry.tech
-        description: The beating heart of AXIS
         siteMonitor: http://10.0.6.1
         widget:
           type: truenas
@@ -31,11 +28,20 @@
           key: "{{HOMEPAGE_VAR_TRUENAS_API_KEY}}"
           fields: ["load", "uptime"]
 
+    - Proxmox:
+        icon: proxmox.svg
+        href: https://proxmox.axis.scottmckendry.tech
+        siteMonitor: https://10.0.20.1:8006
+        widget:
+          type: proxmox
+          url: "https://10.0.20.1:8006"
+          username: "{{HOMEPAGE_VAR_PROXMOX_TOKEN_ID}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_TOKEN_SECRET}}"
+
 - Apps:
     - Home Assistant:
         icon: home-assistant.svg
         href: https://ha.axis.scottmckendry.tech
-        description: Home Automation
         siteMonitor: https://ha.axis.scottmckendry.tech
         widget:
           type: homeassistant
@@ -53,20 +59,17 @@
     - Home Assistant Code Server:
         icon: visual-studio-code.svg
         href: https://ha-code.axis.scottmckendry.tech
-        description: Edit HA Configuration Files
         siteMonitor: https://ha-code.axis.scottmckendry.tech
 
     - Actual Budget:
         icon: actual-budget.svg
         href: https://budget.axis.scottmckendry.tech
-        description: Personal Finance
         siteMonitor: https://budget.axis.scottmckendry.tech
 
 - Monitoring:
     - Grafana:
         icon: grafana.svg
         href: https://grafana.axis.scottmckendry.tech
-        description: Dashboards and Monitoring
         siteMonitor: https://grafana.axis.scottmckendry.tech
         widget:
           type: grafana
@@ -78,7 +81,6 @@
         icon: prometheus.svg
         href: https://prometheus.axis.scottmckendry.tech
         siteMonitor: https://prometheus.axis.scottmckendry.tech
-        description: Metric Collection
         widget:
           type: prometheus
           url: "http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090"
@@ -86,7 +88,6 @@
     - Alertmanager:
         icon: mdi-bell-alert-outline
         href: https://am.axis.scottmckendry.tech
-        description: Dynamic Alerts
         siteMonitor: https://am.axis.scottmckendry.tech
         widget:
           type: prometheusmetric
@@ -99,7 +100,6 @@
     - Jellyfin:
         icon: jellyfin.svg
         href: https://jellyfin.axis.scottmckendry.tech
-        description: Media Server
         siteMonitor: https://jellyfin.axis.scottmckendry.tech
         widget:
           type: jellyfin
@@ -112,7 +112,6 @@
     - Sonarr:
         icon: sonarr.svg
         href: https://sonarr.axis.scottmckendry.tech
-        description: TV Shows
         siteMonitor: https://sonarr.axis.scottmckendry.tech
         widget:
           type: sonarr
@@ -122,7 +121,6 @@
     - Radarr:
         icon: radarr.svg
         href: https://radarr.axis.scottmckendry.tech
-        description: Movies
         siteMonitor: https://radarr.axis.scottmckendry.tech
         widget:
           type: radarr
@@ -132,7 +130,6 @@
     - Prowlarr:
         icon: prowlarr.svg
         href: https://prowlarr.axis.scottmckendry.tech
-        description: Indexer Manager
         siteMonitor: https://prowlarr.axis.scottmckendry.tech
         widget:
           type: prowlarr
@@ -142,7 +139,6 @@
     - qBittorrent:
         icon: qbittorrent.svg
         href: https://qbt.axis.scottmckendry.tech
-        description: Torrent Client
         siteMonitor: https://qbt.axis.scottmckendry.tech
         widget:
           type: qbittorrent
