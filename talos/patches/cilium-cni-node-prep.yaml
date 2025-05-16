@@ -1,0 +1,8 @@
+---
+# https://www.talos.dev/v1.10/kubernetes-guides/network/deploying-cilium/
+cluster:
+  network:
+    cni:
+      name: none
+  proxy:
+    disabled: true
