@@ -1,5 +1,31 @@
 # Changelog
 
+## [3.1.0](https://github.com/scottmckendry/axis/compare/v3.0.0...v3.1.0) (2025-05-16)
+
+
+### Features
+
+* **container:** update image ghcr.io/coder/code-server ( 4.99.4 → 4.100.0 ) ([ee99bb3](https://github.com/scottmckendry/axis/commit/ee99bb3664585eac93f4f4abfd3bdc1a0ec54336))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 1.35.1.5034 → 1.36.0.5044 ) ([495bcf0](https://github.com/scottmckendry/axis/commit/495bcf0c3afa9502eced1f8a28a173c39561d481))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.2.0 → 72.3.0 ) ([89e7bc4](https://github.com/scottmckendry/axis/commit/89e7bc43b5073ec03cda1cb48c43928e47a67c2a))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.3.1 → 72.4.0 ) ([69cf8d3](https://github.com/scottmckendry/axis/commit/69cf8d3e86e19f1d1ad788c6809f0ac13bec500e))
+* **homepage:** add craftycontroller card ([b93e253](https://github.com/scottmckendry/axis/commit/b93e2531b1d6526daa3711f7c6e6f704184fb4ba))
+* **homepage:** add misc bookmarks ([7813188](https://github.com/scottmckendry/axis/commit/7813188bf3c547f440cda706fd83aac52d2ef4c4))
+* **homepage:** add proxmox card ([9fcd8d5](https://github.com/scottmckendry/axis/commit/9fcd8d5a59c02496c42bff65358f776eb008f0fb))
+* **traefik:** add craftycontroller external ingress ([748df1a](https://github.com/scottmckendry/axis/commit/748df1a5817f5b322c26006d1ba96618e4e5c627))
+* **traefik:** add default-headers middleware, proxmox external ingress ([cd7c4e9](https://github.com/scottmckendry/axis/commit/cd7c4e90272ea0de2c2daf16a3975f00f35c6dd4))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.100.0 → 4.100.1 ) ([02e3642](https://github.com/scottmckendry/axis/commit/02e3642f766a08cb51767c2d26a93369aae3aacb))
+* **container:** update image ghcr.io/coder/code-server ( 4.100.1 → 4.100.2 ) ([e13203c](https://github.com/scottmckendry/axis/commit/e13203cd193d4315cdceba23ef1be65696a9a120))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.5.0 → 2025.5.1 ) ([0d1a015](https://github.com/scottmckendry/axis/commit/0d1a01542af38a07dfbd5a0e57f565c784642dd6))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 1.36.0.5044 → 1.36.1.5049 ) ([3caa37a](https://github.com/scottmckendry/axis/commit/3caa37a0ed5bd3c9c6aa7006d7316c8266b0938a))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.3.0 → 72.3.1 ) ([f7f8e80](https://github.com/scottmckendry/axis/commit/f7f8e80f6afad1cee993ed34cc966a8adaaa7a26))
+* **media:** single container mount for config volume ([56adb7f](https://github.com/scottmckendry/axis/commit/56adb7f50aca021fd354b3fae567ce54a9bebb6c))
+* **monitoring:** alertmanager cluster status disabled ([2d48b49](https://github.com/scottmckendry/axis/commit/2d48b490ab9655f8a54c3b919edc5713779ca0ca))
+
 ## [3.0.0](https://github.com/scottmckendry/axis/compare/v2.1.0...v3.0.0) (2025-05-09)
 
 
