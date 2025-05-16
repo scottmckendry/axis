@@ -66,6 +66,14 @@
         href: https://budget.axis.scottmckendry.tech
         siteMonitor: https://budget.axis.scottmckendry.tech
 
+    - Crafty Controller:
+        icon: crafty-controller.svg
+        href: https://crafty.axis.scottmckendry.tech
+        siteMonitor: https://10.0.6.1:30146
+        widget:
+          type: minecraft
+          url: "{{HOMEPAGE_VAR_CRAFTY_SERVER_URL}}"
+
 - Monitoring:
     - Grafana:
         icon: grafana.svg
