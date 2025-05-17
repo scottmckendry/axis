@@ -10,7 +10,7 @@ version: 3
 # backups are defined as environment variables. We check if they exist to ensure only valid names are used.
 # new backups should be added (and tested!) here.
 env:
-  actual_actual: --name actual --namespace actual --manage-pods
+  actual_actual: --name actual --namespace actual --manage-pods --runner-id 1000
   ccinvoice_ccinvoice: --name ccinvoice --namespace ccinvoice --manage-pods --runner-id 1000
   home_assistant_home_assistant: --name home-assistant --namespace home-assistant --manage-pods --runner-id 1000
   media_prowlarr: --name prowlarr --namespace media --manage-pods --runner-id 1000
