@@ -5,4 +5,4 @@ kind: Kustomization
 resources:
   - ns.yaml
   - local-path-provisioner
-  - democratic-csi
+  # - democratic-csi

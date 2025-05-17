@@ -15,3 +15,11 @@ spec:
         name: backube
   interval: 1h
   timeout: 10m
+  values:
+    manageCRDs: true
+    metrics:
+      disableAuth: true
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsGroup: 1000
+      runAsUser: 1000
