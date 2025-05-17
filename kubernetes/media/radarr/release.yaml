@@ -54,6 +54,8 @@ spec:
         globalMounts:
           - path: /config/MediaCover
       media:
-        existingClaim: media
+        type: nfs
+        server: 10.0.6.1
+        path: /mnt/TrueBlue/media
         globalMounts:
           - path: /media
