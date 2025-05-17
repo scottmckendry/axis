@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.2.0](https://github.com/scottmckendry/axis/compare/v3.1.0...v3.2.0) (2025-05-17)
+
+
+### Features
+
+* add snapshot-controller ([d425b39](https://github.com/scottmckendry/axis/commit/d425b399415c5133d4d0ab6a720550685ec376de))
+
+
+### Bug Fixes
+
+* **backups:** specify userid for actual budget restore ([d6502f4](https://github.com/scottmckendry/axis/commit/d6502f4fff56d756cad6e8aba5aa695e3a59eb80))
+
 ## [3.1.0](https://github.com/scottmckendry/axis/compare/v3.0.0...v3.1.0) (2025-05-16)
 
 
