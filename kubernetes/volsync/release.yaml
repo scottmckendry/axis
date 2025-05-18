@@ -15,3 +15,13 @@ spec:
         name: backube
   interval: 1h
   timeout: 10m
+  values:
+    manageCRDs: true
+    replicaCount: 2
+    metrics:
+      enabled: true
+      disableAuth: true
+      serviceMonitor:
+        enabled: true
+        namespace: monitoring
+        honorLabels: true
