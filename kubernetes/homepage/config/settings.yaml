@@ -1,10 +1,7 @@
 ---
 # https://gethomepage.dev/configs/settings/
 title: AXIS
-background:
-  image: https://w.wallhaven.cc/full/kx/wallhaven-kx5rpd.jpg
-cardBlur: xl
 theme: dark
-color: slate
+color: stone
 hideVersion: true
 disableUpdateCheck: true
