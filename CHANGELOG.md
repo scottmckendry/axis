@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.2.0](https://github.com/scottmckendry/axis/compare/v3.1.0...v3.2.0) (2025-05-19)
+
+
+### Features
+
+* add snapshot-controller ([d425b39](https://github.com/scottmckendry/axis/commit/d425b399415c5133d4d0ab6a720550685ec376de))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.4.0 → 72.5.0 ) ([44d026a](https://github.com/scottmckendry/axis/commit/44d026a4c11ff350e8cadd6ba8875dd4c8a4d9a4))
+* **monitoring:** configure alertmanager with discord ([35ffa28](https://github.com/scottmckendry/axis/commit/35ffa284a2b8536371a2fbfc2907a20b407b872b))
+* **talos:** configure NFS mount parameters ([da2cfb4](https://github.com/scottmckendry/axis/commit/da2cfb4625f8a8635950dca8ff4867d7eeea62f9))
+* **volsync:** configure prometheus monitoring ([648c42f](https://github.com/scottmckendry/axis/commit/648c42f78f04a3c1596bd85a105ccab2b8e24ad4))
+
+
+### Bug Fixes
+
+* **backups:** specify userid for actual budget restore ([d6502f4](https://github.com/scottmckendry/axis/commit/d6502f4fff56d756cad6e8aba5aa695e3a59eb80))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.5.1 → 2025.5.2 ) ([f42a674](https://github.com/scottmckendry/axis/commit/f42a674d22ea3c8c131e440c666c247abdb1dee1))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 1.36.1.5049 → 1.36.2.5059 ) ([25f80bf](https://github.com/scottmckendry/axis/commit/25f80bf152a99f6c27b0b33d29df4e773bd30429))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.23.1.9914 → 5.23.3.9987 ) ([9951dfd](https://github.com/scottmckendry/axis/commit/9951dfd2e9f0420cfd51999ae00e648b3203582f))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.5.0 → 72.5.1 ) ([85ba45f](https://github.com/scottmckendry/axis/commit/85ba45f5c7da8746cd2f8cc163d75d6fe1f438c6))
+
 ## [3.1.0](https://github.com/scottmckendry/axis/compare/v3.0.0...v3.1.0) (2025-05-16)
 
 
