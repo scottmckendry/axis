@@ -24,9 +24,13 @@ spec:
         CPUThrottlingHigh: true
 
     alertmanager:
-      externalUrl: https://am.axis.scottmckendry.tech
       alertmanagerSpec:
+        externalUrl: https://am.axis.scottmckendry.tech
         replicas: 3
+        alertmanagerConfiguration:
+          name: alertmanager
+          global:
+            resolveTimeout: 5m
 
     grafana:
       enabled: false
@@ -34,6 +38,7 @@ spec:
 
     prometheus:
       prometheusSpec:
+        externalUrl: https://prometheus.axis.scottmckendry.tech
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
         ruleSelectorNilUsesHelmValues: false
