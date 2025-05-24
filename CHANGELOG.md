@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.3.0](https://github.com/scottmckendry/axis/compare/v3.2.0...v3.3.0) (2025-05-24)
+
+
+### Features
+
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.0.1 → 9.1.1 ) ([92ff410](https://github.com/scottmckendry/axis/commit/92ff41032144d8af581a02a18f20c5a33c11a386))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.1.1 → 9.2.0 ) ([7e7567f](https://github.com/scottmckendry/axis/commit/7e7567fe2ac18d06c87337d619d13581abded4c6))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.5.2 → 72.6.2 ) ([16320f7](https://github.com/scottmckendry/axis/commit/16320f74b917c721a9d85e887d0ebf24c8411f13))
+* **container:** update image ghcr.io/scottmckendry/akahu-actual ( v0.1.2 → v0.2.0 ) ([505b099](https://github.com/scottmckendry/axis/commit/505b099e84b7b9ccd12d52157968a2b0e3a52542))
+* **helm:** update chart loki ( 6.29.0 → 6.30.0 ) ([caf982c](https://github.com/scottmckendry/axis/commit/caf982cc5d04ad698e4f467b887bbf05555648ce))
+* **helm:** update chart traefik ( 35.2.0 → 35.3.0 ) ([75dc53b](https://github.com/scottmckendry/axis/commit/75dc53baf487cf06d2b13897052b60fcd5bd5fec))
+* **helm:** update chart traefik ( 35.3.0 → 35.4.0 ) ([a85b093](https://github.com/scottmckendry/axis/commit/a85b093d7a6f07b2b442e8e00500ddd20ed0847b))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.0.0 → 9.0.1 ) ([15c4e19](https://github.com/scottmckendry/axis/commit/15c4e19fd791d47f472a101b9dfcfc55bc5f3e6d))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.5.2 → 2025.5.3 ) ([f3dc3b6](https://github.com/scottmckendry/axis/commit/f3dc3b6652ff0c5c78e311d0d3a5299b3538feb4))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.5.1 → 72.5.2 ) ([623fcdd](https://github.com/scottmckendry/axis/commit/623fcddca1596808fbd54bbe2ef1754d567b05e4))
+* **container:** update image ghcr.io/scottmckendry/ccinvoice ( v2.3.0 → v2.3.1 ) ([3a48cd0](https://github.com/scottmckendry/axis/commit/3a48cd0de147eb98e8a85500e91c0e54df8812c6))
+
 ## [3.2.0](https://github.com/scottmckendry/axis/compare/v3.1.0...v3.2.0) (2025-05-19)
 
 
