@@ -1,5 +1,44 @@
 # Changelog
 
+## [4.0.0](https://github.com/scottmckendry/axis/compare/v3.3.0...v4.0.0) (2025-06-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/scottmckendry/ccinvoice ( v2.3.1 → v3.0.1 )
+* **helm:** Update chart traefik ( 35.4.0 → 36.0.0 )
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.9.1 → 73.1.0 )
+
+### Features
+
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.5.0 → 25.6.0 ) ([36f098d](https://github.com/scottmckendry/axis/commit/36f098d34325f250fa91ef8a3f43563f09f3dc98))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 1.36.3.5071 → 1.37.0.5076 ) ([75e5eb8](https://github.com/scottmckendry/axis/commit/75e5eb85bcad6f467dee22b2369bf69de2ee3cce))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.25.0.10024 → 5.26.0.10051 ) ([e5e6e56](https://github.com/scottmckendry/axis/commit/e5e6e56816a0ff3c938ac6c94b8453dd44f8b60b))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.9.1 → 73.1.0 ) ([1c2f5d5](https://github.com/scottmckendry/axis/commit/1c2f5d5f71d138d1b6ba0e39dd5c439d9fc13fe8))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 73.1.0 → 73.2.0 ) ([56062b4](https://github.com/scottmckendry/axis/commit/56062b40c19e7f2ea985722a0ebb82250851f445))
+* **container:** update image ghcr.io/scottmckendry/akahu-actual ( v0.2.0 → v0.3.0 ) ([ae883a8](https://github.com/scottmckendry/axis/commit/ae883a84763aadfce5e4df027577fa05440460b1))
+* **container:** Update image ghcr.io/scottmckendry/ccinvoice ( v2.3.1 → v3.0.1 ) ([3984c69](https://github.com/scottmckendry/axis/commit/3984c6970a2243cdbb0679cd608ee79e3a0dd69e))
+* **helm:** update chart cert-manager ( v1.17.2 → v1.18.0 ) ([399555e](https://github.com/scottmckendry/axis/commit/399555e7d271048071eabe86fabd8fbf4e1889ba))
+* **helm:** update chart metallb ( 0.14.9 → 0.15.0 ) ([6b0fdee](https://github.com/scottmckendry/axis/commit/6b0fdee9abd4cc619b2238be95fdf646fbada1e4))
+* **helm:** Update chart traefik ( 35.4.0 → 36.0.0 ) ([ec4c33a](https://github.com/scottmckendry/axis/commit/ec4c33a47b2310233b9e21bd9c115fd1637857b1))
+* **helm:** update chart traefik ( 36.0.0 → 36.1.0 ) ([f63ae6a](https://github.com/scottmckendry/axis/commit/f63ae6aeabd41433be815fcfbb4cc5d65cfd37ea))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.6.0 → 25.6.1 ) ([6764034](https://github.com/scottmckendry/axis/commit/676403482f9f1dedb20469f4dd12e9f2d1caa895))
+* **container:** update image ghcr.io/coder/code-server ( 4.100.2 → 4.100.3 ) ([14d566d](https://github.com/scottmckendry/axis/commit/14d566dca52fb4411f77d8ad48293f84944e70d2))
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.3.21 → v3.3.22 ) ([606787b](https://github.com/scottmckendry/axis/commit/606787b937ad4e98043530bae450fc65dc02a415))
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.3.22 → v3.3.24 ) ([42d74c9](https://github.com/scottmckendry/axis/commit/42d74c9df24ac10683bbb490b1c3c658cd301379))
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.3.1 → v1.3.2 ) ([73e5b4a](https://github.com/scottmckendry/axis/commit/73e5b4ade587015a948f4aac5124316f0456c3c5))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.2.1 → 9.2.2 ) ([843b248](https://github.com/scottmckendry/axis/commit/843b248981063cda64bea21d60fd6ebcc156591a))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.26.0.10051 → 5.26.1.10080 ) ([0440d70](https://github.com/scottmckendry/axis/commit/0440d7022b3b9c93c3bb3c27d24df34ef80491fa))
+* **container:** update image ghcr.io/home-operations/sonarr ( 4.0.14.2938 → 4.0.15.2940 ) ([4c0f9c7](https://github.com/scottmckendry/axis/commit/4c0f9c79ad605ce220afb47b86fd6a205b2970a2))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 72.9.0 → 72.9.1 ) ([f9bd6bf](https://github.com/scottmckendry/axis/commit/f9bd6bfaa09cb6e9b3c2f35318d47915018f6e4e))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.4.0 → v3.4.1 ) ([9a1a1c2](https://github.com/scottmckendry/axis/commit/9a1a1c220c09cd1a7ea399433fbf9482a86ed4a4))
+* **github-release:** update release fluxcd/flux2 ( v2.6.0 → v2.6.1 ) ([a57c169](https://github.com/scottmckendry/axis/commit/a57c16997417474348977e785c3e53831ebb5548))
+* **helm:** update chart metallb ( 0.15.0 → 0.15.2 ) ([9065896](https://github.com/scottmckendry/axis/commit/9065896b448cbfacf2b3583e1abb7c42a3e93e1e))
+
 ## [3.3.0](https://github.com/scottmckendry/axis/compare/v3.2.0...v3.3.0) (2025-06-01)
 
 
