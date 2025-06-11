@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: tinyauth
-          image: ghcr.io/steveiliop56/tinyauth:v3.4.0@sha256:49d5251b3e703a7e6aadca8aacddd4464089e7f1d2893e74aeca2e16baf2f548
+          image: ghcr.io/steveiliop56/tinyauth:v3.4.1@sha256:5195a8b30e7283fd5508418abe1a865d54b0ba2ab194eb0ee9974efdf0c964cc
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
