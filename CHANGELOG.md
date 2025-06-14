@@ -1,5 +1,34 @@
 # Changelog
 
+## [5.0.0](https://github.com/scottmckendry/axis/compare/v4.0.0...v5.0.0) (2025-06-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 73.2.3 → 74.0.0 )
+* **grafana-dashboards:** Update dashboard Node Exporter Full (40 → 41)
+
+### Features
+
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.5.3 → 2025.6.0 ) ([95fe516](https://github.com/scottmckendry/axis/commit/95fe5167ec7b139e936b1a7f57e0dfac07956e4e))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 73.2.3 → 74.0.0 ) ([458707f](https://github.com/scottmckendry/axis/commit/458707f7db09181224c40afe0814b4a72866d8ad))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.3.24 → v3.3.25 ) ([a69c6af](https://github.com/scottmckendry/axis/commit/a69c6af565e3bc53c3229f783fac2ce6c9b54e8a))
+* **container:** update image ghcr.io/fluxcd/source-controller ( v1.6.0 → v1.6.1 ) ([44460e9](https://github.com/scottmckendry/axis/commit/44460e94fa999c8037175f05bdd50edb1a184a35))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.2.2 → 9.2.3 ) ([4034a0e](https://github.com/scottmckendry/axis/commit/4034a0eea0cdd70b493f0ea0f46b8b24d9acf484))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.6.0 → 2025.6.1 ) ([2839008](https://github.com/scottmckendry/axis/commit/2839008f7493a30225219a4b00c4c7452ae5f8d8))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 73.2.0 → 73.2.2 ) ([3fbe7eb](https://github.com/scottmckendry/axis/commit/3fbe7eb652acc73e82a482c6a13f7815a78dcd13))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 73.2.2 → 73.2.3 ) ([75c7e08](https://github.com/scottmckendry/axis/commit/75c7e082792e5a9b861622fdc8a7adeb15e88834))
+* **container:** update image ghcr.io/scottmckendry/ccinvoice ( v3.0.1 → v3.0.2 ) ([1731212](https://github.com/scottmckendry/axis/commit/1731212e1d2779266ea8e2503decc9687c1cfdf9))
+
+
+### Miscellaneous Chores
+
+* **grafana-dashboards:** Update dashboard Node Exporter Full (40 → 41) ([b970058](https://github.com/scottmckendry/axis/commit/b9700585d26dec1a8f00d609bd8d8ad1b0430557))
+
 ## [4.0.0](https://github.com/scottmckendry/axis/compare/v3.3.0...v4.0.0) (2025-06-11)
 
 
