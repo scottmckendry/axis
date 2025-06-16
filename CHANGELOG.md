@@ -1,5 +1,18 @@
 # Changelog
 
+## [6.0.0](https://github.com/scottmckendry/axis/compare/v5.0.0...v6.0.0) (2025-06-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/home-operations/prowlarr ( 1.37.0.5076 → 2.0.0.5094 )
+
+### Features
+
+* **container:** Update image ghcr.io/home-operations/prowlarr ( 1.37.0.5076 → 2.0.0.5094 ) ([d7f6024](https://github.com/scottmckendry/axis/commit/d7f6024d322de179a379afb0fa18288164a38520))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.26.1.10080 → 5.27.0.10101 ) ([d203c32](https://github.com/scottmckendry/axis/commit/d203c32debabdfdc6d0ecf7f045c7192d8a22f63))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 74.0.0 → 74.2.1 ) ([d2f4b1f](https://github.com/scottmckendry/axis/commit/d2f4b1f0962976c391ebb6caff0242b052e19251))
+
 ## [5.0.0](https://github.com/scottmckendry/axis/compare/v4.0.0...v5.0.0) (2025-06-14)
 
 
