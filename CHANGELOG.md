@@ -1,5 +1,32 @@
 # Changelog
 
+## [6.0.0](https://github.com/scottmckendry/axis/compare/v5.0.0...v6.0.0) (2025-06-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 74.2.2 → 75.0.0 )
+* **container:** Update image ghcr.io/home-operations/prowlarr ( 1.37.0.5076 → 2.0.0.5094 )
+
+### Features
+
+* **container:** Update image ghcr.io/home-operations/prowlarr ( 1.37.0.5076 → 2.0.0.5094 ) ([d7f6024](https://github.com/scottmckendry/axis/commit/d7f6024d322de179a379afb0fa18288164a38520))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.26.1.10080 → 5.27.0.10101 ) ([d203c32](https://github.com/scottmckendry/axis/commit/d203c32debabdfdc6d0ecf7f045c7192d8a22f63))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 74.0.0 → 74.2.1 ) ([d2f4b1f](https://github.com/scottmckendry/axis/commit/d2f4b1f0962976c391ebb6caff0242b052e19251))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 74.2.2 → 75.0.0 ) ([28134e1](https://github.com/scottmckendry/axis/commit/28134e173f323a1cac5476dcb0a5c03ef6ee005a))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.0.0 → 75.3.3 ) ([15b9671](https://github.com/scottmckendry/axis/commit/15b96719d61330d3034d9d2389d047ef32f6f446))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.3.5 → 75.4.0 ) ([a86d630](https://github.com/scottmckendry/axis/commit/a86d630166af1fb15433e100655eee92934f9477))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.2.3 → 9.2.4 ) ([033a49a](https://github.com/scottmckendry/axis/commit/033a49a131993d3adcd46ce9944673b22325b23a))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.2.4 → 9.2.7 ) ([828b6b6](https://github.com/scottmckendry/axis/commit/828b6b66e9e93643cf315920d7033b97d8e4d336))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 74.2.1 → 74.2.2 ) ([cb165c1](https://github.com/scottmckendry/axis/commit/cb165c1fad16347a1d60217c82cf9f2eb2285399))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.3.3 → 75.3.5 ) ([77e61b9](https://github.com/scottmckendry/axis/commit/77e61b9f1f361270ecfff75f9cdd43efc242c894))
+* **github-release:** update release fluxcd/flux2 ( v2.6.1 → v2.6.2 ) ([db52503](https://github.com/scottmckendry/axis/commit/db52503cc39ff840b3e81c3c641fa60b2a0f9d45))
+* **helm:** update chart cert-manager ( v1.18.0 → v1.18.1 ) ([b78e5c5](https://github.com/scottmckendry/axis/commit/b78e5c5f36d936daed5846648827a46907282624))
+
 ## [5.0.0](https://github.com/scottmckendry/axis/compare/v4.0.0...v5.0.0) (2025-06-14)
 
 
