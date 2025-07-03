@@ -24,7 +24,7 @@ spec:
           tag:
             image:
               repository: ghcr.io/scottmckendry/akahu-actual
-              tag: v0.4.0@sha256:27c2abd961d03779fcb12567aa1bca866183906da387318d828c16508d15d247
+              tag: v0.5.0@sha256:7d50247ee5b0f1097419a8ffb9b1e77e4b5a7b7b709b5dca7eecf049eb4df62e
             envFrom:
               - secretRef:
                   name: akahu-actual-secret
