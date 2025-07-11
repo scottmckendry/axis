@@ -1,5 +1,21 @@
 # Changelog
 
+## [6.1.0](https://github.com/scottmckendry/axis/compare/v6.0.0...v6.1.0) (2025-07-11)
+
+
+### Features
+
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.4.1 → v3.5.0 ) ([5c7872b](https://github.com/scottmckendry/axis/commit/5c7872ba5f70c70e8ca27afb2ad1aa1f39379661))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.5.0 → v3.6.0 ) ([5d12f0e](https://github.com/scottmckendry/axis/commit/5d12f0e653583b5a35d9a84b68c8157d92ad2643))
+* **helm:** update chart loki ( 6.30.1 → 6.31.0 ) ([2f68786](https://github.com/scottmckendry/axis/commit/2f687865ff44338f976dd2706832c5da73967cc3))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/fluxcd/kustomize-controller ( v1.6.0 → v1.6.1 ) ([3fbd289](https://github.com/scottmckendry/axis/commit/3fbd289c1dd87cdb58b7c4bfb8ea20d4d8e61417))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.0.0.5094 → 2.0.1.5101 ) ([504b5a2](https://github.com/scottmckendry/axis/commit/504b5a2ce025a6f66787d9fba39091cfe0023ed8))
+* **github-release:** update release fluxcd/flux2 ( v2.6.3 → v2.6.4 ) ([4e6324f](https://github.com/scottmckendry/axis/commit/4e6324f87532244c608ba86c1f4c3b57134d026a))
+
 ## [6.0.0](https://github.com/scottmckendry/axis/compare/v5.0.0...v6.0.0) (2025-07-07)
 
 
