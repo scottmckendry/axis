@@ -18,7 +18,7 @@ spec:
           app:
             image:
               repository: ghcr.io/scottmckendry/ccinvoice
-              tag: v3.0.2@sha256:cbe3a4d726f2ded80e3145496b5db41e92ff586a48d4074db02fee31a30b2d07
+              tag: v3.1.0@sha256:459dc1164d8d4a7d165043520328f42074f3bb7207e314ea98ed9c1b2c6392df
             envFrom:
               - secretRef:
                   name: ccinvoice-secrets
