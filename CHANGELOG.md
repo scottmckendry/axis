@@ -1,5 +1,45 @@
 # Changelog
 
+## [6.1.0](https://github.com/scottmckendry/axis/compare/v6.0.0...v6.1.0) (2025-07-31)
+
+
+### Features
+
+* **container:** update image ghcr.io/coder/code-server ( 4.101.2 → 4.102.1 ) ([5f0edb8](https://github.com/scottmckendry/axis/commit/5f0edb8f5d4cb2482077667e17af9b0c9b7290f0))
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.3.2 → v1.4.0 ) ([e323472](https://github.com/scottmckendry/axis/commit/e323472f9ad20192e9ae910b3b76974af88ed335))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.2.10 → 9.3.0 ) ([6a5cb76](https://github.com/scottmckendry/axis/commit/6a5cb7639e9b5c7bce9eb4a3b2c858acdb23d968))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.10.0 → 75.11.0 ) ([1410145](https://github.com/scottmckendry/axis/commit/141014519c1a670d49da52ece67d9d7a6084e54e))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.11.0 → 75.12.0 ) ([ee18b79](https://github.com/scottmckendry/axis/commit/ee18b79ba7ba2b50e02d07087167402f3e7ec870))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.12.0 → 75.13.0 ) ([b8decf0](https://github.com/scottmckendry/axis/commit/b8decf09746ba76808339fa6f577c7ba5d084b19))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.13.0 → 75.15.1 ) ([95cc760](https://github.com/scottmckendry/axis/commit/95cc760b28f0580d66e83f88937b1860f885b61a))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 75.9.0 → 75.10.0 ) ([ea72a43](https://github.com/scottmckendry/axis/commit/ea72a430ab9dda3a50b1dfb3542d73e9c72c18d9))
+* **container:** update image ghcr.io/scottmckendry/ccinvoice ( v3.0.2 → v3.1.0 ) ([90402de](https://github.com/scottmckendry/axis/commit/90402deb399bde4ba8aa43ab825905ca70360a63))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.4.1 → v3.5.0 ) ([5c7872b](https://github.com/scottmckendry/axis/commit/5c7872ba5f70c70e8ca27afb2ad1aa1f39379661))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.5.0 → v3.6.0 ) ([5d12f0e](https://github.com/scottmckendry/axis/commit/5d12f0e653583b5a35d9a84b68c8157d92ad2643))
+* **helm:** update chart loki ( 6.30.1 → 6.31.0 ) ([2f68786](https://github.com/scottmckendry/axis/commit/2f687865ff44338f976dd2706832c5da73967cc3))
+* **helm:** update chart loki ( 6.31.0 → 6.32.0 ) ([cc450ab](https://github.com/scottmckendry/axis/commit/cc450ab8b13ecb92f30279cdb9757602964a3652))
+* **helm:** update chart loki ( 6.32.0 → 6.33.0 ) ([e341b2d](https://github.com/scottmckendry/axis/commit/e341b2d2b5968fa4216a3f4a8e93ce6e5f589f14))
+* **helm:** update chart loki ( 6.33.0 → 6.34.0 ) ([17c306e](https://github.com/scottmckendry/axis/commit/17c306ef9e8f889cfd2c6594db5be75c57d4e112))
+* **helm:** update chart metrics-server ( 3.12.2 → 3.13.0 ) ([3c483f4](https://github.com/scottmckendry/axis/commit/3c483f460fbf5c82e278b45fb84cce0d733a1da0))
+* **helm:** update chart volsync ( 0.12.1 → 0.13.0 ) ([a576952](https://github.com/scottmckendry/axis/commit/a576952a6821cfc6f7382dce21c6ee3cf9e0c324))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.102.1 → 4.102.2 ) ([da9a9a6](https://github.com/scottmckendry/axis/commit/da9a9a6f296183b1eab05f3e90d790c1f8a16745))
+* **container:** update image ghcr.io/fluxcd/kustomize-controller ( v1.6.0 → v1.6.1 ) ([3fbd289](https://github.com/scottmckendry/axis/commit/3fbd289c1dd87cdb58b7c4bfb8ea20d4d8e61417))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.7.1 → 2025.7.2 ) ([902b36f](https://github.com/scottmckendry/axis/commit/902b36f95942a79ebeab5a99b13fc9e36d0d335b))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.7.2 → 2025.7.3 ) ([c458b39](https://github.com/scottmckendry/axis/commit/c458b39f85f3f83c77af361e844834be33668d64))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.7.3 → 2025.7.4 ) ([eb97af6](https://github.com/scottmckendry/axis/commit/eb97af605df1817cc64a8b1d0d21d78bbed86b0e))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.0.0.5094 → 2.0.1.5101 ) ([504b5a2](https://github.com/scottmckendry/axis/commit/504b5a2ce025a6f66787d9fba39091cfe0023ed8))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.0.1.5101 → 2.0.2.5116 ) ([c6b3e68](https://github.com/scottmckendry/axis/commit/c6b3e680717f03b093321caf229e643a6fa0a319))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.27.0.10101 → 5.27.1.10122 ) ([910587b](https://github.com/scottmckendry/axis/commit/910587bd04b4e34fdc6886e26fb93a302a1c3953))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.27.1.10122 → 5.27.2.10142 ) ([9bb5f79](https://github.com/scottmckendry/axis/commit/9bb5f794964a38f14649408a6e7adbb63a06fc77))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.6.0 → v3.6.1 ) ([89a9b5f](https://github.com/scottmckendry/axis/commit/89a9b5ff7addeb4404e5ee81db8355a4cd8246c3))
+* **container:** update image ghcr.io/steveiliop56/tinyauth ( v3.6.1 → v3.6.2 ) ([85a2526](https://github.com/scottmckendry/axis/commit/85a2526bf53531fa39623e0ea6f1b7d75d2dacdc))
+* **deps:** update dependency local-path-provisioner ( v0.0.31 → v0.0.32 ) ([fc65dbc](https://github.com/scottmckendry/axis/commit/fc65dbcd111643b15bbd36fe7aeb311cb84d301f))
+* **github-release:** update release fluxcd/flux2 ( v2.6.3 → v2.6.4 ) ([4e6324f](https://github.com/scottmckendry/axis/commit/4e6324f87532244c608ba86c1f4c3b57134d026a))
+
 ## [6.0.0](https://github.com/scottmckendry/axis/compare/v5.0.0...v6.0.0) (2025-07-07)
 
 
