@@ -70,14 +70,14 @@ if [[ "$MANAGE_PODS" == "true" ]]; then
 	kubectl get deployment -n "$NAMESPACE" -o json | jq -r '.items[] | "\(.metadata.name) \(.spec.replicas)"' >/tmp/replica-counts.txt
 	kubectl get deployment -n "$NAMESPACE" -o name | xargs -r kubectl scale -n "$NAMESPACE" --replicas=0
 
-	# Wait for all pods to stop before proceeding
+	# Wait for active (non-completed) pods to terminate before proceeding
 	while true; do
-		pod_count=$(kubectl get pods -n "$NAMESPACE" --no-headers | wc -l)
+		pod_count=$(kubectl get pods -n "$NAMESPACE" -o json | jq '[.items[] | select(.status.phase!="Succeeded" and .status.phase!="Failed")] | length')
 		if [[ "$pod_count" -eq 0 ]]; then
 			break
 		fi
-		echo -ne "  ${GREEN}↳${NC} Waiting for all pods to stop... ($pod_count remaining)\r"
-		sleep 5
+		echo -ne "  ${GREEN}↳${NC} Waiting for active pods to terminate... ($pod_count remaining)\r"
+		sleep 3
 	done
 fi
 
@@ -143,10 +143,6 @@ kubectl delete -f /tmp/replication-dest.yaml
 # Start pods if they were stopped
 if [[ "$MANAGE_PODS" == "true" ]]; then
 	echo -e "  ${GREEN}↳${NC} Scaling up deployments in ${BOLD}$NAMESPACE${NC}..."
-	# Restore original replica counts
-	while read -r deploy replicas; do
-		kubectl scale -n "$NAMESPACE" deployment/"$deploy" --replicas="$replicas"
-	done </tmp/replica-counts.txt
 	# Restore original replica counts
 	while read -r deploy replicas; do
 		kubectl scale -n "$NAMESPACE" deployment/"$deploy" --replicas="$replicas"
