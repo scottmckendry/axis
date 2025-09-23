@@ -19,7 +19,7 @@ spec:
       akahu-actual:
         type: cronjob
         cronjob:
-          schedule: 0 * * * *
+          schedule: 49 * * * *
         containers:
           tag:
             image:
