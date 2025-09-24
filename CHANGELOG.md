@@ -1,5 +1,42 @@
 # Changelog
 
+## [7.1.0](https://github.com/scottmckendry/axis/compare/v7.0.0...v7.1.0) (2025-09-24)
+
+
+### Features
+
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.8.0 → 25.9.0 ) ([a52a7d4](https://github.com/scottmckendry/axis/commit/a52a7d417cf732227160d0a35abb579f25b2fb47))
+* **container:** update image ghcr.io/coder/code-server ( 4.103.2 → 4.104.0 ) ([7851138](https://github.com/scottmckendry/axis/commit/7851138471e9bf4e84091f9430fa93acf6912c22))
+* **container:** update image ghcr.io/fluxcd/source-controller ( v1.6.2 → v1.7.0 ) ([5ef7af7](https://github.com/scottmckendry/axis/commit/5ef7af79a28e90fa9b6fe8d348bcb3153de1bad6))
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.4.6 → v1.5.0 ) ([6aadd79](https://github.com/scottmckendry/axis/commit/6aadd79ea8ac539afbbd51bc763008451c46dd5e))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.8.3 → 2025.9.1 ) ([41713e9](https://github.com/scottmckendry/axis/commit/41713e94be51e388e7303ad0b4e7617c6e5a8bb7))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.0.5.5160 → 2.1.0.5180 ) ([2de74fb](https://github.com/scottmckendry/axis/commit/2de74fbdf2cfe62ec9c459fa7157ba966f297681))
+* **container:** update image ghcr.io/home-operations/radarr ( 5.27.5.10184 → 5.28.0.10205 ) ([a6746e4](https://github.com/scottmckendry/axis/commit/a6746e4b5afc04b61148798cd6acbdb253eeed4f))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.1.1 → 77.5.0 ) ([a75c486](https://github.com/scottmckendry/axis/commit/a75c48631e07ddb6119f1e44e7855c65d3e3b7ab))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.5.0 → 77.6.0 ) ([ff569a5](https://github.com/scottmckendry/axis/commit/ff569a57f4bf7604de9022157972bf3457b2421f))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.6.2 → 77.9.1 ) ([d9a57c8](https://github.com/scottmckendry/axis/commit/d9a57c86f2543416c9db39ea9fa987b31f1c13ca))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.9.1 → 77.11.0 ) ([255f105](https://github.com/scottmckendry/axis/commit/255f1053e17907696097e2ea4f903fca9b5f26be))
+* **container:** update image ghcr.io/scottmckendry/akahu-actual ( v0.6.0 → v0.7.0 ) ([66902ff](https://github.com/scottmckendry/axis/commit/66902ffa01321c80c0d7747fa925b68bb6311c9a))
+* **helm:** update chart loki ( 6.38.0 → 6.39.0 ) ([1dac0bc](https://github.com/scottmckendry/axis/commit/1dac0bc714bbe4b77c34816d31c4c2564cb56d5a))
+* **helm:** update chart loki ( 6.39.0 → 6.40.0 ) ([ed9873c](https://github.com/scottmckendry/axis/commit/ed9873cf3a110dbfb004f9a5b627c030ac7a54e0))
+* **helm:** update chart traefik ( 37.0.0 → 37.1.0 ) ([0614d87](https://github.com/scottmckendry/axis/commit/0614d87a9bc7065ed32d3a0a6583b7b28aba9944))
+
+
+### Bug Fixes
+
+* **backups:** terminated containers cause restore to hang ([9986086](https://github.com/scottmckendry/axis/commit/9986086a5432cc0e2a1a9c01ac7b61d992564f87))
+* **container:** update image ghcr.io/coder/code-server ( 4.104.0 → 4.104.1 ) ([d32563f](https://github.com/scottmckendry/axis/commit/d32563fd360e095f29f8d4c80d40ffed358742c6))
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.4.0 → v3.4.1 ) ([13d76fe](https://github.com/scottmckendry/axis/commit/13d76fe18048de408853549f68cbc0f032d84501))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.4.3 → 9.4.4 ) ([51de7ed](https://github.com/scottmckendry/axis/commit/51de7ed013765c84cdc74fb6715923e487809672))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 9.4.4 → 9.4.5 ) ([140a0e0](https://github.com/scottmckendry/axis/commit/140a0e0f299d3a3e28f916002a794cd4f5424341))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.9.1 → 2025.9.3 ) ([dd646b8](https://github.com/scottmckendry/axis/commit/dd646b8496a930288ecb791363fb387cae0482fd))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.9.3 → 2025.9.4 ) ([8f9fd29](https://github.com/scottmckendry/axis/commit/8f9fd29612df529c069fdda2e54a489b46c9f72d))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.1.0.5180 → 2.1.1.5185 ) ([a56a652](https://github.com/scottmckendry/axis/commit/a56a652063776bd0bb2fb73bfa4c25fe64e129b4))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.1.1.5185 → 2.1.2.5186 ) ([81f051f](https://github.com/scottmckendry/axis/commit/81f051fdf9bbabce2d8b12b0582cd90c7b75d57b))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.6.0 → 77.6.2 ) ([eade9f2](https://github.com/scottmckendry/axis/commit/eade9f2fed3ac9bbf3c7efb2094efcb93c63c887))
+* **container:** update image ghcr.io/scottmckendry/akahu-actual ( v0.7.0 → v0.7.1 ) ([b3b771f](https://github.com/scottmckendry/axis/commit/b3b771ffaf6d87f2110bde59af8d869475bcf706))
+* **helm:** update chart traefik ( 37.1.0 → 37.1.1 ) ([356902c](https://github.com/scottmckendry/axis/commit/356902cda3b6fee0a81ffd72d4cb9c40350026c9))
+
 ## [7.0.0](https://github.com/scottmckendry/axis/compare/v6.1.0...v7.0.0) (2025-08-31)
 
 
