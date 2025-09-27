@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.2.0](https://github.com/scottmckendry/axis/compare/v7.1.0...v7.2.0) (2025-09-27)
+
+
+### Features
+
+* **container:** update image ghcr.io/fluxcd/notification-controller ( v1.6.0 → v1.7.1 ) ([538033b](https://github.com/scottmckendry/axis/commit/538033b46e33e7565ba5a81e9dfb12287c365221))
+
 ## [7.1.0](https://github.com/scottmckendry/axis/compare/v7.0.0...v7.1.0) (2025-09-24)
 
 
