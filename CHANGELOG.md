@@ -1,5 +1,37 @@
 # Changelog
 
+## [8.0.0](https://github.com/scottmckendry/axis/compare/v7.2.0...v8.0.0) (2025-09-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **grafana-dashboards:** Update dashboard Node Exporter Full (41 → 42)
+* **container:** Update image ghcr.io/grafana/helm-charts/grafana ( 9.4.5 → 10.0.0 )
+* **container:** Update image ghcr.io/home-operations/radarr ( 5.28.0.10205 → 6.0.0.10217 )
+
+### Features
+
+* **container:** update image ghcr.io/fluxcd/helm-controller ( v1.3.0 → v1.4.0 ) ([194eed2](https://github.com/scottmckendry/axis/commit/194eed2ae477b08132333146c08399c1b75c3812))
+* **container:** update image ghcr.io/fluxcd/kustomize-controller ( v1.6.1 → v1.7.0 ) ([961403c](https://github.com/scottmckendry/axis/commit/961403cab6bbbcaf625ade807b9bf4922920e0c2))
+* **container:** Update image ghcr.io/grafana/helm-charts/grafana ( 9.4.5 → 10.0.0 ) ([b1e5684](https://github.com/scottmckendry/axis/commit/b1e56848cf8f44c576a328fbabcb79505e633684))
+* **container:** Update image ghcr.io/home-operations/radarr ( 5.28.0.10205 → 6.0.0.10217 ) ([176beda](https://github.com/scottmckendry/axis/commit/176beda192f05bf65412a3373a9505129bb52d4c))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.11.0 → 77.12.0 ) ([0e94bbf](https://github.com/scottmckendry/axis/commit/0e94bbf47dcb5ca745b6ffe395040c399d9d45b0))
+* **container:** update image ghcr.io/scottmckendry/ccinvoice ( v3.1.0 → v3.2.1 ) ([6b819e0](https://github.com/scottmckendry/axis/commit/6b819e0e75ac42eb554fe80364e1f0c2cc9edf9c))
+* **github-release:** update release fluxcd/flux2 ( v2.6.4 → v2.7.0 ) ([c81b8d0](https://github.com/scottmckendry/axis/commit/c81b8d06af430cf43476f1f5e15bd2b33964854d))
+* **helm:** update chart loki ( 6.40.0 → 6.41.1 ) ([a44bbff](https://github.com/scottmckendry/axis/commit/a44bbff9efeb903bcc837cb242a266f8d02d0a2a))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.104.1 → 4.104.2 ) ([dae0cbd](https://github.com/scottmckendry/axis/commit/dae0cbd2b740f8f368f76e0d32b95d7930d776bb))
+* **container:** update image ghcr.io/home-operations/radarr ( 6.0.0.10217 → 6.0.1.10258 ) ([784eff2](https://github.com/scottmckendry/axis/commit/784eff2488244f0b5e464954df2646cc922bce9e))
+* **helm:** update chart volsync ( 0.13.0 → 0.13.1 ) ([a4562af](https://github.com/scottmckendry/axis/commit/a4562af1acc3c307944064107a1ee0466d7949bb))
+
+
+### Miscellaneous Chores
+
+* **grafana-dashboards:** Update dashboard Node Exporter Full (41 → 42) ([64a66e1](https://github.com/scottmckendry/axis/commit/64a66e119ed975f8d7d0d9874c050e5eb940428f))
+
 ## [7.2.0](https://github.com/scottmckendry/axis/compare/v7.1.0...v7.2.0) (2025-09-27)
 
 
