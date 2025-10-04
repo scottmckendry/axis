@@ -1,5 +1,13 @@
 # Changelog
 
+## [8.1.0](https://github.com/scottmckendry/axis/compare/v8.0.0...v8.1.0) (2025-10-04)
+
+
+### Features
+
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.9.0 → 25.10.0 ) ([9dbc713](https://github.com/scottmckendry/axis/commit/9dbc713c905f5712b52638177527a6ff23a144e1))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.9.4 → 2025.10.0 ) ([0a95584](https://github.com/scottmckendry/axis/commit/0a9558419c0f30b0553c98ff5d47b1a795540538))
+
 ## [8.0.0](https://github.com/scottmckendry/axis/compare/v7.2.0...v8.0.0) (2025-09-30)
 
 
