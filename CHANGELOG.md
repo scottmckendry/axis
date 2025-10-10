@@ -1,5 +1,29 @@
 # Changelog
 
+## [8.1.0](https://github.com/scottmckendry/axis/compare/v8.0.0...v8.1.0) (2025-10-10)
+
+
+### Features
+
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.9.0 → 25.10.0 ) ([9dbc713](https://github.com/scottmckendry/axis/commit/9dbc713c905f5712b52638177527a6ff23a144e1))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.0.0 → 10.1.0 ) ([894f076](https://github.com/scottmckendry/axis/commit/894f07683b4ec01c201042ff1915bbc78789bd78))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.9.4 → 2025.10.0 ) ([0a95584](https://github.com/scottmckendry/axis/commit/0a9558419c0f30b0553c98ff5d47b1a795540538))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.12.0 → 77.14.0 ) ([9560989](https://github.com/scottmckendry/axis/commit/956098931222ee329a6bb0f51de5cf90398707c2))
+* **helm:** update chart cert-manager ( v1.18.2 → v1.19.0 ) ([dfd5c1e](https://github.com/scottmckendry/axis/commit/dfd5c1e4ef0adf4fa7e4137a0957ffa49a91c4f9))
+* **helm:** update chart loki ( 6.41.1 → 6.42.0 ) ([7e5dd8c](https://github.com/scottmckendry/axis/commit/7e5dd8c54330bb512c6bab89d7b3b94db679c66b))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.104.2 → 4.104.3 ) ([3cd93be](https://github.com/scottmckendry/axis/commit/3cd93be22a94d82d28e4ba33cdb7b7b991a7df9a))
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.4.1 → v3.4.2 ) ([54ad1ae](https://github.com/scottmckendry/axis/commit/54ad1aee1d32061597b8ef7a52a4bcdcfe056148))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.10.0 → 2025.10.1 ) ([e40d370](https://github.com/scottmckendry/axis/commit/e40d370ba2753a45e308f2eba6b7d85e7263f93a))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.1.2.5186 → 2.1.3.5208 ) ([c85043a](https://github.com/scottmckendry/axis/commit/c85043ade008add8bc7500451269b1488c18e0ca))
+* **container:** update image ghcr.io/home-operations/radarr ( 6.0.1.10258 → 6.0.2.10271 ) ([1e7af4f](https://github.com/scottmckendry/axis/commit/1e7af4f6a7d2992e3e341b6eda5cb63ab5847a61))
+* **github-release:** update release fluxcd/flux2 ( v2.7.0 → v2.7.1 ) ([e244c02](https://github.com/scottmckendry/axis/commit/e244c02f2af9e7d41753280006d95abe9550315b))
+* **github-release:** update release fluxcd/flux2 ( v2.7.1 → v2.7.2 ) ([c8b3385](https://github.com/scottmckendry/axis/commit/c8b3385921d059e91a43afd9cc2ddbf675fc24b2))
+* **helm:** update chart traefik ( 37.1.1 → 37.1.2 ) ([6e2a7bf](https://github.com/scottmckendry/axis/commit/6e2a7bfc850708719ae8a5752048389f4f765f46))
+
 ## [8.0.0](https://github.com/scottmckendry/axis/compare/v7.2.0...v8.0.0) (2025-09-30)
 
 
