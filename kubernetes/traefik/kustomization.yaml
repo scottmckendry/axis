@@ -8,6 +8,7 @@ resources:
   - repo.yaml
   - dashboard-ingress.yaml
   - middlewares.yaml
+  - pvc.yaml
   - tinyauth.yaml
   - tinyauth.secret.sops.yaml
   - external-ingress.yaml
