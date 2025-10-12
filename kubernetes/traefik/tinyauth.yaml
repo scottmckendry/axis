@@ -22,7 +22,7 @@ spec:
       #   fsGroupChangePolicy: OnRootMismatch
       containers:
         - name: tinyauth
-          image: ghcr.io/steveiliop56/tinyauth:v4.0.0@sha256:9e8fb9d58dc69031af395fd570ada147c6c7b98b29c036971bf69738b73d71b0
+          image: ghcr.io/scottmckendry/tinyauth:v0.0.1
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
