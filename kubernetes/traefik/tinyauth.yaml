@@ -17,9 +17,9 @@ spec:
       labels:
         app: tinyauth
     spec:
-      securityContext:
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
+      # securityContext:
+      #   fsGroup: 1000
+      #   fsGroupChangePolicy: OnRootMismatch
       containers:
         - name: tinyauth
           image: ghcr.io/steveiliop56/tinyauth:v4.0.0@sha256:9e8fb9d58dc69031af395fd570ada147c6c7b98b29c036971bf69738b73d71b0
@@ -50,8 +50,7 @@ spec:
               port: 3000
       volumes:
         - name: data
-          persistentVolumeClaim:
-            claimName: tinyauth
+          emptyDir: {}
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/service.json
 apiVersion: v1
