@@ -1,5 +1,32 @@
 # Changelog
 
+## [9.0.0](https://github.com/scottmckendry/axis/compare/v8.1.0...v9.0.0) (2025-10-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/steveiliop56/tinyauth ( v3.6.2 → v4.0.0 )
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.14.0 → 78.1.0 )
+
+### Features
+
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.14.0 → 78.1.0 ) ([bcbcc4d](https://github.com/scottmckendry/axis/commit/bcbcc4df08f688266dbe11fa6459381949238a4f))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.1.0 → 78.2.1 ) ([2d77065](https://github.com/scottmckendry/axis/commit/2d7706538ae38c31a639a21b70aeab366b788ab8))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.2.1 → 78.3.0 ) ([aa97212](https://github.com/scottmckendry/axis/commit/aa972125d41766a1fc7a41e81d9758f88f1eb997))
+* **container:** Update image ghcr.io/steveiliop56/tinyauth ( v3.6.2 → v4.0.0 ) ([a1ff7c9](https://github.com/scottmckendry/axis/commit/a1ff7c9fc85d7f9051017aca424dc549bb94027c))
+* **helm:** update chart loki ( 6.42.0 → 6.43.0 ) ([f4ccf89](https://github.com/scottmckendry/axis/commit/f4ccf89a601cd3744d7a97de4db75f69bfc364f5))
+* **tinyauth:** use ephemeral storage for sessions ([6f091b2](https://github.com/scottmckendry/axis/commit/6f091b2e55a047c5fb8b1a996e6c72d75aa2c594))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.1.0 → 10.1.1 ) ([1784f79](https://github.com/scottmckendry/axis/commit/1784f796026999e651cf816c0c57012fd2c39a10))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.10.1 → 2025.10.2 ) ([ed5300c](https://github.com/scottmckendry/axis/commit/ed5300cf264ab01db0394dae2f319513ad6e09d9))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.10.2 → 2025.10.3 ) ([606d794](https://github.com/scottmckendry/axis/commit/606d7941700f8738129f411a50059e34c0506932))
+* **container:** update image ghcr.io/piraeusdatastore/helm-charts/snapshot-controller ( 4.1.0 → 4.1.1 ) ([06413a2](https://github.com/scottmckendry/axis/commit/06413a2270054be4e27bffab1aed2a7855e7b2ce))
+* **helm:** update chart cert-manager ( v1.19.0 → v1.19.1 ) ([4bb0392](https://github.com/scottmckendry/axis/commit/4bb0392f6d918fd545c04f04a908f15f9f7a87d7))
+* **tinyauth:** address breaking changes ([d35b3d9](https://github.com/scottmckendry/axis/commit/d35b3d91658182c1d5037d79ed2ea18dcb5f9ea2))
+
 ## [8.1.0](https://github.com/scottmckendry/axis/compare/v8.0.0...v8.1.0) (2025-10-10)
 
 
