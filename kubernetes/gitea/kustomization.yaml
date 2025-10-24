@@ -8,6 +8,7 @@ resources:
   - repo.yaml
   - release.yaml
   - ingress.yaml
+  - backup
   - mirror-release.yaml
   - mirror-pvc.yaml
   - mirror.secret.sops.yaml
