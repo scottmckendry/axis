@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ns.yaml
   - pvc.yaml
+  - gitea.secret.sops.yaml
   - repo.yaml
   - release.yaml
   - ingress.yaml
