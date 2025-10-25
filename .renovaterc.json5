@@ -1,160 +1,218 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
-    "config:recommended",
-    "docker:enableMajor",
-    "helpers:pinGitHubActionDigests",
-    ":dependencyDashboard",
-    ":disableRateLimiting",
-    ":semanticCommits",
+    'config:recommended',
+    'docker:enableMajor',
+    'helpers:pinGitHubActionDigests',
+    ':dependencyDashboard',
+    ':disableRateLimiting',
+    ':semanticCommits',
   ],
   dependencyDashboard: true,
-  dependencyDashboardTitle: "Renovate Dashboard 🤖",
+  dependencyDashboardTitle: 'Renovate Dashboard 🤖',
   suppressNotifications: [
-    "prEditedNotification",
-    "prIgnoreNotification",
+    'prEditedNotification',
+    'prIgnoreNotification',
   ],
-  timezone: "Pacific/Auckland",
-  ignorePaths: ["**/*.sops.*"],
+  timezone: 'Pacific/Auckland',
+  ignorePaths: [
+    '**/*.sops.*',
+  ],
   flux: {
-    fileMatch: ["(^|/)kubernetes/.+\\.ya?ml$"],
+    managerFilePatterns: [
+      '/(^|/)kubernetes/.+\\.ya?ml$/',
+    ],
   },
-  "helm-values": {
-    fileMatch: ["(^|/)kubernetes/.+\\.ya?ml$"],
+  'helm-values': {
+    managerFilePatterns: [
+      '/(^|/)kubernetes/.+\\.ya?ml$/',
+    ],
   },
   helmfile: {
-    fileMatch: ["(^|/)kubernetes/.+\\.ya?ml$"],
+    managerFilePatterns: [
+      '/(^|/)kubernetes/.+\\.ya?ml$/',
+    ],
   },
   kubernetes: {
-    fileMatch: ["(^|/)kubernetes/.+\\.ya?ml$"],
+    managerFilePatterns: [
+      '/(^|/)kubernetes/.+\\.ya?ml$/',
+    ],
   },
   kustomize: {
-    fileMatch: ["(^|/)kubernetes/.+\\.ya?ml$"],
+    managerFilePatterns: [
+      '/(^|/)kubernetes/.+\\.ya?ml$/',
+    ],
   },
   packageRules: [
     {
-      matchUpdateTypes: ["major"],
-      semanticCommitType: "feat",
-      commitMessagePrefix: "{{semanticCommitType}}({{semanticCommitScope}})!:",
-      commitMessageExtra: "( {{currentVersion}} → {{newVersion}} )",
+      matchUpdateTypes: [
+        'major',
+      ],
+      semanticCommitType: 'feat',
+      commitMessagePrefix: '{{semanticCommitType}}({{semanticCommitScope}})!:',
+      commitMessageExtra: '( {{currentVersion}} → {{newVersion}} )',
     },
     {
-      matchUpdateTypes: ["minor"],
-      semanticCommitType: "feat",
-      commitMessageExtra: "( {{currentVersion}} → {{newVersion}} )",
+      matchUpdateTypes: [
+        'minor',
+      ],
+      semanticCommitType: 'feat',
+      commitMessageExtra: '( {{currentVersion}} → {{newVersion}} )',
     },
     {
-      matchUpdateTypes: ["patch"],
-      semanticCommitType: "fix",
-      commitMessageExtra: "( {{currentVersion}} → {{newVersion}} )",
+      matchUpdateTypes: [
+        'patch',
+      ],
+      semanticCommitType: 'fix',
+      commitMessageExtra: '( {{currentVersion}} → {{newVersion}} )',
     },
     {
-      matchUpdateTypes: ["digest"],
-      semanticCommitType: "chore",
-      commitMessageExtra: "( {{currentDigestShort}} → {{newDigestShort}} )",
+      matchUpdateTypes: [
+        'digest',
+      ],
+      semanticCommitType: 'chore',
+      commitMessageExtra: '( {{currentDigestShort}} → {{newDigestShort}} )',
     },
     {
-      matchDatasources: ["docker"],
-      semanticCommitScope: "container",
-      commitMessageTopic: "image {{depName}}",
+      matchDatasources: [
+        'docker',
+      ],
+      semanticCommitScope: 'container',
+      commitMessageTopic: 'image {{depName}}',
     },
     {
-      matchDatasources: ["helm"],
-      semanticCommitScope: "helm",
-      commitMessageTopic: "chart {{depName}}",
+      matchDatasources: [
+        'helm',
+      ],
+      semanticCommitScope: 'helm',
+      commitMessageTopic: 'chart {{depName}}',
     },
     {
-      matchManagers: ["github-actions"],
-      semanticCommitType: "ci",
-      semanticCommitScope: "github-action",
-      commitMessageTopic: "action {{depName}}",
+      matchManagers: [
+        'github-actions',
+      ],
+      semanticCommitType: 'ci',
+      semanticCommitScope: 'github-action',
+      commitMessageTopic: 'action {{depName}}',
     },
     {
-      matchDatasources: ["github-releases"],
-      semanticCommitScope: "github-release",
-      commitMessageTopic: "release {{depName}}",
+      matchDatasources: [
+        'github-releases',
+      ],
+      semanticCommitScope: 'github-release',
+      commitMessageTopic: 'release {{depName}}',
     },
     {
-      matchUpdateTypes: ["major"],
-      labels: ["type/major"],
+      matchUpdateTypes: [
+        'major',
+      ],
+      labels: [
+        'type/major',
+      ],
     },
     {
-      matchUpdateTypes: ["minor"],
-      labels: ["type/minor"],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      labels: [
+        'type/minor',
+      ],
     },
     {
-      matchUpdateTypes: ["patch"],
-      labels: ["type/patch"],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      labels: [
+        'type/patch',
+      ],
     },
     {
-      matchDatasources: ["docker"],
-      addLabels: ["renovate/container"],
+      matchDatasources: [
+        'docker',
+      ],
+      addLabels: [
+        'renovate/container',
+      ],
     },
     {
-      matchDatasources: ["helm"],
-      addLabels: ["renovate/helm"],
+      matchDatasources: [
+        'helm',
+      ],
+      addLabels: [
+        'renovate/helm',
+      ],
     },
     {
-      matchManagers: ["github-actions"],
-      addLabels: ["renovate/github-action"],
+      matchManagers: [
+        'github-actions',
+      ],
+      addLabels: [
+        'renovate/github-action',
+      ],
     },
     {
-      matchDatasources: ["github-releases"],
-      addLabels: ["renovate/github-release"],
+      matchDatasources: [
+        'github-releases',
+      ],
+      addLabels: [
+        'renovate/github-release',
+      ],
     },
     {
-      addLabels: ["renovate/grafana-dashboard"],
+      addLabels: [
+        'renovate/grafana-dashboard',
+      ],
       automerge: true,
-      automergeType: "branch",
-      commitMessageExtra: "({{currentVersion}} → {{newVersion}})",
-      commitMessageTopic: "dashboard {{depName}}",
+      automergeType: 'branch',
+      commitMessageExtra: '({{currentVersion}} → {{newVersion}})',
+      commitMessageTopic: 'dashboard {{depName}}',
       ignoreTests: true,
-      matchDatasources: ["custom.grafana-dashboards"],
-      matchUpdateTypes: ["major"],
-      semanticCommitScope: "grafana-dashboards",
-      semanticCommitType: "chore",
+      matchDatasources: [
+        'custom.grafana-dashboards',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      semanticCommitScope: 'grafana-dashboards',
+      semanticCommitType: 'chore',
     },
   ],
   customDatasources: {
-    "grafana-dashboards": {
-      defaultRegistryUrlTemplate: "https://grafana.com/api/dashboards/{{packageName}}",
-      format: "json",
-      transformTemplates: ['{"releases":[{"version": $string(revision)}]}'],
+    'grafana-dashboards': {
+      defaultRegistryUrlTemplate: 'https://grafana.com/api/dashboards/{{packageName}}',
+      format: 'json',
+      transformTemplates: [
+        '{"releases":[{"version": $string(revision)}]}',
+      ],
     },
   },
   customManagers: [
     {
-      description: "Process annotated dependencies",
-      customType: "regex",
-      fileMatch: [
-        "(^|/).+\\.env$",
-        "(^|/).+\\.sh$",
-        "(^|/).+\\.ya?ml$",
+      description: 'Process annotated dependencies',
+      customType: 'regex',
+      managerFilePatterns: [
+        '/(^|/).+\\.env$/',
+        '/(^|/).+\\.sh$/',
+        '/(^|/).+\\.ya?ml$/',
       ],
       matchStrings: [
-        // # renovate: datasource=github-releases depName=k3s-io/k3s
-        // k3s_release_version: &version v1.29.0+k3s1
-        // # renovate: datasource=helm depName=cilium repository=https://helm.cilium.io
-        // version: 1.15.1
-        // # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
-        // KUBERNETES_VERSION=v1.31.1
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( repository=(?<registryUrl>\\S+))?\\n.+(:\\s|=)(&\\S+\\s)?(?<currentValue>\\S+)",
-        // # renovate: datasource=docker depName=ghcr.io/prometheus-operator/prometheus-operator
-        // https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.80.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+/(?<currentValue>(v|\\d)[^/]+)",
+        'datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)( repository=(?<registryUrl>\\S+))?\\n.+(:\\s|=)(&\\S+\\s)?(?<currentValue>\\S+)',
+        'datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+/(?<currentValue>(v|\\d)[^/]+)',
       ],
-      datasourceTemplate: "{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}",
+      datasourceTemplate: '{{#if datasource}}{{{datasource}}}{{else}}github-releases{{/if}}',
     },
     {
-      description: "Process Grafana dashboards",
-      customType: "regex",
-      fileMatch: ["(^|/)kubernetes/.+\\.ya?ml$"],
+      description: 'Process Grafana dashboards',
+      customType: 'regex',
+      managerFilePatterns: [
+        '/(^|/)kubernetes/.+\\.ya?ml$/',
+      ],
       matchStrings: [
-        'depName="(?<depName>.*)"\\n(?<indentation>\\s+)gnetId: (?<packageName>\\d+)\\n.+revision: (?<currentValue>\\d+)'
+        'depName="(?<depName>.*)"\\n(?<indentation>\\s+)gnetId: (?<packageName>\\d+)\\n.+revision: (?<currentValue>\\d+)',
       ],
       autoReplaceStringTemplate: 'depName="{{{depName}}}"\n{{{indentation}}}gnetId: {{{packageName}}}\n{{{indentation}}}revision: {{{newValue}}}',
-      datasourceTemplate: "custom.grafana-dashboards",
-      versioningTemplate: "regex:^(?<major>\\d+)$",
+      datasourceTemplate: 'custom.grafana-dashboards',
+      versioningTemplate: 'regex:^(?<major>\\d+)$',
     },
   ],
 }
