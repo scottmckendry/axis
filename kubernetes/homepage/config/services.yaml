@@ -39,6 +39,11 @@
           password: "{{HOMEPAGE_VAR_PROXMOX_TOKEN_SECRET}}"
 
 - Apps:
+    - Actual Budget:
+        icon: actual-budget.svg
+        href: https://budget.axis.scottmckendry.tech
+        siteMonitor: https://budget.axis.scottmckendry.tech
+
     - Home Assistant:
         icon: home-assistant.svg
         href: https://ha.axis.scottmckendry.tech
@@ -61,10 +66,14 @@
         href: https://ha-code.axis.scottmckendry.tech
         siteMonitor: https://ha-code.axis.scottmckendry.tech
 
-    - Actual Budget:
-        icon: actual-budget.svg
-        href: https://budget.axis.scottmckendry.tech
-        siteMonitor: https://budget.axis.scottmckendry.tech
+    - Gitea:
+        icon: gitea.svg
+        href: https://git.axis.scottmckendry.tech
+        siteMonitor: https://git.axis.scottmckendry.tech
+        widget:
+          type: gitea
+          url: "http://gitea-http.gitea.svc.cluster.local:3000"
+          key: "{{HOMEPAGE_VAR_GITEA_API_KEY}}"
 
 - Monitoring:
     - Grafana:
