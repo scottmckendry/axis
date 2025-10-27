@@ -1,5 +1,48 @@
 # Changelog
 
+## [9.0.0](https://github.com/scottmckendry/axis/compare/v8.1.0...v9.0.0) (2025-10-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/steveiliop56/tinyauth ( v3.6.2 → v4.0.0 )
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.14.0 → 78.1.0 )
+
+### Features
+
+* **container:** update image ghcr.io/coder/code-server ( 4.104.3 → 4.105.0 ) ([363c562](https://github.com/scottmckendry/axis/commit/363c5627e3776fa568a7bf51a1337667a3d1e822))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 77.14.0 → 78.1.0 ) ([bcbcc4d](https://github.com/scottmckendry/axis/commit/bcbcc4df08f688266dbe11fa6459381949238a4f))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.1.0 → 78.2.1 ) ([2d77065](https://github.com/scottmckendry/axis/commit/2d7706538ae38c31a639a21b70aeab366b788ab8))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.2.1 → 78.3.0 ) ([aa97212](https://github.com/scottmckendry/axis/commit/aa972125d41766a1fc7a41e81d9758f88f1eb997))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.3.2 → 78.4.0 ) ([cd0bfcb](https://github.com/scottmckendry/axis/commit/cd0bfcb062323b0bf580a5f5223fb6ba160e7b0d))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.4.0 → 78.5.0 ) ([0f80856](https://github.com/scottmckendry/axis/commit/0f8085617da95df58323b0d46d4cd2a9ed97725a))
+* **container:** Update image ghcr.io/steveiliop56/tinyauth ( v3.6.2 → v4.0.0 ) ([a1ff7c9](https://github.com/scottmckendry/axis/commit/a1ff7c9fc85d7f9051017aca424dc549bb94027c))
+* **gitea:** add backup configuration ([449746c](https://github.com/scottmckendry/axis/commit/449746ca5f3b3f8ed16ba4b9eba08458aed308f3))
+* **gitea:** init gitea-mirror at 3.8.8 ([5888f9c](https://github.com/scottmckendry/axis/commit/5888f9c90f272cbf6f02a0e94e45babd421fa56c))
+* **gitea:** init helm chart at 12.4.0 ([343e40b](https://github.com/scottmckendry/axis/commit/343e40b792b659acd6325e92140b379313b65920))
+* **helm:** update chart loki ( 6.42.0 → 6.43.0 ) ([f4ccf89](https://github.com/scottmckendry/axis/commit/f4ccf89a601cd3744d7a97de4db75f69bfc364f5))
+* **helm:** update chart loki ( 6.43.0 → 6.44.0 ) ([d3cfdd3](https://github.com/scottmckendry/axis/commit/d3cfdd3dc86cd33b469e763878851502b591234c))
+* **helm:** update chart traefik ( 37.1.2 → 37.2.0 ) ([1a53b86](https://github.com/scottmckendry/axis/commit/1a53b866387e26377377d1e17bea027a10c9be83))
+* **homepage:** add gitea ([805874b](https://github.com/scottmckendry/axis/commit/805874b0cb0ad141ed674ae9a876f4641147f57b))
+* **tinyauth:** use ephemeral storage for sessions ([6f091b2](https://github.com/scottmckendry/axis/commit/6f091b2e55a047c5fb8b1a996e6c72d75aa2c594))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.105.0 → 4.105.1 ) ([4cb3e18](https://github.com/scottmckendry/axis/commit/4cb3e18b70e1b11613a7323eb8504e1e9fdd93f3))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.1.0 → 10.1.1 ) ([1784f79](https://github.com/scottmckendry/axis/commit/1784f796026999e651cf816c0c57012fd2c39a10))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.1.1 → 10.1.2 ) ([fcd2872](https://github.com/scottmckendry/axis/commit/fcd2872165099f5026992672318e9d2b0e85dc39))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.10.1 → 2025.10.2 ) ([ed5300c](https://github.com/scottmckendry/axis/commit/ed5300cf264ab01db0394dae2f319513ad6e09d9))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.10.2 → 2025.10.3 ) ([606d794](https://github.com/scottmckendry/axis/commit/606d7941700f8738129f411a50059e34c0506932))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.10.3 → 2025.10.4 ) ([2f8f948](https://github.com/scottmckendry/axis/commit/2f8f9489e3ffbdfeb045637560d8e15ecdebdd8b))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.1.3.5208 → 2.1.5.5213 ) ([ba32a6e](https://github.com/scottmckendry/axis/commit/ba32a6efeb4b5162b05b47897e27233c73be92a7))
+* **container:** update image ghcr.io/piraeusdatastore/helm-charts/snapshot-controller ( 4.1.0 → 4.1.1 ) ([06413a2](https://github.com/scottmckendry/axis/commit/06413a2270054be4e27bffab1aed2a7855e7b2ce))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.3.0 → 78.3.2 ) ([107e23a](https://github.com/scottmckendry/axis/commit/107e23affb865e67e61677ed6df9344e6c809702))
+* **container:** update image ghcr.io/raylabshq/gitea-mirror ( v3.8.8 → v3.8.10 ) ([1befde2](https://github.com/scottmckendry/axis/commit/1befde2555298d8d55b25590acccddc92d846b40))
+* **gitea:** add missing secret to kustomization ([9410c6a](https://github.com/scottmckendry/axis/commit/9410c6a5d836ca65a7ae02ea71986164598f22ef))
+* **helm:** update chart cert-manager ( v1.19.0 → v1.19.1 ) ([4bb0392](https://github.com/scottmckendry/axis/commit/4bb0392f6d918fd545c04f04a908f15f9f7a87d7))
+* **tinyauth:** address breaking changes ([d35b3d9](https://github.com/scottmckendry/axis/commit/d35b3d91658182c1d5037d79ed2ea18dcb5f9ea2))
+
 ## [8.1.0](https://github.com/scottmckendry/axis/compare/v8.0.0...v8.1.0) (2025-10-10)
 
 
