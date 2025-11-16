@@ -1,5 +1,61 @@
 # Changelog
 
+## [10.0.0](https://github.com/scottmckendry/axis/compare/v9.0.0...v10.0.0) (2025-11-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.5.0 → 79.1.1 )
+* **grafana-dashboards:** Update dashboard Prometheus (7 → 8)
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Pods (36 → 37)
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Nodes (39 → 40)
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Namespaces (42 → 44)
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Nodes (37 → 39)
+* **grafana-dashboards:** Update dashboard Kubernetes / System / CoreDNS (21 → 22)
+* **grafana-dashboards:** Update dashboard Kubernetes / System / API Server (19 → 20)
+
+### Features
+
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.10.0 → 25.11.0 ) ([b67bb7e](https://github.com/scottmckendry/axis/commit/b67bb7e28d712bbf5e56361ad98daf0d4abdfdac))
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.5.0 → v1.6.1 ) ([1fbb9ea](https://github.com/scottmckendry/axis/commit/1fbb9eaa0c70f4d9abe5f1b04dff9aee661abf9d))
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.6.1 → v1.7.0 ) ([09a5794](https://github.com/scottmckendry/axis/commit/09a579482158fbff71db14e8bed050dfc901448b))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.10.4 → 2025.11.0 ) ([ffa002a](https://github.com/scottmckendry/axis/commit/ffa002abfd6c9b336b0389561920383e6e801879))
+* **container:** update image ghcr.io/piraeusdatastore/helm-charts/snapshot-controller ( 4.1.1 → 4.2.0 ) ([7685c21](https://github.com/scottmckendry/axis/commit/7685c2131b74216388d563e2c4b831e758c1f228))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 78.5.0 → 79.1.1 ) ([a2d5298](https://github.com/scottmckendry/axis/commit/a2d5298eb03e0756e6459b84dc44faee81ab3720))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 79.1.1 → 79.5.0 ) ([a72c680](https://github.com/scottmckendry/axis/commit/a72c680e68c0e25cfa59593ef59e9fba3c5e19c4))
+* **container:** update image ghcr.io/raylabshq/gitea-mirror ( v3.8.11 → v3.9.2 ) ([90ecc68](https://github.com/scottmckendry/axis/commit/90ecc68a80bb7c4b29227a2d2e1946ed010f1d62))
+* **helm:** update chart loki ( 6.44.0 → 6.45.2 ) ([cb7c42b](https://github.com/scottmckendry/axis/commit/cb7c42b57fd893f4f3f6d0530ea3a51249400fbc))
+* **helm:** update chart loki ( 6.45.2 → 6.46.0 ) ([80f1b22](https://github.com/scottmckendry/axis/commit/80f1b22dbeeb532801dcd923d88ec71c3313307b))
+* **helm:** update chart traefik ( 37.2.0 → 37.3.0 ) ([3c49118](https://github.com/scottmckendry/axis/commit/3c491187d4c8657d9607214f1582ce42dd9a4dac))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.4.2 → v3.4.3 ) ([997d6f8](https://github.com/scottmckendry/axis/commit/997d6f862fd7c90f98a18578d6e11c75c3d0ab59))
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.4.3 → v3.4.4 ) ([847869d](https://github.com/scottmckendry/axis/commit/847869d4c8fc91530fb4e7700553156411121a1d))
+* **container:** update image ghcr.io/flaresolverr/flaresolverr ( v3.4.4 → v3.4.5 ) ([b0319d9](https://github.com/scottmckendry/axis/commit/b0319d91b1de268af0929cca9f20042c2a018b79))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.1.2 → 10.1.4 ) ([d228a60](https://github.com/scottmckendry/axis/commit/d228a60ba2a307e1d0dd4d06a8814cbfa0ba0b4f))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.11.0 → 2025.11.1 ) ([bee2a83](https://github.com/scottmckendry/axis/commit/bee2a83f8d0969d02fbeac4c1b9f8c1cbc04ee89))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.1.5.5213 → 2.1.5.5216 ) ([32949a8](https://github.com/scottmckendry/axis/commit/32949a8b457d86d34606cd9178fe7bd43e532e5a))
+* **container:** update image ghcr.io/home-operations/qbittorrent ( 5.1.2 → 5.1.3 ) ([4f27e95](https://github.com/scottmckendry/axis/commit/4f27e95d40d28cfa72743a6d638295be4e78f485))
+* **container:** update image ghcr.io/home-operations/radarr ( 6.0.2.10271 → 6.0.3.10276 ) ([055f4d3](https://github.com/scottmckendry/axis/commit/055f4d38286ece7474f8c622a814318d4b6157fc))
+* **container:** update image ghcr.io/home-operations/sonarr ( 4.0.15.2940 → 4.0.16.2942 ) ([b27d499](https://github.com/scottmckendry/axis/commit/b27d499c9cda5f4bc39b1c75a2c7e94eb0584d07))
+* **container:** update image ghcr.io/home-operations/sonarr ( 4.0.16.2942 → 4.0.16.2943 ) ([b7182c9](https://github.com/scottmckendry/axis/commit/b7182c9f8d2412d2c1ce9b77e16d38d366877927))
+* **container:** update image ghcr.io/raylabshq/gitea-mirror ( v3.8.10 → v3.8.11 ) ([41a7e63](https://github.com/scottmckendry/axis/commit/41a7e63853d689599f2c4cbf003a32c20a25e75b))
+* **github-release:** update release fluxcd/flux2 ( v2.7.2 → v2.7.3 ) ([d8be1c7](https://github.com/scottmckendry/axis/commit/d8be1c712aa9eee833968cfae898ee761d3152cb))
+* **helm:** update chart promtail ( 6.17.0 → 6.17.1 ) ([f860b79](https://github.com/scottmckendry/axis/commit/f860b79741ae2fb751315a01da3c178a73b8f796))
+
+
+### Miscellaneous Chores
+
+* **grafana-dashboards:** Update dashboard Kubernetes / System / API Server (19 → 20) ([7cd4d27](https://github.com/scottmckendry/axis/commit/7cd4d2738df31c3460172381749034b418af88ab))
+* **grafana-dashboards:** Update dashboard Kubernetes / System / CoreDNS (21 → 22) ([fad79b2](https://github.com/scottmckendry/axis/commit/fad79b28d97f6833e1cae816202317bdb49ff6eb))
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Namespaces (42 → 44) ([491384c](https://github.com/scottmckendry/axis/commit/491384cd08aa32e1ef10a850b84c9378f2c79e37))
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Nodes (37 → 39) ([1fbb873](https://github.com/scottmckendry/axis/commit/1fbb8736617ccc757a4cbd8ce19372c13637fa61))
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Nodes (39 → 40) ([1360a90](https://github.com/scottmckendry/axis/commit/1360a90887c30ab05016639e2748dbf9bef1b1a0))
+* **grafana-dashboards:** Update dashboard Kubernetes / Views / Pods (36 → 37) ([417f3f2](https://github.com/scottmckendry/axis/commit/417f3f2f6d433800ca74b32eac0300a39b03bb03))
+* **grafana-dashboards:** Update dashboard Prometheus (7 → 8) ([983f3be](https://github.com/scottmckendry/axis/commit/983f3be35151f6e7d7fa63c1140262e1ec6c8618))
+
 ## [9.0.0](https://github.com/scottmckendry/axis/compare/v8.1.0...v9.0.0) (2025-10-27)
 
 
