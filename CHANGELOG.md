@@ -1,5 +1,20 @@
 # Changelog
 
+## [10.1.0](https://github.com/scottmckendry/axis/compare/v10.0.0...v10.1.0) (2025-11-21)
+
+
+### Features
+
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.1.5.5216 → 2.3.0.5236 ) ([5433f0e](https://github.com/scottmckendry/axis/commit/5433f0ecbd60ec77083b05075d1a7a7cc5af0576))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.1.4 → 10.1.5 ) ([22a7dfa](https://github.com/scottmckendry/axis/commit/22a7dfab16775cfd43a733224b5ca16148a09394))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.11.1 → 2025.11.2 ) ([76d0c72](https://github.com/scottmckendry/axis/commit/76d0c723c0f913bbe0687cba43166b523ba9de9d))
+* **container:** update image ghcr.io/home-operations/qbittorrent ( 5.1.3 → 5.1.4 ) ([438473b](https://github.com/scottmckendry/axis/commit/438473b54d32c75c780a91fb76a679e0f64f791b))
+* **container:** update image ghcr.io/home-operations/radarr ( 6.0.3.10276 → 6.0.4.10291 ) ([520a73a](https://github.com/scottmckendry/axis/commit/520a73a9487cfe6a86cc0786b6dedb3d5340c5da))
+
 ## [10.0.0](https://github.com/scottmckendry/axis/compare/v9.0.0...v10.0.0) (2025-11-16)
 
 
