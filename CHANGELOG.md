@@ -1,5 +1,18 @@
 # Changelog
 
+## [10.2.0](https://github.com/scottmckendry/axis/compare/v10.1.0...v10.2.0) (2025-12-05)
+
+
+### Features
+
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.11.0 → 25.12.0 ) ([166096d](https://github.com/scottmckendry/axis/commit/166096dea6841adcb73fb04784dac25dfec256be))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.106.2 → 4.106.3 ) ([52901df](https://github.com/scottmckendry/axis/commit/52901df2e7406f9f0011f1a6338a2c974fae18ae))
+* **helm:** update chart metallb ( 0.15.2 → 0.15.3 ) ([f31ec6b](https://github.com/scottmckendry/axis/commit/f31ec6bb10330dd1d282700763dbfcfac0dab8cb))
+
 ## [10.1.0](https://github.com/scottmckendry/axis/compare/v10.0.0...v10.1.0) (2025-12-02)
 
 
