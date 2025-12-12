@@ -1,5 +1,24 @@
 # Changelog
 
+## [10.2.0](https://github.com/scottmckendry/axis/compare/v10.1.0...v10.2.0) (2025-12-12)
+
+
+### Features
+
+* **actual:** add auto-reconcile accounts to akahu-actual config ([c8579e0](https://github.com/scottmckendry/axis/commit/c8579e017fed5b66b89a165294ff85d0fda746c3))
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.11.0 → 25.12.0 ) ([166096d](https://github.com/scottmckendry/axis/commit/166096dea6841adcb73fb04784dac25dfec256be))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.11.3 → 2025.12.2 ) ([944f3bf](https://github.com/scottmckendry/axis/commit/944f3bf08bedebaf9a6df8eeff98917c075cac84))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 79.9.0 → 79.12.0 ) ([ac59406](https://github.com/scottmckendry/axis/commit/ac5940690695e72f9d1bc505e7ff1bbf7f88c2db))
+* **container:** update image ghcr.io/scottmckendry/akahu-actual ( v0.8.0 → v0.9.0 ) ([4b9f856](https://github.com/scottmckendry/axis/commit/4b9f85680ecd998d928af979f0e12b48e55f0640))
+* **helm:** update chart loki ( 6.46.0 → 6.48.0 ) ([c766240](https://github.com/scottmckendry/axis/commit/c76624054efb98284420b1c6f3f19703c310bc66))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.106.2 → 4.106.3 ) ([52901df](https://github.com/scottmckendry/axis/commit/52901df2e7406f9f0011f1a6338a2c974fae18ae))
+* **helm:** update chart cert-manager ( v1.19.1 → v1.19.2 ) ([e7082b3](https://github.com/scottmckendry/axis/commit/e7082b30031933b19e558bc185eb2e5afd2d9411))
+* **helm:** update chart metallb ( 0.15.2 → 0.15.3 ) ([f31ec6b](https://github.com/scottmckendry/axis/commit/f31ec6bb10330dd1d282700763dbfcfac0dab8cb))
+
 ## [10.1.0](https://github.com/scottmckendry/axis/compare/v10.0.0...v10.1.0) (2025-12-02)
 
 
