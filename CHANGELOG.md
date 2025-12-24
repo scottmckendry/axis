@@ -1,5 +1,35 @@
 # Changelog
 
+## [10.2.0](https://github.com/scottmckendry/axis/compare/v10.1.0...v10.2.0) (2025-12-24)
+
+
+### Features
+
+* **actual:** add auto-reconcile accounts to akahu-actual config ([c8579e0](https://github.com/scottmckendry/axis/commit/c8579e017fed5b66b89a165294ff85d0fda746c3))
+* **container:** update image ghcr.io/actualbudget/actual-server ( 25.11.0 → 25.12.0 ) ([166096d](https://github.com/scottmckendry/axis/commit/166096dea6841adcb73fb04784dac25dfec256be))
+* **container:** update image ghcr.io/coder/code-server ( 4.106.3 → 4.107.0 ) ([e9d3540](https://github.com/scottmckendry/axis/commit/e9d3540e4d4003896d840d1de69899870ed14918))
+* **container:** update image ghcr.io/gethomepage/homepage ( v1.7.0 → v1.8.0 ) ([cbf4198](https://github.com/scottmckendry/axis/commit/cbf419804e2e455025d557d93f0e44afc9a27f30))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.3.1 → 10.4.0 ) ([422f34a](https://github.com/scottmckendry/axis/commit/422f34ae71a3877c3e7b0f4fecf376df44699a52))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.11.3 → 2025.12.2 ) ([944f3bf](https://github.com/scottmckendry/axis/commit/944f3bf08bedebaf9a6df8eeff98917c075cac84))
+* **container:** update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 79.9.0 → 79.12.0 ) ([ac59406](https://github.com/scottmckendry/axis/commit/ac5940690695e72f9d1bc505e7ff1bbf7f88c2db))
+* **container:** update image ghcr.io/scottmckendry/akahu-actual ( v0.8.0 → v0.9.0 ) ([4b9f856](https://github.com/scottmckendry/axis/commit/4b9f85680ecd998d928af979f0e12b48e55f0640))
+* **github-release:** update release siderolabs/talos ( v1.11.1 → v1.12.0 ) ([698d4e8](https://github.com/scottmckendry/axis/commit/698d4e867b93871b7ed5f46fc02fe974f57de8f9))
+* **helm:** update chart loki ( 6.46.0 → 6.48.0 ) ([c766240](https://github.com/scottmckendry/axis/commit/c76624054efb98284420b1c6f3f19703c310bc66))
+* **helm:** update chart loki ( 6.48.0 → 6.49.0 ) ([01276b6](https://github.com/scottmckendry/axis/commit/01276b64483812fd868f6f7a489e7793a6df7d17))
+* **renovate:** include talos as monitored dependency ([f0fad2b](https://github.com/scottmckendry/axis/commit/f0fad2b5a90371ce2951494e2753cfdab30d67ed))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/coder/code-server ( 4.106.2 → 4.106.3 ) ([52901df](https://github.com/scottmckendry/axis/commit/52901df2e7406f9f0011f1a6338a2c974fae18ae))
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.3.0 → 10.3.1 ) ([b37d9d0](https://github.com/scottmckendry/axis/commit/b37d9d0d41fd04d9b1440f8c9c75d9bad7dc6778))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.12.2 → 2025.12.3 ) ([532ba96](https://github.com/scottmckendry/axis/commit/532ba96b09db30903afef108ccb454cdb34cb6ad))
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.12.3 → 2025.12.4 ) ([dad76e6](https://github.com/scottmckendry/axis/commit/dad76e6220e84803a33a0ac54e9290a131604477))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.3.0.5236 → 2.3.1.5238 ) ([3b6da81](https://github.com/scottmckendry/axis/commit/3b6da81a8caa26610256a8a59dfad094380d7aae))
+* **container:** update image ghcr.io/home-operations/radarr ( 6.1.0.10293 → 6.1.0.10309 ) ([e0b03e2](https://github.com/scottmckendry/axis/commit/e0b03e2423993defe3d42aa96367d6d433fb8841))
+* **helm:** update chart cert-manager ( v1.19.1 → v1.19.2 ) ([e7082b3](https://github.com/scottmckendry/axis/commit/e7082b30031933b19e558bc185eb2e5afd2d9411))
+* **helm:** update chart metallb ( 0.15.2 → 0.15.3 ) ([f31ec6b](https://github.com/scottmckendry/axis/commit/f31ec6bb10330dd1d282700763dbfcfac0dab8cb))
+
 ## [10.1.0](https://github.com/scottmckendry/axis/compare/v10.0.0...v10.1.0) (2025-12-02)
 
 
