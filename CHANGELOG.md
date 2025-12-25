@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.2.1](https://github.com/scottmckendry/axis/compare/v10.2.0...v10.2.1) (2025-12-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency local-path-provisioner ( v0.0.32 → v0.0.33 ) ([e100953](https://github.com/scottmckendry/axis/commit/e10095341d19f2ce624debb0c818d43d19f11af0))
+
 ## [10.2.0](https://github.com/scottmckendry/axis/compare/v10.1.0...v10.2.0) (2025-12-24)
 
 
