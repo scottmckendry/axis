@@ -1,5 +1,14 @@
 # Changelog
 
+## [10.2.1](https://github.com/scottmckendry/axis/compare/v10.2.0...v10.2.1) (2026-01-01)
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.12.4 → 2025.12.5 ) ([8bae813](https://github.com/scottmckendry/axis/commit/8bae81300a450587100a25e198eed61f9e6ac915))
+* **container:** update image ghcr.io/home-operations/sonarr ( 4.0.16.2943 → 4.0.16.2946 ) ([3dc3a2d](https://github.com/scottmckendry/axis/commit/3dc3a2defbf875bf635c9700e1a657eee19471ce))
+* **deps:** update dependency local-path-provisioner ( v0.0.32 → v0.0.33 ) ([e100953](https://github.com/scottmckendry/axis/commit/e10095341d19f2ce624debb0c818d43d19f11af0))
+
 ## [10.2.0](https://github.com/scottmckendry/axis/compare/v10.1.0...v10.2.0) (2025-12-24)
 
 
