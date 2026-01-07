@@ -1,0 +1,22 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: booklore
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`booklore.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+        - name: forwardauth
+          namespace: traefik
+      services:
+        - name: booklore-app
+          namespace: media
+          port: 6060
+  tls:
+    secretName: axis-tls
