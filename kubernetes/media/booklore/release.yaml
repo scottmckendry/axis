@@ -1,0 +1,126 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: booklore
+  namespace: media
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  values:
+    controllers:
+      booklore:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/booklore-app/booklore
+              tag: v1.16.2
+            env:
+              TZ: Pacific/Auckland
+              DATABASE_URL: jdbc:mariadb://booklore-mariadb:3306/booklore
+              DATABASE_USERNAME: booklore
+              DATABASE_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: booklore-secret
+                    key: DATABASE_PASSWORD
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  tcpSocket:
+                    port: &port 6060
+                  initialDelaySeconds: 30
+                  periodSeconds: 10
+                  timeoutSeconds: 5
+                  failureThreshold: 3
+              readiness: *probes
+      mariadb:
+        pod:
+          securityContext:
+            fsGroup: 999
+            fsGroupChangePolicy: OnRootMismatch
+        containers:
+          app:
+            image:
+              repository: mariadb
+              tag: 12.1.2@sha256:a78483ea9488eefdc32af4d4dcf116748df0bc0cdea583815e51438d8fa4d9f5
+            env:
+              MYSQL_USER: booklore
+              MYSQL_DATABASE: booklore
+              MYSQL_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: booklore-secret
+                    key: DATABASE_PASSWORD
+              MYSQL_ROOT_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: booklore-secret
+                    key: DATABASE_ROOT_PASSWORD
+            probes:
+              liveness: &mariadb-probes
+                enabled: true
+                custom: true
+                spec:
+                  exec:
+                    command:
+                      - sh
+                      - -c
+                      - mariadb-admin ping -u root -p${MYSQL_ROOT_PASSWORD}
+                  initialDelaySeconds: 30
+                  periodSeconds: 10
+                  timeoutSeconds: 5
+                  failureThreshold: 5
+              readiness: *mariadb-probes
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: false
+              runAsNonRoot: true
+              runAsUser: 999
+              capabilities: { drop: ["ALL"] }
+    service:
+      app:
+        controller: booklore
+        ports:
+          http:
+            port: *port
+      mariadb:
+        controller: mariadb
+        ports:
+          mysql:
+            port: 3306
+    persistence:
+      config:
+        existingClaim: booklore
+        advancedMounts:
+          booklore:
+            app:
+              - path: /app/data
+      mariadb-data:
+        existingClaim: booklore-mariadb
+        advancedMounts:
+          mariadb:
+            app:
+              - path: /var/lib/mysql
+      books:
+        type: nfs
+        server: 10.0.6.1
+        path: /mnt/TrueBlue/media/books
+        advancedMounts:
+          booklore:
+            app:
+              - path: /books
+      ingest:
+        type: nfs
+        server: 10.0.6.1
+        path: /mnt/TrueBlue/media/books/ingest
+        advancedMounts:
+          booklore:
+            app:
+              - path: /bookdrop
