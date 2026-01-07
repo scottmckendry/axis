@@ -50,7 +50,7 @@ spec:
           app:
             image:
               repository: mariadb
-              tag: 12.1.2@sha256:a78483ea9488eefdc32af4d4dcf116748df0bc0cdea583815e51438d8fa4d9f5
+              tag: 12.1.2@sha256:e1bcd6f85781f4a875abefb11c4166c1d79e4237c23de597bf0df81fec225b40
             env:
               TZ: Pacific/Auckland
               MYSQL_USER: booklore
