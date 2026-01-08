@@ -18,7 +18,7 @@ spec:
           app:
             image:
               repository: ghcr.io/booklore-app/booklore
-              tag: v1.16.4
+              tag: v1.16.5
             env:
               USER_ID: "1000"
               GROUP_ID: "1000"
