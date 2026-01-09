@@ -1,5 +1,28 @@
 # Changelog
 
+## [11.0.0](https://github.com/scottmckendry/axis/compare/v10.2.0...v11.0.0) (2026-01-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 79.12.0 → 80.11.0 )
+
+### Features
+
+* **container:** update image ghcr.io/grafana/helm-charts/grafana ( 10.4.0 → 10.5.1 ) ([9291d6e](https://github.com/scottmckendry/axis/commit/9291d6e073601c494aa58e9498e183e35918f405))
+* **container:** Update image ghcr.io/prometheus-community/charts/kube-prometheus-stack ( 79.12.0 → 80.11.0 ) ([4587d14](https://github.com/scottmckendry/axis/commit/4587d146c401249105bb8adf06af68e3cf0e0b82))
+
+
+### Bug Fixes
+
+* **container:** update image ghcr.io/home-operations/home-assistant ( 2025.12.4 → 2025.12.5 ) ([8bae813](https://github.com/scottmckendry/axis/commit/8bae81300a450587100a25e198eed61f9e6ac915))
+* **container:** update image ghcr.io/home-operations/prowlarr ( 2.3.1.5238 → 2.3.2.5245 ) ([41eee96](https://github.com/scottmckendry/axis/commit/41eee9662a6453ed5967e1791c844ea08ca6e0cd))
+* **container:** update image ghcr.io/home-operations/radarr ( 6.1.0.10309 → 6.1.0.10316 ) ([2b65e3c](https://github.com/scottmckendry/axis/commit/2b65e3c9f86c48fabc3e631f09a00422ee7be594))
+* **container:** update image ghcr.io/home-operations/sonarr ( 4.0.16.2943 → 4.0.16.2946 ) ([3dc3a2d](https://github.com/scottmckendry/axis/commit/3dc3a2defbf875bf635c9700e1a657eee19471ce))
+* **deps:** update dependency local-path-provisioner ( v0.0.32 → v0.0.33 ) ([e100953](https://github.com/scottmckendry/axis/commit/e10095341d19f2ce624debb0c818d43d19f11af0))
+* **deps:** update dependency local-path-provisioner ( v0.0.33 → v0.0.34 ) ([987e3e3](https://github.com/scottmckendry/axis/commit/987e3e34093adb458aca61ae74c50dfadcaf0a6f))
+* **github-release:** update release siderolabs/talos ( v1.12.0 → v1.12.1 ) ([95a2ffa](https://github.com/scottmckendry/axis/commit/95a2ffaebcfa1038041009d397cea51383499056))
+
 ## [10.2.0](https://github.com/scottmckendry/axis/compare/v10.1.0...v10.2.0) (2025-12-24)
 
 
