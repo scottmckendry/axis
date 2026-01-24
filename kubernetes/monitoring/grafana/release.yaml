@@ -120,10 +120,10 @@ spec:
           revision: 8
           datasource: Prometheus
         traefik:
-          # renovate: depName="Traefik Official Kubernetes Dashboard"
-          gnetId: 17347
-          revision: 9
-          datasource: Prometheus
+          # renovate: depName="Traefik On K8s Via Loki"
+          gnetId: 17501
+          revision: 1
+          datasource: Loki
     serviceMonitor:
       enabled: true
     persistence:
