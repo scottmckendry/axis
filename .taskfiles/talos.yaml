@@ -7,6 +7,8 @@ vars:
   CLUSTER_VIP: "10.0.10.10"
   # renovate: datasource=github-releases depName=siderolabs/talos
   TALOS_VERSION: v1.12.2
+  # renovate: datasource=github-releases depName=kubernetes/kubernetes
+  KUBERNETES_VERSION: v1.32.3
 
 includes:
   sops: ./sops.yaml
@@ -80,5 +82,27 @@ tasks:
       - cmd: echo ""
         silent: true
       - talosctl upgrade --nodes {{.NODE_IP}} --image factory.talos.dev/installer/{{.IMAGE_SCHEMATIC_ID}}:{{.TALOS_VERSION}}
+      - cmd: echo ""
+        silent: true
+
+  upgrade-k8s:
+    desc: Upgrade Kubernetes to tracked version
+    dir: talos
+    cmds:
+      - for: ["10.0.10.11", "10.0.10.12", "10.0.10.13"]
+        task: upgrade-k8s_node
+        vars: { NODE_IP: "{{.ITEM}}" }
+
+  upgrade-k8s_node:
+    internal: true
+    desc: Upgrade Kubernetes on individual node
+    dir: talos
+    vars:
+      NODE_IP: '{{default "" .NODE_IP}}'
+    prompt: "Upgrade Kubernetes to {{.KUBERNETES_VERSION}} on node {{.NODE_IP}}?"
+    cmds:
+      - cmd: echo ""
+        silent: true
+      - talosctl upgrade-k8s --to {{.KUBERNETES_VERSION}} --nodes {{.NODE_IP}}
       - cmd: echo ""
         silent: true
