@@ -26,10 +26,11 @@ spec:
 
     ports:
       web:
-        redirections:
-          entrypoint:
-            to: websecure
-            priority: 10
+        http:
+          redirections:
+            entrypoint:
+              to: websecure
+              priority: 10
 
     service:
       enabled: true
