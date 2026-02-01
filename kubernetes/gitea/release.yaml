@@ -21,7 +21,7 @@ spec:
     valkey-cluster:
       enabled: false
     postgresql:
-      enabled: true
+      enabled: false
     valkey:
       enabled: true
 
@@ -36,8 +36,20 @@ spec:
         indexer:
           REPO_INDEXER_ENABLED: true
           ISSUE_INDEXER_TYPE: bleve
+        database:
+          DB_TYPE: postgres
+          HOST: postgresql-cluster-rw.databases.svc.cluster.local:5432
+          NAME: gitea
+          USER: gitea
+          SCHEMA: public
         server:
           ROOT_URL: https://git.axis.scottmckendry.tech
+      additionalConfigFromEnvs:
+        - name: GITEA__DATABASE__PASSWD
+          valueFrom:
+            secretKeyRef:
+              name: gitea-secrets
+              key: dbPassword
       podAnnotations: {}
 
     image:
