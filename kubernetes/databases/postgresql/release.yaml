@@ -23,13 +23,6 @@ spec:
     cluster:
       instances: 1
 
-      # Initial database and owner
-      initdb:
-        database: pg-playground
-        owner: playground-user
-        secret:
-          name: pg-playground-credentials
-
       storage:
         size: 20Gi
 
@@ -37,3 +30,12 @@ spec:
         enabled: true
         podMonitor:
           enabled: true
+
+      managed:
+        roles:
+          - name: gitea
+            ensure: present
+            login: true
+            superuser: false
+            passwordSecret:
+              name: gitea-secret

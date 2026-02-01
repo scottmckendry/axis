@@ -1,0 +1,25 @@
+---
+# yaml-language-server: $schema=https://datreeio.github.io/CRDs-catalog/postgresql.cnpg.io/cluster_v1.json
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgresql-cluster
+  namespace: databases
+spec:
+  instances: 1
+  imageName: ghcr.io/cloudnative-pg/postgresql:18
+
+  storage:
+    size: 20Gi
+
+  monitoring:
+    enablePodMonitor: true
+
+  managed:
+    roles:
+      - name: gitea
+        ensure: present
+        login: true
+        superuser: false
+        passwordSecret:
+          name: gitea-secret
