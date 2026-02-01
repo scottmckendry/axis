@@ -124,6 +124,9 @@ spec:
           gnetId: 17501
           revision: 1
           datasource: Loki
+        cloudnative-pg:
+          url: https://raw.githubusercontent.com/cloudnative-pg/grafana-dashboards/main/charts/cluster/grafana-dashboard.json
+          datasource: Prometheus
     serviceMonitor:
       enabled: true
     persistence:
