@@ -1,0 +1,22 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: cloudbeaver
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`cb.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+        - name: forwardauth
+          namespace: traefik
+      services:
+        - name: cloudbeaver
+          namespace: cloudbeaver
+          port: 8978
+  tls:
+    secretName: axis-tls
