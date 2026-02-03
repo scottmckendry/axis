@@ -1,0 +1,24 @@
+---
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: postgresql-backup
+  namespace: databases
+spec:
+  configuration:
+    destinationPath: s3://axis-backups/postgresql-cluster
+    endpointURL: https://s3.us-west-004.backblazeb2.com
+    s3Credentials:
+      accessKeyId:
+        name: postgresql-backup-secret
+        key: ACCESS_KEY_ID
+      secretAccessKey:
+        name: postgresql-backup-secret
+        key: ACCESS_SECRET_KEY
+    wal:
+      compression: gzip
+      maxParallel: 8
+    data:
+      compression: gzip
+      jobs: 2
+  retentionPolicy: "30d"
