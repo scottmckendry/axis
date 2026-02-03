@@ -5,3 +5,4 @@ resources:
   - ns.yaml
   - repo.yaml
   - release.yaml
+  - barman-cloud-release.yaml
