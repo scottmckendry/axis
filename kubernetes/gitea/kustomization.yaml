@@ -8,8 +8,12 @@ resources:
   - repo.yaml
   - release.yaml
   - ingress.yaml
-  - backup
+  - backup-config.yaml
+  - backup.secret.sops.yaml
   - mirror-release.yaml
   - mirror-pvc.yaml
   - mirror.secret.sops.yaml
   - mirror-ingress.yaml
+
+components:
+  - ../common/backup

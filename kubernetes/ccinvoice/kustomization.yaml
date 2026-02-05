@@ -7,4 +7,8 @@ resources:
   - release.yaml
   - ingress.yaml
   - ccinvoice.secret.sops.yaml
-  - backup
+  - backup-config.yaml
+  - backup.secret.sops.yaml
+
+components:
+  - ../common/backup

@@ -6,4 +6,8 @@ resources:
   - release.yaml
   - ingress.yaml
   - pvc.yaml
-  - backup
+  - backup-config.yaml
+  - backup.secret.sops.yaml
+
+components:
+  - ../../common/backup

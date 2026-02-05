@@ -1,0 +1,14 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/configmap.json
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backup-config
+  namespace: cloudbeaver
+  annotations:
+    kustomize.toolkit.fluxcd.io/ssa: disabled
+data:
+  NAMESPACE: cloudbeaver
+  REPLICATION_NAME: cloudbeaver-cloudbeaver-workspace
+  PVC_NAME: cloudbeaver-workspace
+  SECRET_NAME: restic-cloudbeaver-cloudbeaver-workspace

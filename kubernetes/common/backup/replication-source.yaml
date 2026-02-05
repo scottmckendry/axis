@@ -3,10 +3,10 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: cloudbeaver-cloudbeaver-workspace
-  namespace: cloudbeaver
+  name: REPLICATION_NAME
+  namespace: NAMESPACE
 spec:
-  sourcePVC: cloudbeaver-workspace
+  sourcePVC: PVC_NAME
   trigger:
     schedule: "0 13 * * *"
   restic:
@@ -17,7 +17,7 @@ spec:
       fsGroup: 1000
       fsGroupChangePolicy: OnRootMismatch
     pruneIntervalDays: 14
-    repository: restic-cloudbeaver-cloudbeaver-workspace
+    repository: SECRET_NAME
     retain:
       daily: 7
       weekly: 4

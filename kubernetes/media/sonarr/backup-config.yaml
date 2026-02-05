@@ -1,0 +1,14 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/configmap.json
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonarr-backup-config
+  namespace: media
+  annotations:
+    kustomize.toolkit.fluxcd.io/ssa: disabled
+data:
+  NAMESPACE: media
+  REPLICATION_NAME: media-sonarr
+  PVC_NAME: sonarr
+  SECRET_NAME: restic-media-sonarr
