@@ -1,0 +1,56 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization.json
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - release.yaml
+
+replacements:
+  # Replace secret name for DB credentials
+  - source:
+      kind: ConfigMap
+      name: adminer-config
+      fieldPath: data.ADMINER_SECRET_NAME
+    targets:
+      - select:
+          kind: HelmRelease
+          name: adminer
+        fieldPaths:
+          - spec.values.controllers.adminer.containers.app.env.DB_USER.valueFrom.secretKeyRef.name
+          - spec.values.controllers.adminer.containers.app.env.DB_PASS.valueFrom.secretKeyRef.name
+
+  # Replace secret keys for username and password
+  - source:
+      kind: ConfigMap
+      name: adminer-config
+      fieldPath: data.ADMINER_SECRET_KEY_USERNAME
+    targets:
+      - select:
+          kind: HelmRelease
+          name: adminer
+        fieldPaths:
+          - spec.values.controllers.adminer.containers.app.env.DB_USER.valueFrom.secretKeyRef.key
+
+  - source:
+      kind: ConfigMap
+      name: adminer-config
+      fieldPath: data.ADMINER_SECRET_KEY_PASSWORD
+    targets:
+      - select:
+          kind: HelmRelease
+          name: adminer
+        fieldPaths:
+          - spec.values.controllers.adminer.containers.app.env.DB_PASS.valueFrom.secretKeyRef.key
+
+  # Replace database name
+  - source:
+      kind: ConfigMap
+      name: adminer-config
+      fieldPath: data.ADMINER_DB_NAME
+    targets:
+      - select:
+          kind: HelmRelease
+          name: adminer
+        fieldPaths:
+          - spec.values.controllers.adminer.containers.app.env.DB_NAME.value

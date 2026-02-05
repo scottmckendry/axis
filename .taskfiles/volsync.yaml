@@ -12,7 +12,6 @@ version: 3
 env:
   actual_actual: --name actual --namespace actual --manage-pods --runner-id 1000
   ccinvoice_ccinvoice: --name ccinvoice --namespace ccinvoice --manage-pods --runner-id 1000
-  cloudbeaver_cloudbeaver_workspace: --name cloudbeaver-workspace --namespace cloudbeaver --manage-pods --runner-id 1000
   gitea_gitea: --name gitea --namespace gitea --manage-pods --runner-id 1000
   home_assistant_home_assistant: --name home-assistant --namespace home-assistant --manage-pods --runner-id 1000
   media_prowlarr: --name prowlarr --namespace media --manage-pods --runner-id 1000

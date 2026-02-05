@@ -3,6 +3,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cloudbeaver
-  annotations:
-    volsync.backube/priveleged-movers: "true" # required for setting file permissions during a backup restore
+  name: adminer

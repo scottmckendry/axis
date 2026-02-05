@@ -5,8 +5,8 @@ kind: Kustomization
 
 resources:
   - actual
+  - adminer
   - ccinvoice
-  - cloudbeaver
   - gitea
   - home-assistant
   - homepage

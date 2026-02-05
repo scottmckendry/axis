@@ -3,8 +3,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cloudbeaver
-  namespace: cloudbeaver
+  name: adminer
+  namespace: adminer
 spec:
   interval: 1h
   chartRef:
@@ -13,14 +13,20 @@ spec:
     namespace: flux-system
   values:
     controllers:
-      cloudbeaver:
+      adminer:
+        replicas: 1
+        strategy: RollingUpdate
         containers:
           app:
             image:
-              repository: dbeaver/cloudbeaver
-              tag: 25.3.4@sha256:ffbefbc6591ba6ec25d77546e6050e4b62220dbef01b3532b4c442ce5320cc16
+              repository: adminer
+              tag: 5.4.1-standalone@sha256:a3167350c4eb9ae4473b8ea0f49c8e5ae74c87b240ee2f6086521dba2a6bf243
             ports:
-              - containerPort: 8978
+              - containerPort: 8080
+            env:
+              ADMINER_DEFAULT_SERVER: postgresql-cluster-rw.databases.svc.cluster.local
+              ADMINER_DESIGN: dracula
+              ADMINER_PLUGINS: ""
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: false
@@ -31,18 +37,17 @@ spec:
         pod:
           securityContext:
             runAsNonRoot: true
-            runAsUser: 1000
-            runAsGroup: 1000
-            fsGroup: 1000
-            fsGroupChangePolicy: OnRootMismatch
+            runAsUser: 65534
+            runAsGroup: 65534
+            fsGroup: 65534
     service:
       app:
-        controller: cloudbeaver
+        controller: adminer
         ports:
           http:
-            port: 8978
+            port: 8080
     persistence:
-      workspace:
-        existingClaim: cloudbeaver-workspace
+      tmp:
+        type: emptyDir
         globalMounts:
-          - path: /opt/cloudbeaver/workspace
+          - path: /tmp
