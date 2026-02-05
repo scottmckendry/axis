@@ -13,8 +13,6 @@ spec:
   bootstrap:
     recovery:
       source: postgresql-backup
-      database: app  # Target database to restore
-      owner: app
 
   storage:
     size: 20Gi
@@ -44,3 +42,6 @@ spec:
         name: barman-cloud.cloudnative-pg.io
         parameters:
           barmanObjectName: postgresql-backup
+          # CRITICAL: Must match the serverName of the cluster that created the backup
+          # If unsure, check the backup folder structure in S3
+          serverName: postgresql-cluster
