@@ -3,11 +3,11 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: cloudbeaver
+  name: adminer
   namespace: traefik
 spec:
   routes:
-    - match: Host(`cb.axis.scottmckendry.tech`)
+    - match: Host(`db.axis.scottmckendry.tech`)
       kind: Rule
       middlewares:
         - name: ipallowlist
@@ -15,8 +15,8 @@ spec:
         - name: forwardauth
           namespace: traefik
       services:
-        - name: cloudbeaver
-          namespace: cloudbeaver
-          port: 8978
+        - name: adminer
+          namespace: adminer
+          port: 8080
   tls:
     secretName: axis-tls

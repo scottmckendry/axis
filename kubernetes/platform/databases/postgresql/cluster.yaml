@@ -28,6 +28,12 @@ spec:
 
   managed:
     roles:
+      - name: scott
+        ensure: present
+        login: true
+        superuser: true
+        passwordSecret:
+          name: scott-secret
       - name: gitea
         ensure: present
         login: true
