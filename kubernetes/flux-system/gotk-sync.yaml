@@ -13,6 +13,12 @@ spec:
     name: flux-system
   url: https://github.com/scottmckendry/axis.git
 ---
+# NOTE: This Kustomization now only manages the flux-system namespace itself.
+# All other resources are managed by layered Kustomizations defined in:
+#   - infrastructure.yaml
+#   - core-services.yaml
+#   - platform.yaml
+#   - apps.yaml
 # yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -21,12 +27,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./kubernetes
+  path: ./kubernetes/flux-system
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age

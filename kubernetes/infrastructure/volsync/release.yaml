@@ -23,5 +23,5 @@ spec:
       disableAuth: true
       serviceMonitor:
         enabled: true
-        namespace: monitoring
+        namespace: volsync
         honorLabels: true

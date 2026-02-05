@@ -3,9 +3,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - gotk-components.yaml
-  - gotk-sync.yaml
-  - infrastructure.yaml
-  - core-services.yaml
-  - platform.yaml
-  - apps.yaml
+  - release.yaml
+  - ingress.yaml
+  - pvc.yaml
+  - backup-config.yaml
+  - backup.secret.sops.yaml
+
+components:
+  - ../../../infrastructure/common/backup

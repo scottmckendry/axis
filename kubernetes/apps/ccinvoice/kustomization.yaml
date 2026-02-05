@@ -11,4 +11,4 @@ resources:
   - backup.secret.sops.yaml
 
 components:
-  - ../common/backup
+  - ../../infrastructure/common/backup
