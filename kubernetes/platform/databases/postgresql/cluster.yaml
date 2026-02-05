@@ -9,6 +9,13 @@ spec:
   instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:18
 
+  # Bootstrap from existing backup in Backblaze
+  bootstrap:
+    recovery:
+      source: postgresql-backup
+      database: app  # Target database to restore
+      owner: app
+
   storage:
     size: 20Gi
 
@@ -29,3 +36,11 @@ spec:
         superuser: false
         passwordSecret:
           name: gitea-secret
+
+  # External cluster definition for recovery source
+  externalClusters:
+    - name: postgresql-backup
+      plugin:
+        name: barman-cloud.cloudnative-pg.io
+        parameters:
+          barmanObjectName: postgresql-backup
