@@ -1,0 +1,46 @@
+---
+# Backup component - provides ReplicationSource template
+# Apps provide: NAMESPACE, REPLICATION_NAME, PVC_NAME, SECRET_NAME
+
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - replication-source.yaml
+
+replacements:
+  - source:
+      kind: ConfigMap
+      fieldPath: data.NAMESPACE
+    targets:
+      - select:
+          kind: ReplicationSource
+        fieldPaths:
+          - metadata.namespace
+
+  - source:
+      kind: ConfigMap
+      fieldPath: data.REPLICATION_NAME
+    targets:
+      - select:
+          kind: ReplicationSource
+        fieldPaths:
+          - metadata.name
+
+  - source:
+      kind: ConfigMap
+      fieldPath: data.PVC_NAME
+    targets:
+      - select:
+          kind: ReplicationSource
+        fieldPaths:
+          - spec.sourcePVC
+
+  - source:
+      kind: ConfigMap
+      fieldPath: data.SECRET_NAME
+    targets:
+      - select:
+          kind: ReplicationSource
+        fieldPaths:
+          - spec.restic.repository

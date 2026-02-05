@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backup-config
+  namespace: actual
+  annotations:
+    kustomize.toolkit.fluxcd.io/ssa: disabled # skip application by Kustomize, used for replacements only
+data:
+  NAMESPACE: actual
+  REPLICATION_NAME: actual-actual
+  PVC_NAME: actual
+  SECRET_NAME: restic-actual-actual

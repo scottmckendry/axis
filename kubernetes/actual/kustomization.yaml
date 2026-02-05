@@ -1,10 +1,19 @@
+---
 # yaml-language-server: $schema=https://json.schemastore.org/kustomization.json
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: actual
+
 resources:
   - ns.yaml
   - pvc.yaml
   - release.yaml
   - ingress.yaml
-  - backup
   - akahu-actual
+  - backup.secret.sops.yaml
+  - backup-config.yaml  # Used for replacements only
+
+# Enable backup using shared component
+components:
+  - ../common/backup
