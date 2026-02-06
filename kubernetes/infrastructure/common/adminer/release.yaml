@@ -19,7 +19,7 @@ spec:
           app:
             image:
               repository: adminer
-              tag: 4.8.1-standalone
+              tag: 5.4.1-standalone
             ports:
               - containerPort: 8080
             env:
