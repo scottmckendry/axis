@@ -66,15 +66,6 @@
         href: https://ha-code.axis.scottmckendry.tech
         siteMonitor: https://ha-code.axis.scottmckendry.tech
 
-    - Gitea:
-        icon: gitea.svg
-        href: https://git.axis.scottmckendry.tech
-        siteMonitor: https://git.axis.scottmckendry.tech
-        widget:
-          type: gitea
-          url: "http://gitea-http.gitea.svc.cluster.local:3000"
-          key: "{{HOMEPAGE_VAR_GITEA_API_KEY}}"
-
 - Monitoring:
     - Grafana:
         icon: grafana.svg

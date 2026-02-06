@@ -7,7 +7,6 @@ resources:
   - actual
   - adminer
   - ccinvoice
-  - gitea
   - home-assistant
   - homepage
   - media

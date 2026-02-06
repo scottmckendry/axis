@@ -43,12 +43,6 @@ spec:
         superuser: true
         passwordSecret:
           name: scott-secret
-      - name: gitea
-        ensure: present
-        login: true
-        superuser: false
-        passwordSecret:
-          name: gitea-secret
       - name: ccinvoice
         ensure: present
         login: true
