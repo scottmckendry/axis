@@ -13,6 +13,8 @@ spec:
   bootstrap:
     recovery:
       source: postgresql-backup
+      recoveryTarget:
+        targetTime: "2026-02-06 12:00:00.00000+13:00"
 
   storage:
     size: 20Gi
@@ -20,11 +22,11 @@ spec:
   monitoring:
     enablePodMonitor: true
 
-  plugins:
-    - name: barman-cloud.cloudnative-pg.io
-      isWALArchiver: true
-      parameters:
-        barmanObjectName: postgresql-backup
+  # plugins:
+  #   - name: barman-cloud.cloudnative-pg.io
+  #     isWALArchiver: true
+  #     parameters:
+  #       barmanObjectName: postgresql-backup
 
   managed:
     roles:
@@ -41,13 +43,10 @@ spec:
         passwordSecret:
           name: gitea-secret
 
-  # External cluster definition for recovery source
   externalClusters:
     - name: postgresql-backup
       plugin:
         name: barman-cloud.cloudnative-pg.io
         parameters:
           barmanObjectName: postgresql-backup
-          # CRITICAL: Must match the serverName of the cluster that created the backup
-          # If unsure, check the backup folder structure in S3
           serverName: postgresql-cluster
