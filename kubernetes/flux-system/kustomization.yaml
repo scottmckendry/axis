@@ -9,3 +9,14 @@ resources:
   - core-services.yaml
   - platform.yaml
   - apps.yaml
+
+# Faster dependency requeue for controllers, to speed up reconciliation when a dependency is not ready yet.
+# See https://fluxcd.io/flux/installation/configuration/vertical-scaling/
+patches:
+  - patch: |
+      - op: add
+        path: /spec/template/spec/containers/0/args/-
+        value: --requeue-dependency=5s
+    target:
+      kind: Deployment
+      name: "(kustomize-controller|helm-controller|source-controller)"
