@@ -66,6 +66,11 @@
         href: https://ha-code.axis.scottmckendry.tech
         siteMonitor: https://ha-code.axis.scottmckendry.tech
 
+    - pgAdmin:
+        icon: pgadmin.svg
+        href: https://pgadmin.axis.scottmckendry.tech
+        siteMonitor: https://pgadmin.axis.scottmckendry.tech
+
 - Monitoring:
     - Grafana:
         icon: grafana.svg

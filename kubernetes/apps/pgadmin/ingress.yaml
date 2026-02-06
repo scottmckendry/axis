@@ -3,11 +3,11 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: adminer
+  name: pgadmin
   namespace: traefik
 spec:
   routes:
-    - match: Host(`db.axis.scottmckendry.tech`)
+    - match: Host(`pgadmin.axis.scottmckendry.tech`)
       kind: Rule
       middlewares:
         - name: ipallowlist
@@ -15,8 +15,8 @@ spec:
         - name: forwardauth
           namespace: traefik
       services:
-        - name: adminer
-          namespace: adminer
-          port: 8080
+        - name: pgadmin
+          namespace: pgadmin
+          port: 80
   tls:
     secretName: axis-tls

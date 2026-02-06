@@ -5,9 +5,9 @@ kind: Kustomization
 
 resources:
   - actual
-  - adminer
   - ccinvoice
   - home-assistant
   - homepage
   - media
   - monitoring
+  - pgadmin
