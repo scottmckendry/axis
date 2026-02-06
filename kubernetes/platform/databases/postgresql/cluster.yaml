@@ -49,6 +49,12 @@ spec:
         superuser: false
         passwordSecret:
           name: gitea-secret
+      - name: ccinvoice
+        ensure: present
+        login: true
+        superuser: false
+        passwordSecret:
+          name: ccinvoice-secret
 
   externalClusters:
     - name: postgresql-backup
