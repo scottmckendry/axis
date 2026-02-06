@@ -22,9 +22,6 @@ spec:
   storage:
     size: 20Gi
 
-  monitoring:
-    enablePodMonitor: true
-
   plugins:
     # NOTE: when performing a recovery, you must not have the WAL archiver plugin enabled.
     # while this is supported, it is not recommended to have the recovery source and the

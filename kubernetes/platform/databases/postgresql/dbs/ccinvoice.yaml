@@ -10,3 +10,6 @@ spec:
   owner: ccinvoice
   cluster:
     name: postgresql-cluster
+  extensions:
+    - ensure: present
+      name: pg_stat_statements
