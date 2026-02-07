@@ -1,5 +1,17 @@
 ---
 # yaml-language-server: $schema=https://datreeio.github.io/CRDs-catalog/postgresql.cnpg.io/cluster_v1.json
+
+# Recovery Options:
+# - Recover directly to this cluster - follow the instructions below. Use `just pg-recover` to run the recovery.
+# - Restore to a copy of the cluster alongside this one:
+#    1. Copy this manifest.
+#    2. Change the cluster name and the recovery target time (or remove from the spec to get the last backup).
+#    3. Remove the barman-cloud plugin from the spec to prevent conflicts with our production cluster.
+#    4. Add the copied cluster manifest to the kustomization.yaml file.
+#    5. Apply the changes by pushing to the Git repository, and wait for the recovery to complete.
+#    6. Perform any necessary tasks on the recovered cluster.
+#    7. Drop this commit to clean up the cluster when done. Flux will handle the garbage collection of the cluster and its resources.
+
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
