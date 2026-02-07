@@ -52,6 +52,12 @@ spec:
         superuser: false
         passwordSecret:
           name: sonarr-secret
+      - name: radarr
+        ensure: present
+        login: true
+        superuser: false
+        passwordSecret:
+          name: radarr-secret
 
   externalClusters:
     - name: postgresql-backup
