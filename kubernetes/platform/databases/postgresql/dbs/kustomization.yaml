@@ -5,3 +5,4 @@ resources:
   - ccinvoice.yaml
   - sonarr.yaml
   - radarr.yaml
+  - prowlarr.yaml

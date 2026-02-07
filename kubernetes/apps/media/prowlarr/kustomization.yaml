@@ -5,9 +5,4 @@ kind: Kustomization
 resources:
   - release.yaml
   - ingress.yaml
-  - pvc.yaml
-  - backup-config.yaml
-  - backup.secret.sops.yaml
-
-components:
-  - ../../../infrastructure/common/backup
+  - prowlarr.secret.sops.yaml

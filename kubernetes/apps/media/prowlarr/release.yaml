@@ -19,6 +19,9 @@ spec:
             image:
               repository: ghcr.io/home-operations/prowlarr
               tag: 2.3.2.5245@sha256:e2459e199564ab852c6e677e951cef36c172a8e71a0e1c90665631b5a0c57438
+            envFrom:
+              - secretRef:
+                  name: prowlarr-secrets
             env:
               PROWLARR__APP__INSTANCENAME: Prowlarr
               PROWLARR__APP__THEME: dark
@@ -67,9 +70,8 @@ spec:
             port: 8191
     persistence:
       config:
-        existingClaim: prowlarr
+        type: emptyDir
         advancedMounts:
           prowlarr:
             app:
               - path: /config
-                readOnly: false
