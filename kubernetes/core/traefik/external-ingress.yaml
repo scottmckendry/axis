@@ -38,7 +38,7 @@ spec:
     - match: Host(`jellyfin.axis.scottmckendry.tech`)
       kind: Rule
       middlewares:
-        - name: ipallowlist
+        - name: ratelimit
       services:
         - name: ext-truenas
           port: 30013

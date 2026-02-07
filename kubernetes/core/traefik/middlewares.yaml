@@ -41,3 +41,15 @@ spec:
     customFrameOptionsValue: SAMEORIGIN
     customRequestHeaders:
       X-Forwarded-Proto: https
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: ratelimit
+  namespace: traefik
+spec:
+  rateLimit:
+    average: 10
+    burst: 50
+    period: 1s
