@@ -29,6 +29,9 @@ spec:
               SONARR__SERVER__PORT: 80
               SONARR__UPDATE__BRANCH: develop
               TZ: Pacific/Auckland
+            envFrom:
+              - secretRef:
+                  name: sonarr-postgres
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -48,7 +51,7 @@ spec:
             port: 80
     persistence:
       config:
-        existingClaim: sonarr
+        type: emptyDir
       config-cache:
         existingClaim: sonarr-cache
         globalMounts:

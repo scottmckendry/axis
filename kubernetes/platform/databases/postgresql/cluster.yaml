@@ -46,6 +46,12 @@ spec:
         superuser: false
         passwordSecret:
           name: ccinvoice-secret
+      - name: sonarr
+        ensure: present
+        login: true
+        superuser: false
+        passwordSecret:
+          name: sonarr-secret
 
   externalClusters:
     - name: postgresql-backup

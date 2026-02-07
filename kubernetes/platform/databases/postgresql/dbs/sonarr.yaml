@@ -1,0 +1,24 @@
+---
+# yaml-language-server: $schema=https://datreeio.github.io/CRDs-catalog/postgresql.cnpg.io/database_v1.json
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: sonarr-main
+  namespace: databases
+spec:
+  name: sonarr-main
+  owner: sonarr
+  cluster:
+    name: postgresql-cluster
+---
+# yaml-language-server: $schema=https://datreeio.github.io/CRDs-catalog/postgresql.cnpg.io/database_v1.json
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: sonarr-log
+  namespace: databases
+spec:
+  name: sonarr-log
+  owner: sonarr
+  cluster:
+    name: postgresql-cluster
