@@ -1,8 +1,0 @@
----
-# yaml-language-server: $schema=https://taskfile.dev/schema.json
-version: 3
-
-includes:
-  talos: .taskfiles/talos.yaml
-  sops: .taskfiles/sops.yaml
-  volsync: .taskfiles/volsync.yaml
