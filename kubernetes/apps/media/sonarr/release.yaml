@@ -31,7 +31,7 @@ spec:
               TZ: Pacific/Auckland
             envFrom:
               - secretRef:
-                  name: sonarr-postgres
+                  name: sonarr-secrets
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true

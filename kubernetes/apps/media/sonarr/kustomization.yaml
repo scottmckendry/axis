@@ -6,4 +6,4 @@ resources:
   - release.yaml
   - ingress.yaml
   - pvc.yaml
-  - postgres.secret.sops.yaml
+  - sonarr.secret.sops.yaml
