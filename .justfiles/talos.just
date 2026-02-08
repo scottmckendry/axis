@@ -4,7 +4,7 @@
 CLUSTER_NAME := "axis"
 CLUSTER_VIP := "10.0.10.10"
 # renovate: datasource=github-releases depName=siderolabs/talos
-TALOS_VERSION := "v1.12.2"
+TALOS_VERSION := "v1.12.3"
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
 KUBERNETES_VERSION := "v1.35.0"
 
