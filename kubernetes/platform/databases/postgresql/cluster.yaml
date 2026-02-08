@@ -18,7 +18,7 @@ metadata:
   name: postgresql-cluster
   namespace: databases
 spec:
-  instances: 1
+  instances: 3
   imageName: ghcr.io/cloudnative-pg/postgresql:18
 
   # Bootstrap from existing backup in Backblaze B2, using the Barman Cloud plugin.
@@ -28,8 +28,6 @@ spec:
   bootstrap:
     recovery:
       source: postgresql-backup
-      recoveryTarget:
-        targetTime: "2026-02-06 12:00:00.00000+13:00"
 
   storage:
     size: 20Gi
