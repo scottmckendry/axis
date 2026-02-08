@@ -50,6 +50,6 @@ metadata:
   namespace: traefik
 spec:
   rateLimit:
-    average: 10
-    burst: 50
+    average: 40
+    burst: 200
     period: 1s
