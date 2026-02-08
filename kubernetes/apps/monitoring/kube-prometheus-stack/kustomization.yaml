@@ -6,3 +6,4 @@ resources:
   - release.yaml
   - repo.yaml
   - ingress.yaml
+  - cnpgmonitor.yaml
