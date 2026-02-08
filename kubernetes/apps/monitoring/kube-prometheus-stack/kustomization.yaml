@@ -7,3 +7,5 @@ resources:
   - repo.yaml
   - ingress.yaml
   - cnpgmonitor.yaml
+  - alertmanager.secret.sops.yaml
+  - alertmanagerconfig.yaml
