@@ -51,9 +51,15 @@ _apply_node NODE_IP:
 upgrade:
     #!/usr/bin/env bash
     set -euo pipefail
-    for node in 10.0.10.11 10.0.10.12 10.0.10.13; do
-        just _upgrade_node ${node}
-    done
+    read -p "Upgrade Talos to {{TALOS_VERSION}} across all nodes? (y/N) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        echo ""
+        for node in 10.0.10.11 10.0.10.12 10.0.10.13; do
+            just _upgrade_node ${node}
+        done
+        echo ""
+    fi
 
 # Upgrade individual Talos node
 _upgrade_node NODE_IP:
@@ -61,13 +67,7 @@ _upgrade_node NODE_IP:
     set -euo pipefail
     cd talos
     IMAGE_SCHEMATIC_ID=$(curl -fsSL -X POST --data-binary @image-schematic.yaml https://factory.talos.dev/schematics | jq -r '.id')
-    read -p "Upgrade node {{NODE_IP}} to version {{TALOS_VERSION}}? (y/N) " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        echo ""
-        talosctl upgrade --nodes {{NODE_IP}} --image factory.talos.dev/installer/${IMAGE_SCHEMATIC_ID}:{{TALOS_VERSION}}
-        echo ""
-    fi
+    talosctl upgrade --nodes {{NODE_IP}} --image factory.talos.dev/installer/${IMAGE_SCHEMATIC_ID}:{{TALOS_VERSION}}
 
 # Upgrade Kubernetes to tracked version
 upgrade-k8s:
