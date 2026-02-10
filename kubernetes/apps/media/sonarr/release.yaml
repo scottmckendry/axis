@@ -36,6 +36,15 @@ spec:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
+            probes:
+              liveness:
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /ping
+                    port: 80
+                  initialDelaySeconds: 10
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
