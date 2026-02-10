@@ -6,3 +6,4 @@ kind: Kustomization
 resources:
   - cnpg-system
   - databases
+  - tuppr
