@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/home-operations/tuppr/main/config/crd/bases/tuppr.home-operations.com_kubernetesupgrades.yaml
+apiVersion: tuppr.home-operations.com/v1alpha1
+kind: KubernetesUpgrade
+metadata:
+  name: cluster
+  namespace: tuppr
+spec:
+  kubernetes:
+    # renovate: datasource=github-releases depName=kubernetes/kubernetes
+    version: v1.35.0
