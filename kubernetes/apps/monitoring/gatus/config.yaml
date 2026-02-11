@@ -23,6 +23,14 @@ endpoints:
     conditions:
       - "[CONNECTED] == true"
 
+  - name: postgresql-cluster
+    group: database
+    url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090/api/v1/query?query=avg+by(cluster)(cnpg_collector_up)
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+      - "[BODY].data.result[0].value[1] == 1"
+
 metrics: true
 
 ui:
