@@ -74,6 +74,12 @@ spec:
         superuser: false
         passwordSecret:
           name: prowlarr-secret
+      - name: gatus
+        ensure: present
+        login: true
+        superuser: false
+        passwordSecret:
+          name: gatus-secret
 
   externalClusters:
     - name: postgresql-backup

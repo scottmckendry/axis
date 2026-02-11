@@ -6,3 +6,4 @@ resources:
   - sonarr.yaml
   - radarr.yaml
   - prowlarr.yaml
+  - gatus.yaml

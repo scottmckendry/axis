@@ -1,0 +1,17 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: gatus
+  namespace: traefik
+spec:
+  routes:
+    - match: Host(`status.axis.scottmckendry.tech`)
+      kind: Rule
+      services:
+        - name: gatus
+          namespace: monitoring
+          port: 8080
+  tls:
+    secretName: axis-tls

@@ -1,0 +1,37 @@
+---
+connectivity:
+  checker:
+    target: 1.1.1.1:53
+    interval: 1m
+
+storage:
+  type: postgres
+  path: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?sslmode=require"
+
+endpoints:
+  - name: cloudflare
+    group: connectivity
+    url: icmp://1.1.1.1
+    interval: 1m
+    conditions:
+      - "[CONNECTED] == true"
+
+  - name: google
+    group: connectivity
+    url: icmp://8.8.8.8
+    interval: 1m
+    conditions:
+      - "[CONNECTED] == true"
+
+metrics: true
+
+ui:
+  title: AXIS Status
+  header: Status
+  logo: https://scottmckendry.tech/img/logo/icon2transparent.png
+  link: https://scottmckendry.tech
+  buttons:
+    - name: GitHub
+      link: https://github.com/scottmckendry
+    - name: Homelab
+      link: https://github.com/scottmckendry/axis
