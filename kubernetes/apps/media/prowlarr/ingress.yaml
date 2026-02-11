@@ -5,6 +5,9 @@ kind: IngressRoute
 metadata:
   name: prowlarr
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://prowlarr-app.media.svc.cluster.local:80
 spec:
   routes:
     - match: Host(`prowlarr.axis.scottmckendry.tech`)

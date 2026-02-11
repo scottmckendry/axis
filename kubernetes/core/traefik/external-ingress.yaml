@@ -15,6 +15,10 @@ kind: IngressRoute
 metadata:
   name: ext-truenas
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      name: truenas
+      url: http://10.0.6.1
 spec:
   routes:
     - match: Host(`truenas.axis.scottmckendry.tech`)
@@ -33,6 +37,10 @@ kind: IngressRoute
 metadata:
   name: ext-truenas-jellyfin
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      name: jellyfin
+      url: http://10.0.6.1:30013
 spec:
   routes:
     - match: Host(`jellyfin.axis.scottmckendry.tech`)
@@ -61,6 +69,8 @@ kind: IngressRoute
 metadata:
   name: ext-proxmox
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/enabled: false
 spec:
   routes:
     - match: Host(`proxmox.axis.scottmckendry.tech`)

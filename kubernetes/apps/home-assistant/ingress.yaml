@@ -25,6 +25,9 @@ kind: IngressRoute
 metadata:
   name: home-assistant-code
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://home-assistant-code.home-assistant.svc.cluster.local:8081
 spec:
   routes:
     - match: Host(`ha-code.axis.scottmckendry.tech`)

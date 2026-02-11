@@ -5,6 +5,9 @@ kind: IngressRoute
 metadata:
   name: sonarr
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://sonarr.media.svc.cluster.local:80
 spec:
   routes:
     - match: Host(`sonarr.axis.scottmckendry.tech`)

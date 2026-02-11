@@ -5,6 +5,9 @@ kind: IngressRoute
 metadata:
   name: radarr
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://radarr.media.svc.cluster.local:80
 spec:
   routes:
     - match: Host(`radarr.axis.scottmckendry.tech`)
