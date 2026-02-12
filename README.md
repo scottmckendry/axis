@@ -9,6 +9,12 @@
   </p>
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fscottmckendry%2Faxis%2Fmain%2Fkubernetes%2Fplatform%2Ftuppr%2Ftalos-upgrade.yaml&query=%24.spec.talos.version&logo=talos&logoColor=white&label=talos&color=blue" alt="Talos" />
+  <img src="https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fscottmckendry%2Faxis%2Fmain%2Fkubernetes%2Fplatform%2Ftuppr%2Fkubernetes-upgrade.yaml&query=%24.spec.kubernetes.version&logo=kubernetes&logoColor=white&label=kubernetes&color=blue" alt="Kubernetes" />
+  <a href="https://status.axis.scottmckendry.tech"><img src="https://status.axis.scottmckendry.tech/api/v1/endpoints/connectivity_cloudflare/uptimes/30d/badge.svg" alt="Uptime" /></a>
+</p>
+
 ---
 
 Mono-repo for my GitOps-driven K8s homelab 🏠
@@ -33,12 +39,12 @@ Common operations:
 
 ```sh
 # Decrypt secrets
-task sops:decrypt
+just decrypt
 
 # Re-encrypt all secrets
-task sops:encrypt
+just encrypt
 
-# Low-level helper (used by the tasks)
+# Low-level helper (used by the recipes)
 scripts/sops.sh encrypt|decrypt
 ```
 
@@ -48,6 +54,14 @@ Secret file conventions:
 - Decrypted secrets end with `.secret.yaml` (wildcard in `.gitignore`)
 
 <img width="1666" height="580" alt="image" src="https://github.com/user-attachments/assets/df4b5cb1-43b8-4839-9b55-26e5c2e4ab25" />
+
+## 🐘 CloudNative Postgres
+
+CloudNative Postgres is used everywhere I possibly can for persistent databases.
+
+### Backup and restore
+
+All backups are configured with the CNPG Barman Cloud plugin to Backblaze B2. WAL archiving allows for point-in-time recovery with small RPO/RTO.
 
 ## ♻️ Backups and restores (VolSync)
 
@@ -60,17 +74,8 @@ Operational tasks:
 
 ```sh
 # Interactive restore workflow
-task volsync:interactive-restore
-
-# App-specific restore shortcuts (if defined)
-task volsync:restore-<name>
+just restore
 ```
-
-Example backup locations in this repo:
-
-- `kubernetes/home-assistant/backup/`
-- `kubernetes/media/*/backup/`
-- `kubernetes/actual/backup/` and `kubernetes/ccinvoice/backup/`
 
 Notes:
 
@@ -79,21 +84,20 @@ Notes:
 
 <img width="1051" height="808" alt="image" src="https://github.com/user-attachments/assets/f16ad368-75b2-4224-a2c2-8ccf0ebd44ad" />
 
-## 🛡️ Talos lifecycle and upgrades
+## 🛡️ Talos/Kubernetes cluster management
 
-Talos is configured under `talos/` with patches in `talos/patches/`. Use Taskfile helpers for generating machine configs, applying changes, and upgrading node images.
+Talos is configured under `talos/` with patches in `talos/patches/`. Use justfile recipes for generating machine configs and applying them to the cluster.
 
 Common operations:
 
 ```sh
 # Generate Talos machine configs from image schematic and patches
-task talos:generate
+just generate
 
 # Apply generated configs to the cluster
-task talos:apply
-
-# Upgrade Talos across control plane and workers
-task talos:upgrade
+just apply
 ```
 
-Patches of interest in `talos/patches/` include networking (VIP, DHCP), storage mounts for local-path-provisioner, and permissions for running certain workloads on control-plane nodes.
+### Upgrades
+
+Managed via [tuppr](https://github.com/home-operations/tuppr) 🩵
