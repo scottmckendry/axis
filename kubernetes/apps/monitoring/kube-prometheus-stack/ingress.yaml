@@ -8,6 +8,8 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`prometheus.axis.scottmckendry.tech`)
@@ -33,6 +35,8 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://kube-prometheus-stack-alertmanager.monitoring.svc.cluster.local:9093
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`am.axis.scottmckendry.tech`)

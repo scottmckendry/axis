@@ -5,6 +5,11 @@ kind: IngressRoute
 metadata:
   name: home-assistant
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://home-assistant-app.home-assistant.svc.cluster.local:8123
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`ha.axis.scottmckendry.tech`)
@@ -28,6 +33,8 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://home-assistant-code.home-assistant.svc.cluster.local:8081
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`ha-code.axis.scottmckendry.tech`)

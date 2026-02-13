@@ -5,6 +5,11 @@ kind: IngressRoute
 metadata:
   name: grafana
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://grafana.monitoring.svc.cluster.local:80
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`grafana.axis.scottmckendry.tech`)

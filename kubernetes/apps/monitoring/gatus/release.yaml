@@ -32,6 +32,11 @@ spec:
               GATUS_DELAY_START_SECONDS: 5
               GATUS_CONFIG_PATH: /config
               TZ: Pacific/Auckland
+              DISCORD_WEBHOOK_URL:
+                valueFrom:
+                  secretKeyRef:
+                    name: alertmanager-discord
+                    key: DISCORD_WEBHOOK_URL
             envFrom:
               - secretRef:
                   name: gatus-db-secret

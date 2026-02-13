@@ -8,6 +8,8 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://homepage.homepage.svc.cluster.local:3000
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`axis.scottmckendry.tech`)

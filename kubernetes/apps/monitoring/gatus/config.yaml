@@ -8,6 +8,16 @@ storage:
   type: postgres
   path: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}?sslmode=require"
 
+alerting:
+  discord:
+    webhook-url: "${DISCORD_WEBHOOK_URL}"
+    default-alert:
+      enabled: true
+      description: "healthcheck failed"
+      send-on-resolved: true
+      failure-threshold: 3
+      success-threshold: 2
+
 endpoints:
   - name: cloudflare
     group: connectivity
@@ -15,6 +25,8 @@ endpoints:
     interval: 1m
     conditions:
       - "[CONNECTED] == true"
+    alerts:
+      - type: discord
 
   - name: google
     group: connectivity
@@ -22,6 +34,8 @@ endpoints:
     interval: 1m
     conditions:
       - "[CONNECTED] == true"
+    alerts:
+      - type: discord
 
   - name: postgresql-cluster
     group: database
@@ -30,6 +44,8 @@ endpoints:
     conditions:
       - "[STATUS] == 200"
       - "[BODY].data.result[0].value[1] == 1"
+    alerts:
+      - type: discord
 
 metrics: true
 

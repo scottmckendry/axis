@@ -8,6 +8,8 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://prowlarr-app.media.svc.cluster.local:80
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`prowlarr.axis.scottmckendry.tech`)

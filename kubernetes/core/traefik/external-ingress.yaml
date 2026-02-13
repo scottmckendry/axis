@@ -19,6 +19,8 @@ metadata:
     gatus.home-operations.com/endpoint: |
       name: truenas
       url: http://10.0.6.1
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`truenas.axis.scottmckendry.tech`)
@@ -41,6 +43,8 @@ metadata:
     gatus.home-operations.com/endpoint: |
       name: jellyfin
       url: http://10.0.6.1:30013
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`jellyfin.axis.scottmckendry.tech`)
