@@ -8,4 +8,4 @@ metadata:
 spec:
   talos:
     # renovate: datasource=github-releases depName=siderolabs/talos
-    version: v1.12.3
+    version: v1.12.4
