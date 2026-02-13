@@ -5,7 +5,7 @@ CLUSTER_NAME := "axis"
 CLUSTER_VIP := "10.0.10.10"
 
 # renovate: datasource=github-releases depName=siderolabs/talos
-TALOS_VERSION := "v1.12.3"
+TALOS_VERSION := "v1.12.4"
 
 # Generate Talos config
 generate:
