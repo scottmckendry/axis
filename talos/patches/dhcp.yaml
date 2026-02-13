@@ -2,5 +2,5 @@
 machine:
   network:
     interfaces:
-      - interface: eth0
+      - interface: ens18
         dhcp: true
