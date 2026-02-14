@@ -1,71 +1,64 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/deployment.json
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: tinyauth
-  namespace: traefik
-  labels:
-    app: tinyauth
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: tinyauth
-  template:
-    metadata:
-      labels:
-        app: tinyauth
-    spec:
-      # securityContext:
-      #   fsGroup: 1000
-      #   fsGroupChangePolicy: OnRootMismatch
-      containers:
-        - name: tinyauth
-          image: ghcr.io/steveiliop56/tinyauth
-          tag: v4.0.1@sha256:815a53c517b4b8f29c02245fc89185186d12162f6bfc2e7566acf888c72ff14b
-          securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            allowPrivilegeEscalation: false
-            runAsNonRoot: true
-            capabilities:
-              drop: ["ALL"]
-            seccompProfile:
-              type: RuntimeDefault
-          ports:
-            - containerPort: 3000
-          envFrom:
-            - secretRef:
-                name: tinyauth-secrets
-          volumeMounts:
-            - name: data
-              mountPath: /data
-          livenessProbe:
-            httpGet:
-              path: /api/healthz
-              port: 3000
-          readinessProbe:
-            httpGet:
-              path: /api/healthz
-              port: 3000
-      volumes:
-        - name: data
-          emptyDir: {}
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/service.json
-apiVersion: v1
-kind: Service
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
 metadata:
   name: tinyauth
   namespace: traefik
 spec:
-  ports:
-    - port: 3000
-      targetPort: 3000
-      protocol: TCP
-  selector:
-    app: tinyauth
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  values:
+    controllers:
+      main:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/steveiliop56/tinyauth
+              tag: v4.0.1@sha256:815a53c517b4b8f29c02245fc89185186d12162f6bfc2e7566acf888c72ff14b
+            envFrom:
+              - secretRef:
+                  name: tinyauth-secrets
+            probes:
+              liveness: &probe
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /api/healthz
+                    port: 3000
+              readiness: *probe
+            securityContext:
+              allowPrivilegeEscalation: false
+              runAsNonRoot: true
+              capabilities:
+                drop: ["ALL"]
+              seccompProfile:
+                type: RuntimeDefault
+
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+
+    service:
+      main:
+        controller: main
+        ports:
+          http:
+            port: 3000
+
+    persistence:
+      data:
+        existingClaim: tinyauth-pvc
+        globalMounts:
+          - path: /data
 ---
 # yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
 apiVersion: traefik.io/v1alpha1
@@ -83,3 +76,16 @@ spec:
           port: 3000
   tls:
     secretName: axis-tls
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/persistentvolumeclaim.json
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tinyauth-pvc
+  namespace: traefik
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
