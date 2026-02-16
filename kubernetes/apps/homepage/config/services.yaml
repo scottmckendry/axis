@@ -66,6 +66,14 @@
         href: https://ha-code.axis.scottmckendry.tech
         siteMonitor: https://ha-code.axis.scottmckendry.tech
 
+    - Cluster Status Page:
+        icon: gatus.svg
+        href: https://status.axis.scottmckendry.tech
+        siteMonitor: https://status.axis.scottmckendry.tech
+        widget:
+          type: gatus
+          url: "https://status.axis.scottmckendry.tech"
+
     - pgAdmin:
         icon: pgadmin.svg
         href: https://pgadmin.axis.scottmckendry.tech
