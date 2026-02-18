@@ -4,11 +4,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - actual
-  - capacity-fishing
-  - ccinvoice
-  - home-assistant
-  - homepage
-  - media
-  - monitoring
-  - pgadmin
+  - ns.yaml
+  - azure.secret.sops.yaml
+  - script-configmap.yaml
+  - deployment.secret.sops.yaml
+  - cronjob.yaml
