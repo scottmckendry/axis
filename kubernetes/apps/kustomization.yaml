@@ -5,7 +5,6 @@ kind: Kustomization
 
 resources:
   - actual
-  - capacity-fishing
   - ccinvoice
   - home-assistant
   - homepage
