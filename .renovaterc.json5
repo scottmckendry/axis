@@ -45,6 +45,18 @@
   },
   packageRules: [
     {
+      description: 'Ignore individual FluxCD component images - only track flux2 releases',
+      matchPackagePatterns: [
+        '^ghcr\\.io/fluxcd/source-controller$',
+        '^ghcr\\.io/fluxcd/kustomize-controller$',
+        '^ghcr\\.io/fluxcd/helm-controller$',
+        '^ghcr\\.io/fluxcd/notification-controller$',
+        '^ghcr\\.io/fluxcd/image-reflector-controller$',
+        '^ghcr\\.io/fluxcd/image-automation-controller$',
+      ],
+      enabled: false,
+    },
+    {
       matchUpdateTypes: [
         'major',
       ],
