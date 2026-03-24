@@ -117,7 +117,7 @@ spec:
         prometheus:
           # renovate: depName="Prometheus"
           gnetId: 19105
-          revision: 8
+          revision: 9
           datasource: Prometheus
         traefik:
           # renovate: depName="Traefik On K8s Via Loki"
