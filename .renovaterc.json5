@@ -188,6 +188,14 @@
       semanticCommitScope: 'grafana-dashboards',
       semanticCommitType: 'chore',
     },
+
+    // Allow prereleases for tinyauth docker image updates
+    {
+      matchDatasources: ['docker'],
+      matchPackageNames: ['ghcr.io/steveiliop56/tinyauth'],
+      ignoreUnstable: false,
+      prerelease: 'allow',
+    },
   ],
   customDatasources: {
     'grafana-dashboards': {
