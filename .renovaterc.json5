@@ -194,7 +194,6 @@
       matchDatasources: ['docker'],
       matchPackageNames: ['ghcr.io/steveiliop56/tinyauth'],
       ignoreUnstable: false,
-      prerelease: 'allow',
     },
   ],
   customDatasources: {
