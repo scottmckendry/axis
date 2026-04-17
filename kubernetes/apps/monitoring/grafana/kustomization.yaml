@@ -6,4 +6,4 @@ resources:
   - release.yaml
   - repo.yaml
   - ingress.yaml
-  - admin.secret.sops.yaml
+  - oidc.secret.sops.yaml

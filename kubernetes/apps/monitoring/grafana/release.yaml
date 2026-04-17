@@ -13,8 +13,7 @@ spec:
   values:
     deploymentStrategy:
       type: Recreate
-    admin:
-      existingSecret: grafana-admin-credentials
+    envFromSecret: grafana-oidc-credentials
     env:
       GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
       GF_EXPLORE_ENABLED: true
@@ -27,6 +26,19 @@ spec:
         reporting_enabled: false
       news:
         news_feed_enabled: false
+      auth:
+        disable_login_form: true
+      users:
+        auto_assign_org_role: Admin
+      auth.generic_oauth:
+        enabled: true
+        name: Tinyauth
+        scopes: openid email profile
+        auth_url: https://auth.axis.scottmckendry.tech/authorize
+        token_url: https://auth.axis.scottmckendry.tech/api/oidc/token
+        api_url: https://auth.axis.scottmckendry.tech/api/oidc/userinfo
+        use_pkce: true
+        auto_login: false
       dashboards:
         default_home_dashboard_path: /var/lib/grafana/dashboards/default/kubernetes-global.json
     datasources:
