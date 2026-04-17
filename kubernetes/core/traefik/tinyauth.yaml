@@ -18,7 +18,7 @@ spec:
           app:
             image:
               repository: ghcr.io/steveiliop56/tinyauth
-              tag: v5.0.7-alpha.1@sha256:5127d62debfd72b54ae1088d721469e1472255799ad405cbb14e5c1aca811f54
+              tag: v5.0.7@sha256:0793c71c49906e079d90c7e693cded9df569217a92d717dc9b171f2116fcd1c6
             envFrom:
               - secretRef:
                   name: tinyauth-secrets
