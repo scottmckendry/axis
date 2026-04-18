@@ -15,6 +15,7 @@ check_dependencies() {
 	local missing_deps=()
 	command -v sops >/dev/null 2>&1 || missing_deps+=("sops")
 	command -v age >/dev/null 2>&1 || missing_deps+=("age")
+	command -v secret-tool >/dev/null 2>&1 || missing_deps+=("secret-tool")
 
 	if [ ${#missing_deps[@]} -ne 0 ]; then
 		echo -e "${RED}Error: Missing required dependencies: ${missing_deps[*]}${NC}"
@@ -22,14 +23,17 @@ check_dependencies() {
 	fi
 }
 
-check_age_keys() {
-	local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
-	local keys_path="$config_dir/sops/age/keys.txt"
+load_age_key() {
+	local key
+	key="$(secret-tool lookup app sops type age-key 2>/dev/null)"
 
-	if [ ! -f "$keys_path" ]; then
-		echo -e "${RED}Error: Age keys file not found at: $keys_path${NC}"
+	if [ -z "$key" ]; then
+		echo -e "${RED}Error: Age key not found in keyring. Store it with:${NC}"
+		echo -e "  secret-tool store --label=\"age secret key\" app sops type age-key"
 		exit 1
 	fi
+
+	export SOPS_AGE_KEY="$key"
 }
 
 usage() {
@@ -55,7 +59,7 @@ fi
 MODE="$1"
 
 check_dependencies
-check_age_keys
+load_age_key
 
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
