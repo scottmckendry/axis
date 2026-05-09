@@ -42,6 +42,6 @@ _apply_node NODE_IP:
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo ""
-        talosctl apply -f rendered/controlplane.yaml -n {{NODE_IP}}
+        talosctl apply -f rendered/controlplane.yaml -n {{NODE_IP}} -e {{NODE_IP}}
         echo ""
     fi
