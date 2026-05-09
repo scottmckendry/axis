@@ -14,6 +14,10 @@ spec:
     deploymentStrategy:
       type: Recreate
     envFromSecret: grafana-oidc-credentials
+    admin:
+      existingSecret: grafana-oidc-credentials
+      userKey: GF_SECURITY_ADMIN_USER
+      passwordKey: GF_SECURITY_ADMIN_PASSWORD
     env:
       GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
       GF_EXPLORE_ENABLED: true
