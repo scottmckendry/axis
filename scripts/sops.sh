@@ -12,7 +12,7 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 REPO_ROOT="$(git -C "$(dirname "$0")" rev-parse --show-toplevel)"
-WORKSPACE="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sops-workspace"
+WORKSPACE="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sops-workspace/axis"
 
 check_dependencies() {
 	local missing_deps=()
