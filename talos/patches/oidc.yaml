@@ -1,0 +1,9 @@
+---
+cluster:
+  apiServer:
+    extraArgs:
+      oidc-issuer-url: https://auth.axis.scottmckendry.tech
+      oidc-client-id: 820a5281-3ef7-47e0-9a7c-d0c7de34b085
+      oidc-username-claim: preferred_username
+      oidc-groups-claim: groups
+      oidc-username-prefix: "-"

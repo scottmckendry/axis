@@ -1,0 +1,25 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: headlamp
+  namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://headlamp.headlamp.svc.cluster.local:80
+      alerts:
+        - type: discord
+spec:
+  routes:
+    - match: Host(`headlamp.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+      services:
+        - name: headlamp
+          namespace: headlamp
+          port: 80
+  tls:
+    secretName: axis-tls
