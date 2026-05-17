@@ -18,8 +18,16 @@ spec:
   values:
     config:
       inCluster: true
+      watchPlugins: true
       oidc:
         externalSecret:
           enabled: true
           name: headlamp-oidc
           hasScopes: true
+    pluginsManager:
+      enabled: true
+      configContent: |
+        plugins:
+          - name: headlamp_flux
+            source: https://artifacthub.io/packages/headlamp/headlamp-plugins/headlamp_flux
+            version: 0.6.0
