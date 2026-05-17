@@ -80,6 +80,11 @@
         siteMonitor: https://pgadmin.axis.scottmckendry.tech
 
 - Monitoring:
+    - Headlamp:
+        icon: headlamp.svg
+        href: https://headlamp.axis.scottmckendry.tech
+        siteMonitor: https://headlamp.axis.scottmckendry.tech
+
     - Grafana:
         icon: grafana.svg
         href: https://grafana.axis.scottmckendry.tech
