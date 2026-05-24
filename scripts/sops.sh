@@ -75,7 +75,7 @@ echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━�
 
 if [ "$MODE" = "encrypt" ]; then
 	echo -e "${BOLD}🔒 Encrypting secret files from workspace...${NC}"
-	find "$WORKSPACE" -type f -name "*.secret.yaml" | while read -r file; do
+	find "$WORKSPACE" -type f -name "*.secret.yaml" 2>/dev/null | while read -r file; do
 		rel="${file#$WORKSPACE/}"
 		dest="$REPO_ROOT/${rel/.secret.yaml/.secret.sops.yaml}"
 		if [ ! -f "$dest" ] || ! sops --decrypt "$dest" 2>/dev/null | diff - "$file" >/dev/null 2>&1; then
@@ -84,6 +84,16 @@ if [ "$MODE" = "encrypt" ]; then
 		fi
 		plain_link="$REPO_ROOT/$rel"
 		[ -L "$plain_link" ] && rm -f "$plain_link"
+	done
+
+	# Also encrypt plain secret yaml files found directly in the repo tree
+	find "$REPO_ROOT" -type f -name "*.secret.yaml" | while read -r file; do
+		rel="${file#$REPO_ROOT/}"
+		dest="$REPO_ROOT/${rel/.secret.yaml/.secret.sops.yaml}"
+		if [ ! -f "$dest" ] || ! sops --decrypt "$dest" 2>/dev/null | diff - "$file" >/dev/null 2>&1; then
+			echo -e "  ${GREEN}↳${NC} Encrypting $rel"
+			sops --encrypt "$file" >"$dest"
+		fi
 	done
 else
 	echo -e "${BOLD}🔓 Decrypting secret files into workspace...${NC}"
