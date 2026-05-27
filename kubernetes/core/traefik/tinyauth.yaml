@@ -17,8 +17,8 @@ spec:
         containers:
           app:
             image:
-              repository: ghcr.io/steveiliop56/tinyauth
-              tag: v5.0.7@sha256:0793c71c49906e079d90c7e693cded9df569217a92d717dc9b171f2116fcd1c6
+              repository: ghcr.io/tinyauthapp/tinyauth
+              tag: nightly@sha256:9589efb81f89e14522d33515dfde71d6af66220ecfcd73e954567896a7221094
             envFrom:
               - secretRef:
                   name: tinyauth-secrets

@@ -188,18 +188,6 @@
       semanticCommitScope: 'grafana-dashboards',
       semanticCommitType: 'chore',
     },
-    {
-      matchDatasources: [
-        'docker',
-      ],
-      matchDepNames: [
-        'ghcr.io/steveiliop56/tinyauth',
-      ],
-      ignoreUnstable: false,
-      respectLatest: false,
-      versioning: 'semver',
-      allowedVersions: '!/distroless/',
-    },
   ],
   customDatasources: {
     'grafana-dashboards': {
