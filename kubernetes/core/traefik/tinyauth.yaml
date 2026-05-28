@@ -54,11 +54,6 @@ spec:
           http:
             port: 3000
 
-    persistence:
-      data:
-        existingClaim: tinyauth-pvc
-        globalMounts:
-          - path: /data
 ---
 # yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
 apiVersion: traefik.io/v1alpha1
@@ -81,16 +76,3 @@ spec:
           port: 3000
   tls:
     secretName: axis-tls
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/persistentvolumeclaim.json
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: tinyauth-pvc
-  namespace: traefik
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi

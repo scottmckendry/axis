@@ -80,6 +80,12 @@ spec:
         superuser: false
         passwordSecret:
           name: gatus-secret
+      - name: tinyauth
+        ensure: present
+        login: true
+        superuser: false
+        passwordSecret:
+          name: tinyauth-secret
 
   externalClusters:
     - name: postgresql-backup
