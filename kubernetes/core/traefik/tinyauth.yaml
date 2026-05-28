@@ -66,6 +66,11 @@ kind: IngressRoute
 metadata:
   name: tinyauth
   namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://tinyauth.traefik.svc.cluster.local:3000
+      alerts:
+        - type: discord
 spec:
   routes:
     - match: Host(`auth.axis.scottmckendry.tech`)
