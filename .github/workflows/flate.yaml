@@ -1,0 +1,86 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Flate
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Setup flate
+        uses: home-operations/flate/action@13917764cfe2966e22510118ccf2f77d3c4d74ba # v0.2.12
+        with:
+          cache: true
+          base: ""
+
+      - name: Validate manifests
+        run: flate test all --path ./kubernetes --allow-missing-secrets --api-versions monitoring.coreos.com/v1
+
+      - name: Diff against baseline
+        id: diff
+        run: |
+          flate diff all --path ./kubernetes --allow-missing-secrets --api-versions monitoring.coreos.com/v1 -o github > /tmp/flate-diff.txt
+          if [ -s /tmp/flate-diff.txt ]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Post diff on PR
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const fs = require('fs');
+            const diffPath = '/tmp/flate-diff.txt';
+            const raw = fs.readFileSync(diffPath, 'utf8');
+            const diff = raw.trimEnd();
+            const hasChanges = diff.length > 0;
+
+            const maxLen = 60000;
+            const header = '**flate diff**';
+
+            let body;
+            if (hasChanges) {
+              const desc = 'Rendered manifest diff between this PR and `main`.';
+              body = diff.length > maxLen
+                ? `${header}\n\n${desc}\n\nDiff too large for comment. [View full output in workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).\n\n\`\`\`diff\n${diff.slice(0, maxLen)}\n\`\`\``
+                : `${header}\n\n${desc}\n\n\`\`\`diff\n${diff}\n\`\`\``;
+            } else {
+              body = `${header}\n\nNo manifest changes between this PR and \`main\`.`;
+            }
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              per_page: 100,
+            });
+            const marker = 'flate diff';
+            const existing = comments.find(c => c.user.type === 'Bot' && c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body,
+              });
+            }
