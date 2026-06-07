@@ -9,6 +9,7 @@ resources:
   - headlamp
   - home-assistant
   - homepage
+  - konflate
   - media
   - monitoring
   - pgadmin

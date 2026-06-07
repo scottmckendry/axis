@@ -1,0 +1,27 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: konflate
+  namespace: traefik
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://konflate.konflate.svc.cluster.local:8080
+      alerts:
+        - type: discord
+spec:
+  routes:
+    - match: Host(`konflate.axis.scottmckendry.tech`)
+      kind: Rule
+      middlewares:
+        - name: ipallowlist
+          namespace: traefik
+        - name: forwardauth
+          namespace: traefik
+      services:
+        - name: konflate
+          namespace: konflate
+          port: 8080
+  tls:
+    secretName: axis-tls
