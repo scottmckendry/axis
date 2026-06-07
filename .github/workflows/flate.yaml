@@ -25,12 +25,12 @@ jobs:
           base: ""
 
       - name: Validate manifests
-        run: flate test all --path ./kubernetes --allow-missing-secrets --api-versions monitoring.coreos.com/v1
+        run: flate test all --path ./kubernetes --allow-missing-secrets
 
       - name: Diff against baseline
         id: diff
         run: |
-          flate diff all --path ./kubernetes --allow-missing-secrets --api-versions monitoring.coreos.com/v1 -o github > /tmp/flate-diff.txt
+          flate diff all --path ./kubernetes --allow-missing-secrets -o github > /tmp/flate-diff.txt
           if [ -s /tmp/flate-diff.txt ]; then
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           else
@@ -47,6 +47,7 @@ jobs:
             const diff = raw.trimEnd();
             const hasChanges = diff.length > 0;
 
+            const konflateLink = `https://konflate.axis.scottmckendry.tech/#/pr/${context.issue.number}`;
             const maxLen = 60000;
             const header = '**flate diff**';
 
@@ -54,10 +55,10 @@ jobs:
             if (hasChanges) {
               const desc = 'Rendered manifest diff between this PR and `main`.';
               body = diff.length > maxLen
-                ? `${header}\n\n${desc}\n\nDiff too large for comment. [View full output in workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).\n\n\`\`\`diff\n${diff.slice(0, maxLen)}\n\`\`\``
-                : `${header}\n\n${desc}\n\n\`\`\`diff\n${diff}\n\`\`\``;
+                ? `**[View diff in konflate →](${konflateLink})**\n\n${header}\n\n${desc}\n\nDiff too large for comment. [View full output in workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).\n\n\`\`\`diff\n${diff.slice(0, maxLen)}\n\`\`\``
+                : `**[View diff in konflate →](${konflateLink})**\n\n${header}\n\n${desc}\n\n\`\`\`diff\n${diff}\n\`\`\``;
             } else {
-              body = `${header}\n\nNo manifest changes between this PR and \`main\`.`;
+              body = `**[View diff in konflate →](${konflateLink})**\n\n${header}\n\nNo manifest changes between this PR and \`main\`.`;
             }
 
             const { data: comments } = await github.rest.issues.listComments({
