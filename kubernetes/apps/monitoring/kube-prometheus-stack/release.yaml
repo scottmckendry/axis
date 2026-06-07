@@ -44,6 +44,12 @@ spec:
         ruleSelectorNilUsesHelmValues: false
         scrapeConfigSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
+        additionalScrapeConfigs:
+          - job_name: traefik
+            metrics_path: /metrics
+            static_configs:
+              - targets:
+                  - traefik.traefik.svc.cluster.local:9100
         storageSpec:
           volumeClaimTemplate:
             spec:
