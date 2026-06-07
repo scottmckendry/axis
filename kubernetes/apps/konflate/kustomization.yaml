@@ -6,3 +6,4 @@ resources:
   - ns.yaml
   - release.yaml
   - ingress.yaml
+  - konflate-webhook.secret.sops.yaml

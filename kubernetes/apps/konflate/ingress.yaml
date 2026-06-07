@@ -14,11 +14,6 @@ spec:
   routes:
     - match: Host(`konflate.axis.scottmckendry.tech`)
       kind: Rule
-      middlewares:
-        - name: ipallowlist
-          namespace: traefik
-        - name: forwardauth
-          namespace: traefik
       services:
         - name: konflate
           namespace: konflate

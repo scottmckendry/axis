@@ -18,6 +18,10 @@ spec:
       refreshInterval: 30m
       logLevel: info
       logFormat: json
+      mergeCommand: gh pr merge {{ .Number }} --repo {{ .Repo }} --rebase --delete-branch
+
+    secret:
+      existingSecret: konflate-webhook
 
     extraEnv:
       - name: KONFLATE_CACHE_DIR
