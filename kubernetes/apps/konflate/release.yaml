@@ -15,12 +15,9 @@ spec:
     config:
       repo: github://scottmckendry/axis
       clusterPath: ./kubernetes
-      refreshInterval: 30m
-      maxDiffConcurrency: 1
-      helmTemplateCacheMb: "128"
-      logLevel: info
-      logFormat: json
       mergeCommand: gh pr merge {{ .Number }} --repo {{ .Repo }} --rebase --delete-branch
+      closedPrMax: 1000
+      closedPrTtl: 0
 
     secret:
       existingSecret: konflate-webhook
@@ -32,10 +29,3 @@ spec:
 
     ingress:
       enabled: false
-
-    resources:
-      limits:
-        memory: 2Gi
-      requests:
-        cpu: 50m
-        memory: 512Mi
