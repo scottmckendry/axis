@@ -16,6 +16,8 @@ spec:
       repo: github://scottmckendry/axis
       clusterPath: ./kubernetes
       refreshInterval: 30m
+      maxDiffConcurrency: 1
+      helmTemplateCacheMb: "128"
       logLevel: info
       logFormat: json
       mergeCommand: gh pr merge {{ .Number }} --repo {{ .Repo }} --rebase --delete-branch
@@ -23,9 +25,10 @@ spec:
     secret:
       existingSecret: konflate-webhook
 
-    extraEnv:
-      - name: KONFLATE_CACHE_DIR
-        value: /tmp/konflate-cache
+    persistence:
+      enabled: true
+      storageClass: iscsi
+      size: 5Gi
 
     ingress:
       enabled: false
