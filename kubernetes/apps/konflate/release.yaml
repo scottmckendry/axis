@@ -17,7 +17,7 @@ spec:
       clusterPath: ./kubernetes
       mergeCommand: gh pr merge {{ .Number }} --repo {{ .Repo }} --rebase --delete-branch
       closedPrMax: 1000
-      closedPrTtl: 0
+      closedPrTtl: "0"
 
     secret:
       existingSecret: konflate-webhook
