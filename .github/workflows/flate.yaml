@@ -1,6 +1,6 @@
 ---
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-name: Flate
+name: CI
 on:
   pull_request:
     branches: [main]
@@ -9,65 +9,36 @@ permissions:
   contents: read
   pull-requests: write
 
+env:
+  KONFLATE_URL: https://konflate.axis.scottmckendry.tech
+
 jobs:
-  validate:
+  comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-        with:
-          fetch-depth: 0
-
-      - name: Setup flate
-        uses: home-operations/flate/action@39f44bd8bc9f11ba5321cecbdfc04398a568f4d0 # v0.3.3
-        with:
-          cache: true
-          base: ""
-
-      - name: Validate manifests
-        run: flate test all --path ./kubernetes --allow-missing-secrets
-
-      - name: Diff against baseline
-        id: diff
-        run: |
-          flate diff all --path ./kubernetes --allow-missing-secrets -o github > /tmp/flate-diff.txt
-          if [ -s /tmp/flate-diff.txt ]; then
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Post diff on PR
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
-            const fs = require('fs');
-            const diffPath = '/tmp/flate-diff.txt';
-            const raw = fs.readFileSync(diffPath, 'utf8');
-            const diff = raw.trimEnd();
-            const hasChanges = diff.length > 0;
+            const { execSync } = require('child_process');
+            const prNumber = context.issue.number;
+            const konflateUrl = process.env.KONFLATE_URL;
 
-            const konflateLink = `https://konflate.axis.scottmckendry.tech/#/pr/${context.issue.number}`;
-            const maxLen = 60000;
-            const header = '**flate diff**';
+            const summary = execSync(
+              `curl -fsS --retry 10 --retry-delay 3 -H 'Accept: text/markdown' "${konflateUrl}/api/prs/${prNumber}/summary"`,
+              { encoding: 'utf8', timeout: 60000 }
+            );
 
-            let body;
-            if (hasChanges) {
-              const desc = 'Rendered manifest diff between this PR and `main`.';
-              body = diff.length > maxLen
-                ? `**[View diff in konflate →](${konflateLink})**\n\n${header}\n\n${desc}\n\nDiff too large for comment. [View full output in workflow logs](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}).\n\n\`\`\`diff\n${diff.slice(0, maxLen)}\n\`\`\``
-                : `**[View diff in konflate →](${konflateLink})**\n\n${header}\n\n${desc}\n\n\`\`\`diff\n${diff}\n\`\`\``;
-            } else {
-              body = `**[View diff in konflate →](${konflateLink})**\n\n${header}\n\nNo manifest changes between this PR and \`main\`.`;
-            }
+            const konflateLink = `${konflateUrl}/#/pr/${prNumber}`;
+            const body = `**[View diff in konflate →](${konflateLink})**\n\n${summary.trimEnd()}`;
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.issue.number,
+              issue_number: prNumber,
               per_page: 100,
             });
-            const marker = 'flate diff';
+            const marker = 'View diff in konflate';
             const existing = comments.find(c => c.user.type === 'Bot' && c.body.includes(marker));
 
             if (existing) {
@@ -75,13 +46,13 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 comment_id: existing.id,
-                body: body,
+                body,
               });
             } else {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: body,
+                issue_number: prNumber,
+                body,
               });
             }
