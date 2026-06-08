@@ -29,8 +29,7 @@ jobs:
               { encoding: 'utf8', timeout: 60000 }
             );
 
-            const konflateLink = `${konflateUrl}/#/pr/${prNumber}`;
-            const body = `**[View diff in konflate →](${konflateLink})**\n\n${summary.trimEnd()}`;
+            const body = summary.trimEnd();
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -38,7 +37,7 @@ jobs:
               issue_number: prNumber,
               per_page: 100,
             });
-            const marker = 'View diff in konflate';
+            const marker = konflateUrl;
             const existing = comments.find(c => c.user.type === 'Bot' && c.body.includes(marker));
 
             if (existing) {
