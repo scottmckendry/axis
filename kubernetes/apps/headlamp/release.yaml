@@ -10,14 +10,14 @@ spec:
   chart:
     spec:
       chart: headlamp
-      version: 0.42.0
+      version: 0.41.0
       sourceRef:
         kind: HelmRepository
         name: headlamp
         namespace: flux-system
   values:
     config:
-      inCluster: true
+      inCluster: "true"
       watchPlugins: true
       oidc:
         externalSecret:
