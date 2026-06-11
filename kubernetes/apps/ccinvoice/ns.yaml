@@ -5,4 +5,4 @@ kind: Namespace
 metadata:
   name: ccinvoice
   annotations:
-    volsync.backube/priveleged-movers: "true" # required for setting file permissions during a backup restore
+    volsync.backube/privileged-movers: "true" # required for setting file permissions during a backup restore
