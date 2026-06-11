@@ -10,7 +10,6 @@ spec:
   chartRef:
     kind: OCIRepository
     name: konflate
-    namespace: flux-system
   values:
     config:
       repo: github://scottmckendry/axis
