@@ -5,4 +5,4 @@ kind: Namespace
 metadata:
   name: home-assistant
   annotations:
-    volsync.backube/priveleged-movers: "true"
+    volsync.backube/privileged-movers: "true"
