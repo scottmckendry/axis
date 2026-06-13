@@ -4,5 +4,3 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: actual
-  annotations:
-    volsync.backube/privileged-movers: "true" # required for setting file permissions during a backup restore
