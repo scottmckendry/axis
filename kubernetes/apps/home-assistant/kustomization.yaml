@@ -6,4 +6,8 @@ resources:
   - pvc.yaml
   - release.yaml
   - ingress.yaml
-  - backup
+  - backup-config.yaml
+  - backblaze.secret.sops.yaml
+
+components:
+  - ../../infrastructure/common/backup
