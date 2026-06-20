@@ -18,7 +18,7 @@ spec:
           app:
             image:
               repository: ghcr.io/tinyauthapp/tinyauth
-              tag: nightly@sha256:6a8fdc90e7c37a9c101c18361803d46ab6e20144a52389574a2661e49240bd32
+              tag: nightly@sha256:8325e81ebfd0b3ccee919ac89be1f080cda73e580427398ea621ac79d0021fca
             envFrom:
               - secretRef:
                   name: tinyauth-secrets
