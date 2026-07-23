@@ -21,22 +21,10 @@ spec:
   instances: 3
   imageName: ghcr.io/cloudnative-pg/postgresql:18
 
-  # Bootstrap from existing backup in Backblaze B2, using the Barman Cloud plugin.
-  # See https://cloudnative-pg.io/docs/1.28/recovery/ and note below about the WAL archiver plugin.
-  # Don't forget to re-enable the WAL archiver plugin after the recovery is complete,
-  # if you want to keep using it for future backups.
-  bootstrap:
-    recovery:
-      source: postgresql-backup
-
   storage:
-    size: 20Gi
+    size: 100Gi
 
   plugins:
-    # NOTE: when performing a recovery, you must not have the WAL archiver plugin enabled.
-    # while this is supported, it is not recommended to have the recovery source and the
-    # WAL archiver pointing to the same object, as this can lead to conflicts.
-    # see https://cloudnative-pg.io/docs/1.28/recovery#restoring-into-a-cluster-with-a-backup-section
     - name: barman-cloud.cloudnative-pg.io
       isWALArchiver: true
       parameters:
@@ -50,12 +38,6 @@ spec:
         superuser: true
         passwordSecret:
           name: scott-secret
-      - name: ccinvoice
-        ensure: present
-        login: true
-        superuser: false
-        passwordSecret:
-          name: ccinvoice-secret
       - name: sonarr
         ensure: present
         login: true
@@ -80,12 +62,6 @@ spec:
         superuser: false
         passwordSecret:
           name: gatus-secret
-      - name: tinyauth
-        ensure: present
-        login: true
-        superuser: false
-        passwordSecret:
-          name: tinyauth-secret
 
   externalClusters:
     - name: postgresql-backup
