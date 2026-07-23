@@ -5,7 +5,6 @@ kind: Kustomization
 
 resources:
   - actual
-  - ccinvoice
   - headlamp
   - home-assistant
   - homepage
