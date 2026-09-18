@@ -27,7 +27,7 @@ AXIS is my GitOps Kubernetes cluster home lab. The repository contains all clust
 - **Manifests**: Kustomize overlays per app/namespace under `kubernetes/`
 - **OS**: Talos for immutable Kubernetes nodes (see `talos/`)
 - **Control plane**: 3 Talos control-plane nodes in HA behind a VIP (MetalLB)
-- **Ingress**: Traefik + cert-manager (Let’s Encrypt via Cloudflare)
+- **Ingress**: Envoy Gateway (Kubernetes Gateway API) + cert-manager (Let’s Encrypt via Cloudflare)
 - **Storage**: democratic-csi (TrueNAS) and local-path-provisioner
 - **Monitoring**: kube-prometheus-stack, Grafana, Loki/Promtail, Alertmanager
 - **Backups**: VolSync (restic) with Backblaze B2

@@ -7,4 +7,3 @@ resources:
   - release.yaml
   - repo.yaml
   - issuers
-  - certificates

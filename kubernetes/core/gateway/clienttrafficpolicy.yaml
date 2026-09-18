@@ -1,0 +1,34 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.envoyproxy.io/clienttrafficpolicy_v1alpha1.json
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: ClientTrafficPolicy
+metadata:
+  name: public
+  namespace: envoy-gateway-system
+spec:
+  targetRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: public
+  clientIPDetection:
+    xForwardedFor:
+      trustedCIDRs:
+        - 127.0.0.1/32
+        - 10.0.0.0/8
+        - 192.168.0.0/16
+        - 222.154.229.189/32
+  headers:
+    earlyRequestHeaders:
+      set:
+        - name: X-Forwarded-Proto
+          value: https
+    lateResponseHeaders:
+      add:
+        - name: Strict-Transport-Security
+          value: max-age=15552000; includeSubDomains; preload
+        - name: X-Frame-Options
+          value: SAMEORIGIN
+        - name: X-XSS-Protection
+          value: 1; mode=block
+        - name: X-Content-Type-Options
+          value: nosniff

@@ -10,14 +10,6 @@
           url: "https://10.0.0.1"
           key: "{{HOMEPAGE_VAR_UNIFI_KEY}}"
 
-    - Traefik:
-        icon: traefik.svg
-        href: https://traefik.axis.scottmckendry.tech
-        siteMonitor: https://traefik.axis.scottmckendry.tech
-        widget:
-          type: traefik
-          url: "https://traefik.axis.scottmckendry.tech"
-
     - TrueNAS:
         icon: truenas.svg
         href: https://truenas.axis.scottmckendry.tech

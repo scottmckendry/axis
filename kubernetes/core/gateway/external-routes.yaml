@@ -1,0 +1,115 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.envoyproxy.io/backend_v1alpha1.json
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: truenas
+  namespace: envoy-gateway-system
+spec:
+  endpoints:
+    - ip:
+        address: 10.0.6.1
+        port: 80
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: jellyfin
+  namespace: envoy-gateway-system
+spec:
+  endpoints:
+    - ip:
+        address: 10.0.6.1
+        port: 30013
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: Backend
+metadata:
+  name: proxmox
+  namespace: envoy-gateway-system
+spec:
+  endpoints:
+    - ip:
+        address: 10.0.20.1
+        port: 8006
+  tls:
+    insecureSkipVerify: true
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/httproute.json
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: truenas
+  namespace: envoy-gateway-system
+  labels:
+    ipallowlist: "true"
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      name: truenas
+      url: http://10.0.6.1
+      alerts:
+        - type: discord
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+      sectionName: https
+  hostnames:
+    - truenas.axis.scottmckendry.tech
+  rules:
+    - backendRefs:
+        - group: gateway.envoyproxy.io
+          kind: Backend
+          name: truenas
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: jellyfin
+  namespace: envoy-gateway-system
+  labels:
+    ratelimit: jellyfin
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      name: jellyfin
+      url: http://10.0.6.1:30013
+      alerts:
+        - type: discord
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+      sectionName: https
+  hostnames:
+    - jellyfin.axis.scottmckendry.tech
+  rules:
+    - backendRefs:
+        - group: gateway.envoyproxy.io
+          kind: Backend
+          name: jellyfin
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: proxmox
+  namespace: envoy-gateway-system
+  labels:
+    ipallowlist: "true"
+    auth: "required"
+  annotations:
+    gatus.home-operations.com/enabled: "false"
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+      sectionName: https
+  hostnames:
+    - proxmox.axis.scottmckendry.tech
+  rules:
+    - backendRefs:
+        - group: gateway.envoyproxy.io
+          kind: Backend
+          name: proxmox

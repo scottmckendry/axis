@@ -1,0 +1,34 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.envoyproxy.io/securitypolicy_v1alpha1.json
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: forwardauth
+  namespace: envoy-gateway-system
+spec:
+  targetSelectors:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      matchLabels:
+        auth: "required"
+  extAuth:
+    headersToExtAuth:
+      - authorization
+      - cookie
+      - user-agent
+      - x-forwarded-for
+      - x-forwarded-host
+      - x-forwarded-proto
+      - x-forwarded-uri
+    http:
+      backendRefs:
+        - name: tinyauth
+          namespace: auth
+          port: 3000
+      pathOverride: /api/auth/envoy
+      headersToBackend:
+        - remote-user
+        - remote-email
+        - remote-name
+        - remote-groups
+        - remote-sub

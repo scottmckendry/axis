@@ -21,7 +21,8 @@ spec:
               repository: ghcr.io/home-operations/gatus-sidecar
               tag: 0.5.2
             args:
-              - --auto-ingressroute
+              - --auto-httproute
+              - --gateway-name=public
             restartPolicy: Always
         containers:
           app:
@@ -88,11 +89,9 @@ spec:
             - apiGroups:
                 - gateway.networking.k8s.io
                 - networking.k8s.io
-                - traefik.io
               resources:
                 - gateways
                 - httproutes
-                - ingressroutes
                 - ingresses
               verbs:
                 - get
