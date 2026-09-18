@@ -88,11 +88,9 @@ spec:
             - apiGroups:
                 - gateway.networking.k8s.io
                 - networking.k8s.io
-                - traefik.io
               resources:
                 - gateways
                 - httproutes
-                - ingressroutes
                 - ingresses
               verbs:
                 - get

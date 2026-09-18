@@ -1,0 +1,35 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: envoy-gateway
+  namespace: envoy-gateway-system
+spec:
+  releaseName: eg
+  interval: 1h
+  timeout: 10m
+  chartRef:
+    kind: OCIRepository
+    name: gateway-helm
+  upgrade:
+    strategy:
+      name: RetryOnFailure
+      retryInterval: 5m
+  values:
+    # https://github.com/envoyproxy/gateway/blob/main/charts/gateway-helm/values.tmpl.yaml
+    deployment:
+      envoyGateway:
+        replicas: 2
+
+    config:
+      envoyGateway:
+        gateway:
+          controllerName: gateway.envoyproxy.io/gatewayclass-controller
+        provider:
+          type: Kubernetes
+        logging:
+          level:
+            default: info
+        extensionApis:
+          enableBackend: true

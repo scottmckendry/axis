@@ -1,52 +1,54 @@
 ---
-# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/httproute.json
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
 metadata:
   name: home-assistant
-  namespace: traefik
+  namespace: home-assistant
+  labels:
+    ipallowlist: "true"
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://home-assistant-app.home-assistant.svc.cluster.local:8123
       alerts:
         - type: discord
 spec:
-  routes:
-    - match: Host(`ha.axis.scottmckendry.tech`)
-      kind: Rule
-      middlewares:
-        - name: ipallowlist
-          namespace: traefik
-      services:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+      namespace: envoy-gateway-system
+      sectionName: https
+  hostnames:
+    - ha.axis.scottmckendry.tech
+  rules:
+    - backendRefs:
         - name: home-assistant-app
-          namespace: home-assistant
           port: 8123
-  tls:
-    secretName: axis-tls
 ---
-# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
 metadata:
   name: home-assistant-code
-  namespace: traefik
+  namespace: home-assistant
+  labels:
+    ipallowlist: "true"
+    auth: "required"
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://home-assistant-code.home-assistant.svc.cluster.local:8081
       alerts:
         - type: discord
 spec:
-  routes:
-    - match: Host(`ha-code.axis.scottmckendry.tech`)
-      kind: Rule
-      middlewares:
-        - name: ipallowlist
-          namespace: traefik
-        - name: forwardauth
-          namespace: traefik
-      services:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+      namespace: envoy-gateway-system
+      sectionName: https
+  hostnames:
+    - ha-code.axis.scottmckendry.tech
+  rules:
+    - backendRefs:
         - name: home-assistant-code
-          namespace: home-assistant
           port: 8081
-  tls:
-    secretName: axis-tls

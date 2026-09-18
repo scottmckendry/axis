@@ -1,27 +1,28 @@
 ---
-# yaml-language-server: $schema=https://json.schemastore.org/traefik-v3.json
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/httproute.json
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
 metadata:
   name: pgadmin
-  namespace: traefik
+  namespace: pgadmin
+  labels:
+    ipallowlist: "true"
+    auth: "required"
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://pgadmin.pgadmin.svc.cluster.local:80
       alerts:
         - type: discord
 spec:
-  routes:
-    - match: Host(`pgadmin.axis.scottmckendry.tech`)
-      kind: Rule
-      middlewares:
-        - name: ipallowlist
-          namespace: traefik
-        - name: forwardauth
-          namespace: traefik
-      services:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+      namespace: envoy-gateway-system
+      sectionName: https
+  hostnames:
+    - pgadmin.axis.scottmckendry.tech
+  rules:
+    - backendRefs:
         - name: pgadmin
-          namespace: pgadmin
           port: 80
-  tls:
-    secretName: axis-tls
