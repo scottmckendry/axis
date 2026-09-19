@@ -8,4 +8,4 @@ resources:
   - headlamp.secret.sops.yaml
   - repo.yaml
   - release.yaml
-  - ingress.yaml
+  - httproute.yaml

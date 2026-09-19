@@ -5,7 +5,7 @@ resources:
   - ns.yaml
   - pvc.yaml
   - release.yaml
-  - ingress.yaml
+  - httproute.yaml
   - backup-config.yaml
   - backblaze.secret.sops.yaml
 

@@ -1,16 +1,13 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/httproute.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/httproute_v1.json
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: homepage
-  namespace: homepage
-  labels:
-    ipallowlist: "true"
-    auth: "required"
+  name: konflate
+  namespace: konflate
   annotations:
     gatus.home-operations.com/endpoint: |
-      url: http://homepage.homepage.svc.cluster.local:3000
+      url: http://konflate.konflate.svc.cluster.local:8080
       alerts:
         - type: discord
 spec:
@@ -21,8 +18,8 @@ spec:
       namespace: envoy-gateway-system
       sectionName: https
   hostnames:
-    - axis.scottmckendry.tech
+    - konflate.axis.scottmckendry.tech
   rules:
     - backendRefs:
-        - name: homepage
-          port: 3000
+        - name: konflate
+          port: 8080

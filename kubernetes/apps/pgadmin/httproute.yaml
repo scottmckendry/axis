@@ -1,16 +1,16 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/httproute.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/httproute_v1.json
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: sonarr
-  namespace: media
+  name: pgadmin
+  namespace: pgadmin
   labels:
     ipallowlist: "true"
     auth: "required"
   annotations:
     gatus.home-operations.com/endpoint: |
-      url: http://sonarr.media.svc.cluster.local:80
+      url: http://pgadmin.pgadmin.svc.cluster.local:80
       alerts:
         - type: discord
 spec:
@@ -21,8 +21,8 @@ spec:
       namespace: envoy-gateway-system
       sectionName: https
   hostnames:
-    - sonarr.axis.scottmckendry.tech
+    - pgadmin.axis.scottmckendry.tech
   rules:
     - backendRefs:
-        - name: sonarr
+        - name: pgadmin
           port: 80

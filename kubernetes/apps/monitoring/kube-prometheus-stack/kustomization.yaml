@@ -5,7 +5,7 @@ kind: Kustomization
 resources:
   - release.yaml
   - repo.yaml
-  - ingress.yaml
+  - httproute.yaml
   - cnpgmonitor.yaml
   - podmonitor.yaml
   - alertmanager.secret.sops.yaml

@@ -5,5 +5,5 @@ kind: Kustomization
 resources:
   - release.yaml
   - repo.yaml
-  - ingress.yaml
+  - httproute.yaml
   - oidc.secret.sops.yaml

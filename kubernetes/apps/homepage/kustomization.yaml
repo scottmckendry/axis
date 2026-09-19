@@ -8,7 +8,7 @@ resources:
   - serviceaccount.yaml
   - deployment.yaml
   - service.yaml
-  - ingress.yaml
+  - httproute.yaml
   - homepage.secret.sops.yaml
 configMapGenerator:
   - name: homepage

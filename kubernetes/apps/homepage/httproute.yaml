@@ -1,16 +1,16 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/httproute.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/httproute_v1.json
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: qbittorrent
-  namespace: media
+  name: homepage
+  namespace: homepage
   labels:
     ipallowlist: "true"
     auth: "required"
   annotations:
     gatus.home-operations.com/endpoint: |
-      url: http://qbittorrent.media.svc.cluster.local:80
+      url: http://homepage.homepage.svc.cluster.local:3000
       alerts:
         - type: discord
 spec:
@@ -21,8 +21,8 @@ spec:
       namespace: envoy-gateway-system
       sectionName: https
   hostnames:
-    - qbt.axis.scottmckendry.tech
+    - axis.scottmckendry.tech
   rules:
     - backendRefs:
-        - name: qbittorrent
-          port: 80
+        - name: homepage
+          port: 3000

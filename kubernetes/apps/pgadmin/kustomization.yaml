@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - ns.yaml
   - configmap.yaml
-  - ingress.yaml
+  - httproute.yaml
   - release.yaml
   - pgadmin.secret.sops.yaml

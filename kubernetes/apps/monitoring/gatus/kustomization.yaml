@@ -5,7 +5,7 @@ kind: Kustomization
 
 resources:
   - release.yaml
-  - ingress.yaml
+  - httproute.yaml
   - db.secret.sops.yaml
 
 configMapGenerator:

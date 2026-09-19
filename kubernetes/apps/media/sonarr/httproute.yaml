@@ -1,13 +1,16 @@
 ---
-# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/httproute.json
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/httproute_v1.json
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: konflate
-  namespace: konflate
+  name: sonarr
+  namespace: media
+  labels:
+    ipallowlist: "true"
+    auth: "required"
   annotations:
     gatus.home-operations.com/endpoint: |
-      url: http://konflate.konflate.svc.cluster.local:8080
+      url: http://sonarr.media.svc.cluster.local:80
       alerts:
         - type: discord
 spec:
@@ -18,8 +21,8 @@ spec:
       namespace: envoy-gateway-system
       sectionName: https
   hostnames:
-    - konflate.axis.scottmckendry.tech
+    - sonarr.axis.scottmckendry.tech
   rules:
     - backendRefs:
-        - name: konflate
-          port: 8080
+        - name: sonarr
+          port: 80
