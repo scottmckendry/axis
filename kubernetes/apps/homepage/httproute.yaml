@@ -11,6 +11,8 @@ metadata:
   annotations:
     gatus.home-operations.com/endpoint: |
       url: http://homepage.homepage.svc.cluster.local:3000
+      headers:
+        Host: axis.scottmckendry.tech
       alerts:
         - type: discord
 spec:
