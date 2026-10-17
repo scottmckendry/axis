@@ -15,3 +15,7 @@ spec:
         name: home-operations
   interval: 1h
   timeout: 10m
+  upgrade:
+    # Helm does not upgrade CRDs by default; without this the tuppr CRD stays
+    # stale and rejects new status phases (e.g. "Upgrading") the controller writes.
+    crds: CreateReplace
