@@ -1,2 +1,5 @@
 *.secret.yaml
 talos/rendered/*
+
+# nix
+.direnv/
