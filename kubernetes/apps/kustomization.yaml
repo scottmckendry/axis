@@ -5,6 +5,7 @@ kind: Kustomization
 
 resources:
   - actual
+  - flakemill
   - headlamp
   - home-assistant
   - homepage

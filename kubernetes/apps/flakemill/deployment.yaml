@@ -1,0 +1,74 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/deployment.json
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flakemill
+  namespace: flakemill
+  labels:
+    app.kubernetes.io/name: flakemill
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: flakemill
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: flakemill
+    spec:
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: false
+      containers:
+        - name: flakemill
+          image: ghcr.io/scottmckendry/flakemill:v0.1.1@sha256:ec341d11f5a4ab60950450f63d59d475b0d2f5cb6fba0e9b2d6f65d90c09e535
+          imagePullPolicy: IfNotPresent
+          # nix inside the container needs a real /dev (mknod etc.)
+          securityContext:
+            privileged: true
+          env:
+            - name: RUST_LOG
+              value: info
+            - name: REPO_URL
+              value: https://github.com/scottmckendry/nix
+            - name: SYSTEMS
+              value: eris
+            - name: CACHIX_CACHE
+              value: scottmckendry
+            - name: SIGN_KEY
+              value: /secrets/sign.key
+            - name: INTERVAL_SECS
+              value: "3600"
+          envFrom:
+            - secretRef:
+                name: flakemill
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/flakemill
+            - name: nix
+              mountPath: /nix
+            - name: secrets
+              mountPath: /secrets
+              readOnly: true
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: flakemill-data
+        - name: nix
+          persistentVolumeClaim:
+            claimName: flakemill-nix
+        - name: secrets
+          secret:
+            secretName: flakemill
