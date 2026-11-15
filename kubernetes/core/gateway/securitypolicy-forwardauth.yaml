@@ -11,21 +11,29 @@ spec:
       kind: HTTPRoute
       matchLabels:
         auth: "required"
+  authorization:
+    defaultAction: Deny
+    rules:
+      - action: Allow
+        principal:
+          clientCIDRs:
+            - 127.0.0.1/32
+            - 10.0.0.0/8
+            - 192.168.0.0/16
+            - 222.154.229.189/32
   extAuth:
     headersToExtAuth:
       - authorization
       - cookie
       - user-agent
       - x-forwarded-for
-      - x-forwarded-host
       - x-forwarded-proto
-      - x-forwarded-uri
     http:
       backendRefs:
         - name: tinyauth
           namespace: auth
           port: 3000
-      pathOverride: /api/auth/envoy
+      path: /api/auth/envoy?path=
       headersToBackend:
         - remote-user
         - remote-email

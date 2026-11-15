@@ -9,3 +9,5 @@ resources:
   - repo.yaml
   - release.yaml
   - httproute.yaml
+components:
+  - ../../infrastructure/common/securitypolicy

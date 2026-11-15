@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.envoyproxy.io/securitypolicy_v1alpha1.json
+# Shared "protected routes" policy: IP allowlist + tinyauth ext auth.
+# Envoy Gateway only attaches SecurityPolicies to HTTPRoutes in the policy's
+# own namespace, so each app kustomization includes this file and patches
+# metadata.namespace to its own namespace.
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: protected
+spec:
+  targetSelectors:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      matchLabels:
+        ipallowlist: "true"
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      matchLabels:
+        auth: "required"
+  authorization:
+    defaultAction: Deny
+    rules:
+      - action: Allow
+        principal:
+          clientCIDRs:
+            - 127.0.0.1/32
+            - 10.0.0.0/8
+            - 192.168.0.0/16
+            - 222.154.229.189/32
+  extAuth:
+    failOpen: false
+    headersToExtAuth:
+      - authorization
+      - cookie
+      - user-agent
+      - x-forwarded-for
+      - x-forwarded-proto
+    http:
+      backendRefs:
+        - name: tinyauth
+          namespace: auth
+          port: 3000
+      path: /api/auth/envoy?path=
+      headersToBackend:
+        - remote-user
+        - remote-email
+        - remote-name
+        - remote-groups
+        - remote-sub

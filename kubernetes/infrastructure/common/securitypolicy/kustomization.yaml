@@ -1,0 +1,23 @@
+# Protected-routes SecurityPolicy component - IP allowlist + tinyauth ext auth.
+# Envoy Gateway only attaches SecurityPolicies to HTTPRoutes in the policy's
+# own namespace. The component reads the namespace from the app's Namespace
+# resource (ns.yaml) via replacements, so apps only need to include the
+# component.
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - securitypolicy.yaml
+
+replacements:
+  - source:
+      kind: Namespace
+      fieldPath: metadata.name
+    targets:
+      - select:
+          kind: SecurityPolicy
+          name: protected
+        fieldPaths:
+          - metadata.namespace
+        options:
+          create: true

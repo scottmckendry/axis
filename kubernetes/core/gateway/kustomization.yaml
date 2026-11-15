@@ -12,7 +12,6 @@ resources:
   - certificate.yaml
   - https-redirect.yaml
   - clienttrafficpolicy.yaml
-  - securitypolicy-ipallowlist.yaml
   - securitypolicy-forwardauth.yaml
   - backendtrafficpolicy-ratelimit.yaml
   - external-routes.yaml
