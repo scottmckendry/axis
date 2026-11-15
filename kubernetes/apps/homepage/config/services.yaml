@@ -39,10 +39,10 @@
     - Home Assistant:
         icon: home-assistant.svg
         href: https://ha.axis.scottmckendry.tech
-        siteMonitor: https://ha.axis.scottmckendry.tech
+        siteMonitor: http://home-assistant-app.home-assistant.svc.cluster.local:8123
         widget:
           type: homeassistant
-          url: "https://ha.axis.scottmckendry.tech"
+          url: "http://home-assistant-app.home-assistant.svc.cluster.local:8123"
           key: "{{HOMEPAGE_VAR_HASS_KEY}}"
           custom:
             - state: weather.forecast_home
@@ -110,10 +110,10 @@
     - Jellyfin:
         icon: jellyfin.svg
         href: https://jellyfin.axis.scottmckendry.tech
-        siteMonitor: https://jellyfin.axis.scottmckendry.tech
+        siteMonitor: http://10.0.6.1:30013
         widget:
           type: jellyfin
-          url: "https://jellyfin.axis.scottmckendry.tech"
+          url: "http://10.0.6.1:30013"
           key: "{{HOMEPAGE_VAR_JELLYFIN_API_KEY}}"
           enableBlocks: true
           enableNowPlaying: false
