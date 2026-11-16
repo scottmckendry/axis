@@ -23,7 +23,7 @@ spec:
       enableServiceLinks: false
       containers:
         - name: flakemill
-          image: ghcr.io/scottmckendry/flakemill:v0.3.0@sha256:9f5363a908c4c7ba732348e5343f9227dd11c65e7604e65c649f0a3a372a2e3f
+          image: ghcr.io/scottmckendry/flakemill:v0.4.0@sha256:95d8e2f79f3478503e2ac9d10a950928e844ffdfd26243add7c8cb2c23bfeeb7
           imagePullPolicy: IfNotPresent
           # nix inside the container needs a real /dev (mknod etc.)
           securityContext:
