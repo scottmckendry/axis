@@ -40,7 +40,7 @@ spec:
             - name: SIGN_KEY
               value: /secrets/sign.key
             - name: INTERVAL_SECS
-              value: "3600"
+              value: "4444"
           envFrom:
             - secretRef:
                 name: flakemill
