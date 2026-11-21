@@ -30,6 +30,9 @@ spec:
       namespace: monitoring
     - group: gateway.envoyproxy.io
       kind: SecurityPolicy
+      namespace: openwebui
+    - group: gateway.envoyproxy.io
+      kind: SecurityPolicy
       namespace: pgadmin
   to:
     - group: ""
