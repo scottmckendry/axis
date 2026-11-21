@@ -1,0 +1,21 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization.json
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ns.yaml
+  - pvc.yaml
+  - service.yaml
+  - httproute.yaml
+  - deployment.yaml
+  - hermes.secret.sops.yaml
+
+configMapGenerator:
+  - name: hermes-config
+    namespace: hermes
+    files:
+      - config.yaml
+
+components:
+  - ../../infrastructure/common/securitypolicy
