@@ -1,0 +1,8 @@
+---
+model:
+  provider: "opencode-go"
+  default: "deepseek-v4.1-flash"
+dashboard:
+  public_url: "https://hermes.axis.scottmckendry.tech"
+  trusted_proxies:
+    - "10.244.0.0/16"

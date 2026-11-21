@@ -18,6 +18,9 @@ spec:
       namespace: headlamp
     - group: gateway.envoyproxy.io
       kind: SecurityPolicy
+      namespace: hermes
+    - group: gateway.envoyproxy.io
+      kind: SecurityPolicy
       namespace: home-assistant
     - group: gateway.envoyproxy.io
       kind: SecurityPolicy
