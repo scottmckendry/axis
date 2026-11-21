@@ -12,4 +12,5 @@ resources:
   - konflate
   - media
   - monitoring
+  - openwebui
   - pgadmin

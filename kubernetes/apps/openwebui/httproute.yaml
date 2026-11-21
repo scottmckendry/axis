@@ -1,0 +1,28 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/gateway.networking.k8s.io/httproute_v1.json
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: open-webui
+  namespace: openwebui
+  labels:
+    ipallowlist: "true"
+    auth: "required"
+  annotations:
+    gatus.home-operations.com/endpoint: |
+      url: http://open-webui.openwebui.svc.cluster.local:8080/health
+      alerts:
+        - type: discord
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: public
+      namespace: envoy-gateway-system
+      sectionName: https
+  hostnames:
+    - chat.axis.scottmckendry.tech
+  rules:
+    - backendRefs:
+        - name: open-webui
+          port: 8080
