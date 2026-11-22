@@ -15,8 +15,8 @@ spec:
     routes:
       - matchers:
           - name: alertname
-            matchType: "="
-            value: Watchdog
+            matchType: "=~"
+            value: Watchdog|InfoInhibitor
         receiver: "null"
   receivers:
     - name: "null"
