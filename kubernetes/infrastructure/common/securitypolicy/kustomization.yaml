@@ -3,11 +3,16 @@
 # own namespace. The component reads the namespace from the app's Namespace
 # resource (ns.yaml) via replacements, so apps only need to include the
 # component.
+#
+# `protected` is the default: LAN allowlist plus tinyauth. `lan-only` is the
+# allowlist without forward auth, for routes that already have their own login
+# (labelled `lan: "true"` instead of `ipallowlist: "true"`).
 apiVersion: kustomize.config.k8s.io/v1alpha1
 kind: Component
 
 resources:
   - securitypolicy.yaml
+  - securitypolicy-lan-only.yaml
 
 replacements:
   - source:
@@ -17,6 +22,13 @@ replacements:
       - select:
           kind: SecurityPolicy
           name: protected
+        fieldPaths:
+          - metadata.namespace
+        options:
+          create: true
+      - select:
+          kind: SecurityPolicy
+          name: lan-only
         fieldPaths:
           - metadata.namespace
         options:

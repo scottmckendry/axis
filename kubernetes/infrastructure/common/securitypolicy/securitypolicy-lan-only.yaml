@@ -1,0 +1,23 @@
+# LAN-only routes: same client CIDR allowlist as `protected`, minus the public
+# IP, and with no tinyauth forward auth. A SecurityPolicy applies its extAuth to
+# every route it selects, so a route cannot be allowlisted-but-unauthenticated
+# via `protected` - routes that already have their own login select this instead.
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: lan-only
+spec:
+  targetSelectors:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      matchLabels:
+        lan: "true"
+  authorization:
+    defaultAction: Deny
+    rules:
+      - action: Allow
+        principal:
+          clientCIDRs:
+            - 127.0.0.1/32
+            - 10.0.0.0/8
+            - 192.168.0.0/16

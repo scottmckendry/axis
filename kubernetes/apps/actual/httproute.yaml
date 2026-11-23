@@ -6,7 +6,7 @@ metadata:
   name: actual
   namespace: actual
   labels:
-    ipallowlist: "true"
+    lan: "true"
 spec:
   parentRefs:
     - group: gateway.networking.k8s.io
